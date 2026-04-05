@@ -14,6 +14,8 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Supercar Experience | Nova Black Design Studio"/>
 <meta name="twitter:description" content="Where engineering becomes art. Discover a supercar experience unlike anything else."/>
+<meta name="twitter:image" content="https://images.pexels.com/photos/26954166/pexels-photo-26954166/free-photo-of-luxury-black-car-in-garage.jpeg?auto=compress&cs=tinysrgb&w=1200"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Nova Black Design Studio","url":"https://nova-black-murex.vercel.app/","description":"Where engineering becomes art. Discover a supercar experience unlike anything else. Performance, precision, obsession.","image":"https://images.pexels.com/photos/26954166/pexels-photo-26954166/free-photo-of-luxury-black-car-in-garage.jpeg?auto=compress&cs=tinysrgb&w=1200","sameAs":[]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -60,6 +62,17 @@ nav.scrolled{padding:16px 56px;background:rgba(5,5,5,0.85);backdrop-filter:blur(
 .nav-links a:hover{color:var(--accent)}
 .nav-cta{font-family:var(--ff-body);font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:12px 26px;border:1px solid var(--accent);color:var(--accent);background:transparent;cursor:pointer;transition:background 0.3s,color 0.3s,border-color 0.5s;flex-shrink:0}
 .nav-cta:hover{background:var(--accent);color:var(--black)}
+.hamburger{display:none;flex-direction:column;justify-content:space-between;width:22px;height:14px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;margin-left:20px}
+.hamburger span{display:block;width:100%;height:1.5px;background:var(--white);transition:transform 0.4s ease,opacity 0.3s ease}
+.hamburger.open span:nth-child(1){transform:translateY(6.25px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.25px) rotate(-45deg)}
+.mobile-nav{position:fixed;inset:0;z-index:998;background:rgba(5,5,5,0.97);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;opacity:0;pointer-events:none;transition:opacity 0.5s ease;will-change:opacity}
+.mobile-nav.open{opacity:1;pointer-events:all}
+.mob-link{font-family:var(--ff-display);font-size:clamp(2.8rem,7vw,4.5rem);color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;padding:10px 0;line-height:1;transition:color 0.25s,transform 0.25s;display:block;text-align:center}
+.mob-link:hover{color:var(--white);transform:translateX(8px)}
+.mob-divider{width:48px;height:1px;background:var(--glass-border);margin:24px auto}
+.mob-cta{display:inline-block;padding:16px 52px;border:1px solid var(--accent);color:var(--accent);font-family:var(--ff-body);font-size:0.7rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s}
 
 /* HERO */
 .hero{position:relative;width:100vw;height:100vh;min-height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center;isolation:isolate}
@@ -117,7 +130,6 @@ nav.scrolled{padding:16px 56px;background:rgba(5,5,5,0.85);backdrop-filter:blur(
 .perf-title{font-family:var(--ff-display);font-size:clamp(3rem,7vw,6.5rem);line-height:0.88;color:var(--white);margin-bottom:24px}
 .perf-copy{font-size:0.9rem;line-height:1.9;color:var(--white-dim);font-weight:300;max-width:400px}
 .bars{display:flex;flex-direction:column;gap:34px}
-.bar-row{}
 .bar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .bar-name{font-size:0.68rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--white)}
 .bar-pct{font-family:var(--ff-display);font-size:1.1rem;color:var(--accent);transition:color 0.5s}
@@ -200,6 +212,8 @@ footer{background:var(--black2);border-top:1px solid var(--glass-border);padding
   nav{padding:18px 28px}
   nav.scrolled{padding:14px 28px}
   .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-cta{display:none}
   .stats-grid{grid-template-columns:1fr 1fr}
   .spec-panel-inner{grid-template-columns:1fr;gap:28px;text-align:center}
   .spec-copy{margin:0 auto}
@@ -229,15 +243,30 @@ footer{background:var(--black2);border-top:1px solid var(--glass-border);padding
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo">NOVA<span>.</span>BLACK</a>
+  <a href="#hero" class="nav-logo">NOVA<span>.</span>BLACK</a>
   <ul class="nav-links">
     <li><a href="#performance">Performance</a></li>
     <li><a href="#aerodynamics">Aerodynamics</a></li>
     <li><a href="#interior">Interior</a></li>
     <li><a href="#configure">Configure</a></li>
   </ul>
-  <button class="nav-cta btn-magnetic" onclick="document.getElementById('configure').scrollIntoView({behavior:'smooth'})">Configure Yours</button>
+  <a href="#configure" class="nav-cta btn-magnetic">Configure Yours</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <a href="#performance" class="mob-link">Performance</a>
+  <a href="#aerodynamics" class="mob-link">Aerodynamics</a>
+  <a href="#interior" class="mob-link">Interior</a>
+  <a href="#configure" class="mob-link">Configure</a>
+  <div class="mob-divider"></div>
+  <a href="#configure" class="mob-cta">Configure Yours</a>
+</div>
+
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -384,7 +413,7 @@ footer{background:var(--black2);border-top:1px solid var(--glass-border);padding
     <div class="toggle-row">
       <span class="t-label on" id="ls">Street</span>
       <label class="t-switch">
-        <input type="checkbox" id="mt"/>
+        <input type="checkbox" id="mt" aria-label="Toggle between Street and Track mode"/>
         <span class="t-slider"></span>
       </label>
       <span class="t-label" id="lt">Track</span>
@@ -445,6 +474,8 @@ footer{background:var(--black2);border-top:1px solid var(--glass-border);padding
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -555,7 +586,7 @@ tog.addEventListener('change',()=>{
   document.body.classList.toggle('track-mode',tk);
   ls.classList.toggle('on',!tk);lt.classList.toggle('on',tk);
   mtag.textContent=tk?'Track Mode — Red Alert. Full Assault.':'Street Mode — Gold. Refined. Restrained.';
-  if(tk)gsap.to('body',{x:5,duration:.045,yoyo:true,repeat:6,ease:'power1.inOut',onComplete:()=>gsap.set('body',{x:0})});
+  if(tk)gsap.to('#main-content',{x:5,duration:.045,yoyo:true,repeat:6,ease:'power1.inOut',onComplete:()=>gsap.set('#main-content',{x:0})});
 });
 
 /* 11 · INTERIOR */
@@ -596,10 +627,36 @@ document.getElementById('fsub').addEventListener('click',function(){
   this.disabled=true;
 });
 
-/* 16 · SMOOTH ANCHOR */
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)lenis.scrollTo(t,{offset:-80,duration:1.4});}));
+/* 16 · HAMBURGER */
+const ham=document.getElementById('hamburger');
+const mNav=document.getElementById('mobile-nav');
+function closeMobileNav(){
+  ham.classList.remove('open');
+  ham.setAttribute('aria-expanded','false');
+  mNav.classList.remove('open');
+  mNav.setAttribute('aria-hidden','true');
+  lenis.start();
+}
+ham.addEventListener('click',()=>{
+  const open=!ham.classList.contains('open');
+  ham.classList.toggle('open',open);
+  ham.setAttribute('aria-expanded',String(open));
+  mNav.classList.toggle('open',open);
+  mNav.setAttribute('aria-hidden',String(!open));
+  open?lenis.stop():lenis.start();
+});
 
-/* 17 · REFRESH */
+/* 17 · SMOOTH ANCHOR */
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();
+  const href=a.getAttribute('href');
+  if(href==='#')return;
+  closeMobileNav();
+  const t=document.querySelector(href);
+  if(t)lenis.scrollTo(t,{offset:-80,duration:1.4});
+}));
+
+/* 18 · REFRESH */
 ScrollTrigger.refresh();
 
 })();
