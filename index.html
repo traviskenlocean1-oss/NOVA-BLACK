@@ -51,18 +51,18 @@ body{font-family:var(--ff-body);background:var(--black);color:var(--white);overf
 ::-webkit-scrollbar-thumb{background:var(--accent)}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:28px 56px;transition:padding 0.4s,background 0.4s,backdrop-filter 0.4s,border-color 0.4s;border-bottom:1px solid transparent}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:28px 56px;transition:padding 0.4s,background 0.4s,backdrop-filter 0.4s,border-color 0.4s;border-bottom:1px solid transparent;transform:translateZ(0)}
 nav.scrolled{padding:16px 56px;background:rgba(5,5,5,0.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-color:var(--glass-border)}
-.nav-logo{font-family:var(--ff-display);font-size:1.6rem;letter-spacing:0.12em;color:var(--white);text-decoration:none}
+.nav-logo{font-family:var(--ff-display);font-size:1.6rem;letter-spacing:0.12em;color:var(--white);text-decoration:none;flex-shrink:0}
 .nav-logo span{color:var(--accent);transition:color 0.5s}
-.nav-links{display:flex;gap:40px;list-style:none}
-.nav-links a{font-size:0.7rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--white-dim);text-decoration:none;transition:color 0.25s}
+.nav-links{display:flex;gap:32px;list-style:none;flex-shrink:0}
+.nav-links a{font-size:0.7rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--white-dim);text-decoration:none;transition:color 0.25s;white-space:nowrap}
 .nav-links a:hover{color:var(--accent)}
-.nav-cta{font-family:var(--ff-body);font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:12px 26px;border:1px solid var(--accent);color:var(--accent);background:transparent;cursor:pointer;transition:background 0.3s,color 0.3s,border-color 0.5s}
+.nav-cta{font-family:var(--ff-body);font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:12px 26px;border:1px solid var(--accent);color:var(--accent);background:transparent;cursor:pointer;transition:background 0.3s,color 0.3s,border-color 0.5s;flex-shrink:0}
 .nav-cta:hover{background:var(--accent);color:var(--black)}
 
 /* HERO */
-.hero{position:relative;width:100vw;height:100vh;min-height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero{position:relative;width:100vw;height:100vh;min-height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center;isolation:isolate}
 .hero-video-wrap{position:absolute;inset:-6%;z-index:0;will-change:transform}
 .hero-video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
 .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(5,5,5,0.25) 0%,rgba(5,5,5,0.5) 50%,rgba(5,5,5,0.88) 100%)}
@@ -87,7 +87,7 @@ nav.scrolled{padding:16px 56px;background:rgba(5,5,5,0.85);backdrop-filter:blur(
 @keyframes sPulse{0%,100%{opacity:.3}50%{opacity:.8}}
 
 /* STATS */
-.stats-section{background:var(--black2);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border)}
+.stats-section{background:var(--black2);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);margin:0;padding:0;display:block}
 .stats-grid{max-width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--glass-border)}
 .stat-card{background:var(--black2);padding:60px 40px;text-align:center;position:relative;overflow:hidden}
 .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.8s ease,background 0.5s}
@@ -98,7 +98,7 @@ nav.scrolled{padding:16px 56px;background:rgba(5,5,5,0.85);backdrop-filter:blur(
 .stat-sub{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-top:6px}
 
 /* SPECS HORIZONTAL */
-.specs-outer{background:var(--black);overflow:hidden}
+.specs-outer{background:var(--black);overflow:hidden;margin:0;padding:0;display:block}
 .specs-track{display:flex;will-change:transform}
 .spec-panel{flex-shrink:0;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;padding:80px 10vw}
 .spec-panel:nth-child(even){background:var(--black2)}
@@ -244,7 +244,7 @@ footer{background:var(--black2);border-top:1px solid var(--glass-border);padding
   <div class="hero-video-wrap" id="vl">
     <video autoplay muted loop playsinline preload="auto"
       poster="https://images.pexels.com/photos/26954166/pexels-photo-26954166/free-photo-of-luxury-black-car-in-garage.jpeg?auto=compress&cs=tinysrgb&w=1200">
-      <source src="https://videos.pexels.com/video-files/5309345/5309345-hd_1920_1080_25fps.mp4" type="video/mp4"/>
+      <source src="https://videos.pexels.com/video-files/7727416/7727416-hd_1920_1080_25fps.mp4" type="video/mp4"/>
     </video>
   </div>
   <div class="hero-overlay"></div>
@@ -482,14 +482,13 @@ footer{background:var(--black2);border-top:1px solid var(--glass-border);padding
 (function(){
 /* 1 · LENIS */
 const lenis = new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
-function raf(t){lenis.raf(t);requestAnimationFrame(raf);}
-requestAnimationFrame(raf);
 
 /* 2 · GSAP SETUP */
 gsap.registerPlugin(ScrollTrigger,SplitText);
 lenis.on('scroll',ScrollTrigger.update);
 gsap.ticker.add(t=>lenis.raf(t*1000));
 gsap.ticker.lagSmoothing(0);
+ScrollTrigger.refresh();
 
 /* 3 · NAV */
 ScrollTrigger.create({start:'top -1',onUpdate:s=>document.getElementById('nav').classList.toggle('scrolled',s.scroll()>60)});
