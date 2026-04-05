@@ -65,8 +65,8 @@ nav.scrolled{padding:16px 56px;background:rgba(5,5,5,0.85);backdrop-filter:blur(
 .hero{position:relative;width:100vw;height:100vh;min-height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center;isolation:isolate}
 .hero-video-wrap{position:absolute;inset:-6%;z-index:0;will-change:transform}
 .hero-video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(5,5,5,0.25) 0%,rgba(5,5,5,0.5) 50%,rgba(5,5,5,0.88) 100%)}
-.hero-overlay-bottom{position:absolute;bottom:0;left:0;right:0;z-index:2;height:220px;background:linear-gradient(to top,var(--black),transparent)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(5,5,5,0.08) 0%,rgba(5,5,5,0.32) 50%,rgba(5,5,5,0.72) 100%)}
+.hero-overlay-bottom{position:absolute;bottom:0;left:0;right:0;z-index:2;height:160px;background:linear-gradient(to top,var(--black),transparent)}
 #particles-canvas{position:absolute;inset:0;z-index:2;pointer-events:none;will-change:transform}
 .hero-content{position:relative;z-index:3;text-align:center;padding:0 24px;max-width:1000px;will-change:transform}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:0.66rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;transition:color 0.5s}
@@ -482,13 +482,13 @@ footer{background:var(--black2);border-top:1px solid var(--glass-border);padding
 (function(){
 /* 1 · LENIS */
 const lenis = new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+function raf(t){lenis.raf(t);requestAnimationFrame(raf);}
+requestAnimationFrame(raf);
 
 /* 2 · GSAP SETUP */
 gsap.registerPlugin(ScrollTrigger,SplitText);
 lenis.on('scroll',ScrollTrigger.update);
-gsap.ticker.add(t=>lenis.raf(t*1000));
 gsap.ticker.lagSmoothing(0);
-ScrollTrigger.refresh();
 
 /* 3 · NAV */
 ScrollTrigger.create({start:'top -1',onUpdate:s=>document.getElementById('nav').classList.toggle('scrolled',s.scroll()>60)});
@@ -598,6 +598,9 @@ document.getElementById('fsub').addEventListener('click',function(){
 
 /* 16 · SMOOTH ANCHOR */
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)lenis.scrollTo(t,{offset:-80,duration:1.4});}));
+
+/* 17 · REFRESH */
+ScrollTrigger.refresh();
 
 })();
 </script>
