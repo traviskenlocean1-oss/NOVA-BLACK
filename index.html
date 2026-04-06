@@ -121,6 +121,8 @@ nav.scrolled{padding:16px 56px;background:rgba(5,5,5,0.85);backdrop-filter:blur(
 .spec-title{font-family:var(--ff-display);font-size:clamp(2rem,3.5vw,3.2rem);color:var(--white);margin-bottom:18px}
 .spec-rule{width:48px;height:2px;background:var(--accent);margin:18px 0;transition:background 0.5s}
 .spec-copy{font-size:0.88rem;line-height:1.9;color:var(--white-dim);font-weight:300;max-width:400px}
+.spec-visual{display:flex;flex-direction:column;gap:20px}
+.spec-car-img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:brightness(.88);display:block}
 
 /* PERFORMANCE */
 .perf-section{position:relative;overflow:hidden}
@@ -207,6 +209,16 @@ footer{background:var(--black2);border-top:1px solid var(--glass-border);padding
 .ft-social{display:flex;gap:14px}
 .ft-social a{width:36px;height:36px;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);text-decoration:none;font-size:0.72rem;font-weight:600;transition:border-color 0.25s,color 0.25s}
 .ft-social a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* TRACK MODE DRAMATIC */
+@keyframes trackPulse{0%{opacity:.45}100%{opacity:1}}
+body.track-mode::before{content:'';position:fixed;inset:0;z-index:997;pointer-events:none;background:radial-gradient(ellipse at center,transparent 42%,rgba(255,40,0,0.09) 100%);animation:trackPulse 2.8s ease-in-out infinite alternate}
+body.track-mode .toggle-section{background:rgba(14,3,3,1);border-color:rgba(255,40,0,0.25)}
+body.track-mode nav.scrolled{background:rgba(12,2,2,0.9);border-color:rgba(255,40,0,0.18)}
+body.track-mode .stats-section{border-top-color:rgba(255,40,0,0.3);border-bottom-color:rgba(255,40,0,0.3)}
+body.track-mode .btn-primary{background:var(--red)}
+body.track-mode .glass-form{border-color:rgba(255,40,0,0.15)}
+body.track-mode .footer-btm{border-color:rgba(255,40,0,0.12)}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
@@ -328,7 +340,10 @@ footer{background:var(--black2);border-top:1px solid var(--glass-border);padding
 
       <div class="spec-panel">
         <div class="spec-panel-inner">
-          <div><div class="spec-num">789</div></div>
+          <div class="spec-visual">
+            <img src="https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1280" class="spec-car-img" loading="lazy" alt="Lamborghini supercar side profile"/>
+            <div class="spec-num">789</div>
+          </div>
           <div>
             <div class="spec-title">Twin-Turbo V8</div>
             <div class="spec-rule"></div>
@@ -519,6 +534,15 @@ requestAnimationFrame(raf);
 
 /* 2 · GSAP SETUP */
 gsap.registerPlugin(ScrollTrigger,SplitText);
+ScrollTrigger.scrollerProxy(document.body,{
+  scrollTop(value){
+    if(arguments.length){lenis.scrollTo(value,{immediate:true});}
+    return lenis.scroll;
+  },
+  getBoundingClientRect(){
+    return{top:0,left:0,width:window.innerWidth,height:window.innerHeight};
+  }
+});
 lenis.on('scroll',ScrollTrigger.update);
 gsap.ticker.lagSmoothing(0);
 
@@ -553,7 +577,7 @@ htl.from('#he',{y:28,opacity:0,duration:.65,ease:'power3.out'},'-=.5')
 
 /* 7 · STATS COUNTERS */
 let sdone=false;
-ScrollTrigger.create({trigger:'#stats',start:'top 80%',onEnter:()=>{
+function runStats(){
   if(sdone)return;sdone=true;
   document.querySelectorAll('.stat-card').forEach((c,i)=>{
     c.classList.add('lit');
@@ -563,7 +587,9 @@ ScrollTrigger.create({trigger:'#stats',start:'top 80%',onEnter:()=>{
     const to=parseFloat(el.dataset.to),dp=+el.dataset.dp;
     gsap.to({v:0},{v:to,duration:2.1,ease:'power2.out',onUpdate:function(){el.textContent=this.targets()[0].v.toFixed(dp);}});
   });
-}});
+}
+ScrollTrigger.create({trigger:'#stats',start:'top 85%',onEnter:runStats});
+new IntersectionObserver(entries=>{if(entries[0].isIntersecting)runStats();},{threshold:0.15}).observe(document.getElementById('stats'));
 
 /* 8 · HORIZONTAL SPECS */
 const track=document.getElementById('specs-track');
