@@ -1,913 +1,1213 @@
 <!DOCTYPE html>
 <html lang="en" data-mode="track">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NOVA BLACK — Born to Dominate</title>
-  <meta name="description" content="NOVA BLACK. 1,500hp. Three modes. One obsession. Commission yours." />
-  <link rel="canonical" href="https://nova-black.vercel.app/" />
-  <meta property="og:title" content="NOVA BLACK — Born to Dominate" />
-  <meta property="og:description" content="The apex machine. Three modes. No limits." />
-  <meta property="og:type" content="website" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"NOVA BLACK","description":"1500hp hypercar, 12 units annually","brand":{"@type":"Brand","name":"NOVA BLACK"}}</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>NOVA BLACK — Elite Web Design Studio</title>
+<meta name="description" content="NOVA BLACK — Premium web design for businesses that refuse to be ignored. Commission your elite website today."/>
+<link rel="canonical" href="https://nova-black.vercel.app/"/>
+<meta property="og:title" content="NOVA BLACK — Elite Web Design Studio"/>
+<meta property="og:description" content="Premium websites for businesses that demand excellence."/>
+<meta property="og:type" content="website"/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
+<!-- Lenis -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 
-  <style>
-    /* ═══════════════════════════════════════
-       MODE TOKENS
-    ═══════════════════════════════════════ */
-    :root,
-    [data-mode="track"] {
-      --accent:       #E8001D;
-      --accent-lt:    #FF2A3D;
-      --bg:           #0a0a0a;
-      --bg2:          #111111;
-      --bg3:          #181818;
-      --text:         #F4F4F4;
-      --text-dim:     rgba(244,244,244,0.5);
-      --text-xdim:    rgba(244,244,244,0.22);
-      --hero-tint:    rgba(10,10,10,0.70);
-      --hero-wash:    rgba(232,0,29,0.07);
-      --ff-head:      'Bebas Neue', sans-serif;
-      --letter-head:  0.04em;
-      --bg-tex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%230d0d0d'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%230d0d0d'/%3E%3Crect width='4' height='4' fill='%23111' fill-opacity='.5'/%3E%3C/svg%3E");
-    }
-    [data-mode="luxury"] {
-      --accent:       #C9A07A;
-      --accent-lt:    #E8C4A0;
-      --bg:           #0a0f1e;
-      --bg2:          #0d1428;
-      --bg3:          #111830;
-      --text:         #F5EFE6;
-      --text-dim:     rgba(245,239,230,0.55);
-      --text-xdim:    rgba(245,239,230,0.22);
-      --hero-tint:    rgba(10,15,30,0.78);
-      --hero-wash:    rgba(201,160,122,0.06);
-      --ff-head:      'Cormorant Garamond', serif;
-      --letter-head:  0.14em;
-      --bg-tex:       none;
-    }
-    [data-mode="stealth"] {
-      --accent:       #00FF88;
-      --accent-lt:    #33FFAA;
-      --bg:           #080808;
-      --bg2:          #0c0c0c;
-      --bg3:          #101010;
-      --text:         #E0E0E0;
-      --text-dim:     rgba(224,224,224,0.5);
-      --text-xdim:    rgba(224,224,224,0.2);
-      --hero-tint:    rgba(0,10,6,0.80);
-      --hero-wash:    rgba(0,255,136,0.06);
-      --ff-head:      'Bebas Neue', sans-serif;
-      --letter-head:  0.06em;
-      --bg-tex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpolygon points='10,0 20,5 20,15 10,20 0,15 0,5' fill='none' stroke='%2300FF88' stroke-width='0.4' stroke-opacity='0.06'/%3E%3C/svg%3E");
-    }
+<style>
+/* =====================================================
+   MODE TOKENS
+===================================================== */
+:root, [data-mode="track"] {
+  --accent:      #E8001D;
+  --accent-h:    #FF1A33;
+  --accent-rgb:  232,0,29;
+  --bg:          #0a0a0a;
+  --bg2:         #111111;
+  --bg3:         #181818;
+  --bg4:         #1e1e1e;
+  --text:        #FFFFFF;
+  --text-dim:    rgba(255,255,255,0.55);
+  --text-xdim:   rgba(255,255,255,0.25);
+  --overlay:     rgba(10,10,10,0.72);
+  --overlay2:    rgba(232,0,29,0.08);
+  --ff-head:     'Bebas Neue', sans-serif;
+  --ff-body:     'Inter', sans-serif;
+  --ls-head:     0.04em;
+  --tex:         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%230d0d0d'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%230d0d0d'/%3E%3Crect width='4' height='4' fill='%23111' fill-opacity='.55'/%3E%3C/svg%3E");
+}
+[data-mode="luxury"] {
+  --accent:      #C9A07A;
+  --accent-h:    #E8C4A0;
+  --accent-rgb:  201,160,122;
+  --bg:          #0a0f1e;
+  --bg2:         #0d1428;
+  --bg3:         #111830;
+  --bg4:         #151d38;
+  --text:        #FFFFFF;
+  --text-dim:    rgba(255,255,255,0.55);
+  --text-xdim:   rgba(255,255,255,0.25);
+  --overlay:     rgba(10,15,30,0.78);
+  --overlay2:    rgba(201,160,122,0.07);
+  --ff-head:     'Cormorant Garamond', serif;
+  --ff-body:     'Inter', sans-serif;
+  --ls-head:     0.14em;
+  --tex:         none;
+}
+[data-mode="stealth"] {
+  --accent:      #00FF88;
+  --accent-h:    #33FFAA;
+  --accent-rgb:  0,255,136;
+  --bg:          #080808;
+  --bg2:         #0c0c0c;
+  --bg3:         #101010;
+  --bg4:         #141414;
+  --text:        #E8E8E8;
+  --text-dim:    rgba(232,232,232,0.5);
+  --text-xdim:   rgba(232,232,232,0.2);
+  --overlay:     rgba(0,8,4,0.80);
+  --overlay2:    rgba(0,255,136,0.07);
+  --ff-head:     'Bebas Neue', sans-serif;
+  --ff-body:     'Inter', sans-serif;
+  --ls-head:     0.06em;
+  --tex:         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpolygon points='12,1 23,6.5 23,17.5 12,23 1,17.5 1,6.5' fill='none' stroke='%2300FF88' stroke-width='0.5' stroke-opacity='0.07'/%3E%3C/svg%3E");
+}
 
-    /* ═══════════════════════════════════════
-       GLOBAL TRANSITION — mode swap
-    ═══════════════════════════════════════ */
-    *, *::before, *::after {
-      box-sizing: border-box; margin: 0; padding: 0;
-      transition: background-color .4s ease, border-color .4s ease, color .4s ease;
-    }
+/* =====================================================
+   GLOBAL TRANSITION — makes mode swap smooth
+===================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition:
+    background-color 0.4s ease,
+    border-color     0.4s ease,
+    color            0.4s ease,
+    opacity          0.4s ease;
+}
+/* Exclude transforms from transition so GSAP works cleanly */
+.notrans { transition: none !important; }
 
-    html { scroll-behavior: auto; }
+html { scroll-behavior: auto; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-      background-image: var(--bg-tex);
-    }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff-body);
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.65;
+}
 
-    img, video { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    button { cursor: pointer; border: none; background: none; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
-    .container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
-    .section-label {
-      font-size: .68rem; font-weight: 600; letter-spacing: .35em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
-    }
-    .accent { color: var(--accent); }
-    .gold-bar { width: 50px; height: 2px; background: var(--accent); margin: 1.2rem 0 2rem; }
-    .reveal-el { opacity: 0; transform: translateY(36px); }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; }
 
-    /* ═══════════════════════════════════════
-       BUTTONS
-    ═══════════════════════════════════════ */
-    .btn {
-      display: inline-flex; align-items: center; gap: .6rem;
-      padding: .9rem 2.4rem;
-      font-family: var(--ff-head); font-size: 1rem; letter-spacing: .12em;
-      cursor: pointer; position: relative; overflow: hidden; z-index: 1; border: none;
-    }
-    .btn::before {
-      content: ''; position: absolute; inset: 0;
-      background: var(--accent-lt);
-      transform: scaleX(0); transform-origin: right; z-index: -1;
-      transition: transform .4s cubic-bezier(.16,1,.3,1), background-color .4s;
-    }
-    .btn:hover::before { transform: scaleX(1); transform-origin: left; }
-    .btn-primary { background: var(--accent); color: #000; }
-    .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
-    .btn-outline:hover { color: #000; }
-    .btn-sm { padding: .55rem 1.5rem; font-size: .82rem; }
+/* =====================================================
+   TYPOGRAPHY UTILITIES
+===================================================== */
+.label {
+  display: block;
+  font-family: var(--ff-body);
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.headline {
+  font-family: var(--ff-head);
+  letter-spacing: var(--ls-head);
+  line-height: 0.92;
+  color: var(--text);
+}
+.accent { color: var(--accent); }
+.bar {
+  width: 48px; height: 2px;
+  background: var(--accent);
+  margin: 1.2rem 0 2rem;
+}
 
-    /* ═══════════════════════════════════════
-       MODE SWITCHER — fixed right tab
-    ═══════════════════════════════════════ */
-    #mode-switcher {
-      position: fixed; right: 0; top: 50%;
-      transform: translateY(-50%);
-      z-index: 900;
-      display: flex; flex-direction: column;
-    }
-    .mode-tab {
-      writing-mode: vertical-rl;
-      padding: 1.3rem .75rem;
-      font-family: 'Inter', sans-serif;
-      font-size: .62rem; font-weight: 700; letter-spacing: .25em;
-      text-transform: uppercase;
-      background: rgba(8,8,8,.88);
-      border-left: 2px solid rgba(255,255,255,.07);
-      color: rgba(255,255,255,.35);
-      cursor: pointer;
-      transition: background .3s, color .3s, border-color .3s;
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      user-select: none;
-    }
-    .mode-tab:hover { color: rgba(255,255,255,.85); background: rgba(18,18,18,.95); }
-    .mode-tab.active { color: #000 !important; background: var(--accent) !important; border-left-color: var(--accent) !important; }
-    @media (max-width: 768px) {
-      #mode-switcher { top: auto; bottom: 0; right: 0; left: 0; flex-direction: row; transform: none; }
-      .mode-tab { writing-mode: horizontal-tb; flex: 1; text-align: center; padding: .8rem .3rem; font-size: .6rem; }
-    }
+/* =====================================================
+   BUTTONS
+===================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.4rem;
+  font-family: var(--ff-head);
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  transition: color 0.3s;
+}
+.btn::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--accent-h);
+  transform: scaleX(0);
+  transform-origin: right;
+  z-index: -1;
+  transition: transform 0.4s cubic-bezier(.16,1,.3,1), background-color 0.4s;
+}
+.btn:hover::after { transform: scaleX(1); transform-origin: left; }
+.btn-fill { background: var(--accent); color: #000; }
+.btn-fill:hover { color: #000; }
+.btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+.btn-outline:hover { color: #000; }
+.btn-sm { padding: 0.55rem 1.4rem; font-size: 0.82rem; }
 
-    /* ═══════════════════════════════════════
-       NAV
-    ═══════════════════════════════════════ */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 800;
-      padding: 1.2rem 0; transition: background .4s, padding .4s;
-    }
-    nav.scrolled {
-      background-color: var(--bg);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      padding: .7rem 0; border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-family: var(--ff-head); font-size: 1.8rem; letter-spacing: .15em; color: var(--accent); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--text-dim); position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 1px; background: var(--accent); transition: width .3s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a:hover::after { width: 100%; }
-    @media (max-width: 800px) { .nav-links { display: none; } }
+/* =====================================================
+   MODE SWITCHER — fixed right tab
+===================================================== */
+#mode-sw {
+  position: fixed;
+  right: 0; top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  pointer-events: all;
+}
+.mtab {
+  writing-mode: vertical-rl;
+  padding: 1.4rem 0.8rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  background: rgba(8,8,8,0.9);
+  border-left: 3px solid rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.3);
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  user-select: none;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.mtab:hover { color: rgba(255,255,255,0.85); background: rgba(22,22,22,0.95); }
+.mtab.on { color: #000 !important; background: var(--accent) !important; border-left-color: var(--accent) !important; }
+@media (max-width: 768px) {
+  #mode-sw { top: auto; bottom: 0; right: 0; left: 0; flex-direction: row; transform: none; }
+  .mtab { writing-mode: horizontal-tb; flex: 1; text-align: center; padding: 0.75rem 0.25rem; font-size: 0.58rem; }
+}
 
-    /* ═══════════════════════════════════════
-       HERO
-    ═══════════════════════════════════════ */
-    #hero {
-      position: relative; height: 100vh; min-height: 700px;
-      display: flex; align-items: center; overflow: hidden;
-    }
-    .hero-video-wrap { position: absolute; inset: 0; z-index: 0; }
-    .hero-video-wrap video { width: 100%; height: 100%; object-fit: cover; }
-    .hero-overlay {
-      position: absolute; inset: 0; z-index: 1;
-      background: var(--hero-tint);
-    }
-    .hero-color-wash {
-      position: absolute; inset: 0; z-index: 2;
-      background: var(--hero-wash);
-    }
-    .p-layer {
-      position: absolute; inset: 0; z-index: 2;
-      pointer-events: none; overflow: hidden; will-change: transform;
-    }
-    .p-layer svg { width: 100%; height: 100%; color: var(--accent); }
-    .hero-content { position: relative; z-index: 5; max-width: 860px; will-change: transform; }
-    .hero-eyebrow {
-      font-size: .72rem; font-weight: 600; letter-spacing: .4em;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 1.4rem; opacity: 0;
-    }
-    .hero-headline {
-      font-family: var(--ff-head);
-      font-size: clamp(5rem,12vw,11rem);
-      line-height: .88; letter-spacing: var(--letter-head);
-      color: var(--text); margin-bottom: 1.8rem; overflow: hidden;
-    }
-    .hero-headline .line { display: block; }
-    .hero-headline .line-accent { color: var(--accent); }
-    .hero-sub {
-      font-size: 1rem; font-weight: 300;
-      color: var(--text-dim); max-width: 480px;
-      margin-bottom: 2.5rem; opacity: 0; letter-spacing: .03em;
-    }
-    .hero-cta-row { display: flex; gap: 1.2rem; flex-wrap: wrap; opacity: 0; }
-    .hero-scanline {
-      position: absolute; left: 0; right: 0; top: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0; z-index: 6; pointer-events: none;
-    }
-    .scroll-hint {
-      position: absolute; bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%); z-index: 6;
-      display: flex; flex-direction: column; align-items: center; gap: .5rem; opacity: 0;
-    }
-    .scroll-hint span { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); }
-    .scroll-line {
-      width: 1px; height: 48px;
-      background: linear-gradient(180deg, var(--accent), transparent);
-      animation: spulse 1.8s ease-in-out infinite;
-    }
-    @keyframes spulse { 0%,100% { opacity: .3; } 50% { opacity: 1; } }
+/* =====================================================
+   NAV
+===================================================== */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 900;
+  padding: 1.2rem 0;
+  transition: background 0.4s, padding 0.4s, border-color 0.4s;
+}
+#nav.stuck {
+  background: var(--bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.nav-i { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: var(--ff-head); font-size: 1.7rem; letter-spacing: 0.15em; color: var(--accent); }
+.nav-links { display: flex; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--text-dim);
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0;
+  width: 0; height: 1px; background: var(--accent);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::after { width: 100%; }
+@media (max-width: 820px) { .nav-links { display: none; } }
 
-    /* ═══════════════════════════════════════
-       STATS
-    ═══════════════════════════════════════ */
-    #stats {
-      padding: 5rem 0; background: var(--bg2);
-      border-top: 1px solid rgba(255,255,255,.04);
-      border-bottom: 1px solid rgba(255,255,255,.04);
-    }
-    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
-    @media (max-width: 700px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
-    .stat-item { padding: 2.5rem 1.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,.05); }
-    .stat-item:last-child { border-right: none; }
-    .stat-number { font-family: var(--ff-head); font-size: clamp(3.2rem,5.5vw,5.5rem); color: var(--accent); line-height: 1; }
-    .stat-suffix { font-size: 55%; }
-    .stat-label { font-size: .67rem; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--text-xdim); margin-top: .6rem; }
+/* =====================================================
+   HERO
+===================================================== */
+#hero {
+  position: relative;
+  height: 100vh;
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  overflow: hidden;
+}
+.hero-vid-wrap { position: absolute; inset: 0; z-index: 0; }
+.hero-vid-wrap video { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: var(--overlay);
+}
+.hero-wash {
+  position: absolute; inset: 0; z-index: 2;
+  background: var(--overlay2);
+}
+/* 3 parallax layers */
+.plyr {
+  position: absolute; inset: 0; z-index: 3;
+  pointer-events: none; overflow: hidden;
+  will-change: transform;
+}
+.plyr svg { width: 100%; height: 100%; color: var(--accent); }
 
-    /* ═══════════════════════════════════════
-       ENGINE — full bleed
-    ═══════════════════════════════════════ */
-    #engine {
-      position: relative; width: 100%; height: 70vh; min-height: 520px;
-      overflow: hidden; display: flex; align-items: center;
-    }
-    .engine-bg {
-      position: absolute; inset: 0;
-      background:
-        url('https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=1600')
-        center/cover no-repeat;
-    }
-    .engine-tint {
-      position: absolute; inset: 0;
-      background: linear-gradient(90deg, var(--bg) 0%, rgba(0,0,0,.7) 45%, transparent 75%);
-    }
-    .engine-content {
-      position: relative; z-index: 3; max-width: 560px;
-      padding: 0 2rem 0 max(2rem, calc((100vw - 1300px)/2 + 2rem));
-    }
-    @media (max-width: 700px) { .engine-content { padding: 3rem 1.5rem; max-width: 100%; } }
-    .engine-headline {
-      font-family: var(--ff-head);
-      font-size: clamp(3rem,5.5vw,5.5rem);
-      letter-spacing: var(--letter-head); line-height: .94;
-      margin-bottom: 1.5rem; color: var(--text);
-    }
-    .engine-text { font-size: .92rem; font-weight: 300; color: var(--text-dim); line-height: 1.8; margin-bottom: 2rem; max-width: 420px; }
-    .spec-list { display: flex; flex-direction: column; gap: .7rem; margin-bottom: 2.5rem; }
-    .spec-row { display: flex; align-items: center; gap: .9rem; font-size: .8rem; }
-    .spec-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
-    .spec-key { color: var(--text-xdim); text-transform: uppercase; font-size: .7rem; letter-spacing: .15em; flex: 1; }
-    .spec-val { color: var(--accent); font-weight: 600; }
+.hero-body { position: relative; z-index: 5; max-width: 880px; }
+.hero-eyebrow {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.42em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 1.6rem;
+}
+.hero-hl {
+  font-family: var(--ff-head);
+  font-size: clamp(5.5rem, 15vw, 14rem);
+  line-height: 0.86;
+  letter-spacing: var(--ls-head);
+  margin-bottom: 1.6rem;
+}
+.hero-hl .l1 { display: block; color: var(--text); }
+.hero-hl .l2 { display: block; color: var(--accent); }
+.hero-sub {
+  font-size: 1.05rem; font-weight: 300;
+  color: var(--text-dim); max-width: 500px;
+  margin-bottom: 2.8rem; letter-spacing: 0.02em;
+}
+.hero-ctas { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+.hero-scanline {
+  position: absolute; left: 0; right: 0; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  z-index: 6; pointer-events: none; opacity: 0;
+}
+.scroll-cue {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%); z-index: 6;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  opacity: 0;
+}
+.scroll-cue span {
+  font-size: 0.6rem; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--accent);
+}
+.scroll-ln {
+  width: 1px; height: 50px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  animation: sc 1.9s ease-in-out infinite;
+}
+@keyframes sc { 0%,100%{opacity:.25} 50%{opacity:1} }
 
-    /* ═══════════════════════════════════════
-       INTERIOR — 50/50 split
-    ═══════════════════════════════════════ */
-    #interior { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
-    @media (max-width: 900px) { #interior { grid-template-columns: 1fr; } }
-    .interior-img { position: relative; overflow: hidden; min-height: 400px; }
-    .interior-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 6s ease; }
-    #interior:hover .interior-img img { transform: scale(1.04); }
-    .interior-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(90deg, transparent 70%, var(--bg2) 100%);
-    }
-    .interior-body {
-      background: var(--bg2);
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 5rem 4rem;
-    }
-    @media (max-width: 1100px) { .interior-body { padding: 3.5rem 2.5rem; } }
-    .interior-headline {
-      font-family: var(--ff-head);
-      font-size: clamp(2.8rem,4.5vw,5rem);
-      letter-spacing: var(--letter-head); line-height: .94;
-      margin-bottom: 1.5rem; color: var(--text);
-    }
-    .interior-text { font-size: .92rem; font-weight: 300; color: var(--text-dim); line-height: 1.85; margin-bottom: 2.5rem; }
-    .feature-pills { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.5rem; }
-    .pill { padding: .38rem 1rem; border: 1px solid var(--accent); color: var(--accent); font-size: .67rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
+/* =====================================================
+   STATS — explicit bg + min-height
+===================================================== */
+#stats {
+  background: var(--bg2);
+  min-height: 300px;
+  padding: 5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background-image: var(--tex);
+}
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+@media (max-width: 700px) { .stats-row { grid-template-columns: repeat(2,1fr); } }
+.stat-card {
+  padding: 2.8rem 2rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  background: transparent;
+}
+.stat-card:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--ff-head);
+  font-size: clamp(3.2rem,5.5vw,5.8rem);
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.stat-suf { font-size: 55%; }
+.stat-lbl {
+  font-size: 0.66rem; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--text-xdim); margin-top: 0.6rem;
+}
 
-    /* ═══════════════════════════════════════
-       CONFIGURE
-    ═══════════════════════════════════════ */
-    #configure { padding: 8rem 0; background: var(--bg); position: relative; overflow: hidden; }
-    #configure::before {
-      content: 'COMMISSION';
-      position: absolute; font-family: var(--ff-head); font-size: 16vw;
-      color: rgba(255,255,255,.022); top: 50%; left: 50%;
-      transform: translate(-50%,-50%); pointer-events: none; white-space: nowrap; letter-spacing: .05em;
-    }
-    .configure-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 6rem; align-items: start; position: relative; z-index: 1; }
-    @media (max-width: 950px) { .configure-grid { grid-template-columns: 1fr; gap: 3rem; } }
-    .configure-headline {
-      font-family: var(--ff-head);
-      font-size: clamp(3rem,5vw,5.5rem);
-      letter-spacing: var(--letter-head); line-height: .92;
-      margin-bottom: 1.5rem; color: var(--text);
-    }
-    .configure-text { font-size: .9rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 2.5rem; }
+/* =====================================================
+   ENGINE — full bleed explicit height
+===================================================== */
+#engine {
+  position: relative;
+  min-height: 70vh;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  overflow: hidden;
+}
+.engine-img {
+  position: absolute; inset: 0;
+  background:
+    url('https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1600')
+    center/cover no-repeat;
+  z-index: 0;
+}
+.engine-grad {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg,
+    rgba(var(--accent-rgb),0.05) 0%,
+    var(--bg) 0%,
+    rgba(0,0,0,0.65) 40%,
+    transparent 100%
+  );
+}
+.engine-grad-r {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(270deg, var(--bg) 0%, rgba(0,0,0,0) 55%);
+}
+.engine-body {
+  position: relative; z-index: 4;
+  margin-left: auto;
+  max-width: 520px;
+  padding: 0 max(2.5rem, calc((100vw - 1280px)/2 + 2.5rem)) 0 2rem;
+}
+@media (max-width: 1300px) { .engine-body { padding-right: 3rem; } }
+@media (max-width: 700px) { .engine-body { padding: 3rem 1.5rem; max-width: 100%; margin: 0; } }
+.engine-hl {
+  font-family: var(--ff-head);
+  font-size: clamp(2.8rem,5vw,5.5rem);
+  letter-spacing: var(--ls-head); line-height: 0.92;
+  margin-bottom: 1.5rem; color: var(--text);
+}
+.engine-txt { font-size: 0.9rem; font-weight: 300; color: var(--text-dim); line-height: 1.8; margin-bottom: 2rem; }
+.pbars { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+.pbar-row { }
+.pbar-label {
+  display: flex; justify-content: space-between;
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.4rem;
+}
+.pbar-track {
+  height: 3px; background: rgba(255,255,255,0.1);
+  position: relative; overflow: hidden;
+}
+.pbar-fill {
+  position: absolute; top: 0; left: 0; height: 100%;
+  background: var(--accent);
+  width: 0;
+  transition: background-color 0.4s;
+}
 
-    .cf-form { display: flex; flex-direction: column; gap: 1.3rem; }
-    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
-    @media (max-width: 600px) { .cf-row { grid-template-columns: 1fr; } }
-    .cf-group { display: flex; flex-direction: column; gap: .45rem; }
-    .cf-label { font-size: .62rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--accent); }
-    .cf-input, .cf-select, .cf-textarea {
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
-      color: var(--text); padding: .9rem 1rem;
-      font-family: 'Inter', sans-serif; font-size: .9rem;
-      outline: none; -webkit-appearance: none; appearance: none;
-    }
-    .cf-input::placeholder { color: var(--text-xdim); }
-    .cf-input:focus, .cf-select:focus, .cf-textarea:focus { border-color: var(--accent); background: rgba(255,255,255,.06); }
-    .cf-select { cursor: pointer; }
-    .cf-select option { background: #111; color: #eee; }
-    .cf-textarea { resize: vertical; min-height: 110px; }
-    .cf-submit {
-      width: 100%; padding: 1.2rem;
-      font-family: var(--ff-head); font-size: 1.15rem; letter-spacing: .15em;
-      background: var(--accent); color: #000; border: none; cursor: pointer;
-      position: relative; overflow: hidden;
-    }
-    .cf-submit::before {
-      content: ''; position: absolute; inset: 0; background: var(--accent-lt);
-      transform: scaleX(0); transform-origin: right;
-      transition: transform .4s cubic-bezier(.16,1,.3,1), background-color .4s;
-    }
-    .cf-submit:hover::before { transform: scaleX(1); transform-origin: left; }
-    .cf-submit span { position: relative; z-index: 1; }
+/* =====================================================
+   INTERIOR — 50/50 explicit heights
+===================================================== */
+#interior {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+  background: var(--bg2);
+}
+@media (max-width: 900px) { #interior { grid-template-columns: 1fr; } }
+.int-img {
+  position: relative;
+  min-height: 500px;
+  background:
+    url('https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1200')
+    center/cover no-repeat;
+  overflow: hidden;
+}
+.int-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 65%, var(--bg2) 100%);
+}
+.int-body {
+  background: var(--bg2);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 4rem;
+  min-height: 500px;
+}
+@media (max-width: 1200px) { .int-body { padding: 4rem 2.5rem; } }
+.int-hl {
+  font-family: var(--ff-head);
+  font-size: clamp(2.8rem,4.5vw,5rem);
+  letter-spacing: var(--ls-head); line-height: 0.92;
+  margin-bottom: 1.5rem; color: var(--text);
+}
+.int-txt { font-size: 0.9rem; font-weight: 300; color: var(--text-dim); line-height: 1.85; margin-bottom: 2.5rem; }
+.pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+.pill {
+  padding: 0.38rem 1rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+}
 
-    /* ═══════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════ */
-    footer { background: var(--bg2); padding: 4rem 0 2rem; border-top: 1px solid rgba(255,255,255,.06); }
-    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-    @media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } }
-    .footer-logo { font-family: var(--ff-head); font-size: 2rem; letter-spacing: .15em; color: var(--accent); margin-bottom: .8rem; }
-    .footer-tagline { font-size: .82rem; color: var(--text-xdim); line-height: 1.7; max-width: 260px; }
-    .footer-heading { font-size: .62rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.1rem; }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
-    .footer-links a { font-size: .84rem; color: var(--text-dim); }
-    .footer-links a:hover { color: var(--accent); }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.05); flex-wrap: wrap; gap: 1rem; }
-    .footer-copy { font-size: .72rem; color: var(--text-xdim); letter-spacing: .1em; }
-    @media (max-width: 768px) { footer { padding-bottom: 5rem; } }
-  </style>
+/* =====================================================
+   MODE SECTION — cards
+===================================================== */
+#modes-sec {
+  background: var(--bg3);
+  min-height: 400px;
+  padding: 6rem 0;
+  background-image: none;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.modes-head { text-align: center; margin-bottom: 3.5rem; }
+.modes-hl {
+  font-family: var(--ff-head);
+  font-size: clamp(2.5rem,4.5vw,4.5rem);
+  letter-spacing: var(--ls-head);
+  color: var(--text); margin-bottom: 0.5rem;
+}
+.modes-sub { font-size: 0.85rem; color: var(--text-dim); letter-spacing: 0.1em; }
+.mode-cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2px;
+}
+@media (max-width: 768px) { .mode-cards { grid-template-columns: 1fr; } }
+.mcard {
+  background: var(--bg4);
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+.mcard::before {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--mc-accent, #E8001D);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s cubic-bezier(.16,1,.3,1);
+}
+.mcard:hover::before, .mcard.mc-active::before { transform: scaleX(1); }
+.mcard.mc-active { border-color: var(--mc-accent, #E8001D); }
+.mc-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--mc-accent, #E8001D);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 12px var(--mc-accent, #E8001D);
+}
+.mc-name {
+  font-family: var(--ff-head);
+  font-size: 2.2rem; letter-spacing: 0.06em;
+  color: var(--text); margin-bottom: 0.8rem;
+}
+.mc-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
+.mc-cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--mc-accent, #E8001D);
+}
+
+/* =====================================================
+   CONFIGURE — explicit height + accent bg on mode
+===================================================== */
+#configure {
+  background: var(--bg);
+  min-height: 700px;
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  background-image: var(--tex);
+}
+#configure::before {
+  content: 'COMMISSION';
+  position: absolute;
+  font-family: var(--ff-head);
+  font-size: 17vw;
+  color: rgba(255,255,255,0.025);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none; white-space: nowrap; letter-spacing: 0.04em;
+}
+.cfg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 5rem;
+  align-items: start;
+  position: relative; z-index: 1;
+}
+@media (max-width: 960px) { .cfg-grid { grid-template-columns: 1fr; gap: 3rem; } }
+.cfg-hl {
+  font-family: var(--ff-head);
+  font-size: clamp(3rem,5vw,5.5rem);
+  letter-spacing: var(--ls-head); line-height: 0.9;
+  margin-bottom: 1.5rem; color: var(--text);
+}
+.cfg-txt { font-size: 0.9rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 2.5rem; }
+.cfg-facts { display: flex; flex-direction: column; gap: 0.8rem; }
+.cfg-fact { display: flex; align-items: center; gap: 0.9rem; font-size: 0.78rem; }
+.cfg-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+.cfg-k { color: var(--text-xdim); text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.18em; flex: 1; }
+.cfg-v { color: var(--accent); font-weight: 600; }
+
+/* Form */
+.cf { display: flex; flex-direction: column; gap: 1.2rem; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+@media (max-width: 600px) { .cf-row { grid-template-columns: 1fr; } }
+.cf-g { display: flex; flex-direction: column; gap: 0.4rem; }
+.cf-lbl {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent);
+}
+.cf-in, .cf-sel, .cf-ta {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+  padding: 0.88rem 1rem;
+  font-family: 'Inter', sans-serif; font-size: 0.88rem;
+  outline: none; -webkit-appearance: none; appearance: none;
+  transition: border-color 0.3s, background 0.3s;
+}
+.cf-in::placeholder { color: var(--text-xdim); }
+.cf-in:focus, .cf-sel:focus, .cf-ta:focus {
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.07);
+}
+.cf-sel { cursor: pointer; }
+.cf-sel option { background: #111; color: #eee; }
+.cf-ta { resize: vertical; min-height: 100px; }
+.cf-sub {
+  width: 100%; padding: 1.15rem;
+  font-family: var(--ff-head); font-size: 1.1rem; letter-spacing: 0.16em;
+  background: var(--accent); color: #000;
+  border: none; cursor: pointer;
+  position: relative; overflow: hidden;
+}
+.cf-sub::after {
+  content: ''; position: absolute; inset: 0;
+  background: var(--accent-h);
+  transform: scaleX(0); transform-origin: right;
+  transition: transform 0.4s cubic-bezier(.16,1,.3,1), background-color 0.4s;
+}
+.cf-sub:hover::after { transform: scaleX(1); transform-origin: left; }
+.cf-sub span { position: relative; z-index: 1; }
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  background: var(--bg2);
+  padding: 4.5rem 0 2rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  min-height: 200px;
+}
+.ft-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+@media (max-width: 768px) { .ft-grid { grid-template-columns: 1fr; gap: 2rem; } }
+.ft-logo { font-family: var(--ff-head); font-size: 2rem; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 0.8rem; }
+.ft-tag { font-size: 0.82rem; color: var(--text-xdim); line-height: 1.7; max-width: 260px; }
+.ft-h { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.1rem; }
+.ft-ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.ft-ul a { font-size: 0.84rem; color: var(--text-dim); transition: color 0.3s; }
+.ft-ul a:hover { color: var(--accent); }
+.ft-bot {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap; gap: 1rem;
+}
+.ft-copy { font-size: 0.7rem; color: var(--text-xdim); letter-spacing: 0.1em; }
+@media (max-width: 768px) { footer { padding-bottom: 5rem; } }
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+.rev { opacity: 0; transform: translateY(40px); }
+</style>
 </head>
 <body>
 
-  <!-- MODE SWITCHER -->
-  <div id="mode-switcher" role="tablist">
-    <button class="mode-tab active" data-mode="track"   role="tab" aria-selected="true">Track</button>
-    <button class="mode-tab"        data-mode="luxury"  role="tab">Luxury</button>
-    <button class="mode-tab"        data-mode="stealth" role="tab">Stealth</button>
+<!-- MODE SWITCHER -->
+<div id="mode-sw" role="tablist">
+  <button class="mtab on" data-mode="track"   role="tab" aria-selected="true">Track</button>
+  <button class="mtab"    data-mode="luxury"  role="tab">Luxury</button>
+  <button class="mtab"    data-mode="stealth" role="tab">Stealth</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container nav-i">
+    <a href="#hero" class="nav-logo">NOVA BLACK</a>
+    <ul class="nav-links">
+      <li><a href="#stats">Performance</a></li>
+      <li><a href="#engine">Engine</a></li>
+      <li><a href="#interior">Interior</a></li>
+      <li><a href="#modes-sec">Modes</a></li>
+      <li><a href="#configure">Commission</a></li>
+    </ul>
+    <a href="#configure" class="btn btn-fill btn-sm magnetic">Commission Yours</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- parallax layer 1 — grid -->
+  <div class="plyr" id="pl1">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="opacity:.055">
+      <line x1="0" y1="150" x2="1440" y2="150" stroke="currentColor" stroke-width=".7"/>
+      <line x1="0" y1="300" x2="1440" y2="300" stroke="currentColor" stroke-width=".7"/>
+      <line x1="0" y1="450" x2="1440" y2="450" stroke="currentColor" stroke-width=".7"/>
+      <line x1="0" y1="600" x2="1440" y2="600" stroke="currentColor" stroke-width=".7"/>
+      <line x1="0" y1="750" x2="1440" y2="750" stroke="currentColor" stroke-width=".7"/>
+      <line x1="240" y1="0" x2="240" y2="900" stroke="currentColor" stroke-width=".7"/>
+      <line x1="480" y1="0" x2="480" y2="900" stroke="currentColor" stroke-width=".7"/>
+      <line x1="720" y1="0" x2="720" y2="900" stroke="currentColor" stroke-width=".7"/>
+      <line x1="960" y1="0" x2="960" y2="900" stroke="currentColor" stroke-width=".7"/>
+      <line x1="1200" y1="0" x2="1200" y2="900" stroke="currentColor" stroke-width=".7"/>
+    </svg>
+  </div>
+  <!-- parallax layer 2 — diagonals -->
+  <div class="plyr" id="pl2">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="opacity:.08">
+      <line x1="0" y1="900" x2="1440" y2="0" stroke="currentColor" stroke-width="1.2"/>
+      <line x1="400" y1="900" x2="1440" y2="260" stroke="currentColor" stroke-width=".5"/>
+    </svg>
+  </div>
+  <!-- parallax layer 3 — circles -->
+  <div class="plyr" id="pl3">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="opacity:.06">
+      <circle cx="1180" cy="140" r="210" fill="none" stroke="currentColor" stroke-width=".9"/>
+      <circle cx="1180" cy="140" r="360" fill="none" stroke="currentColor" stroke-width=".4"/>
+    </svg>
   </div>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <div class="container nav-inner">
-      <a href="#hero" class="nav-logo">NOVA BLACK</a>
-      <ul class="nav-links">
-        <li><a href="#stats">Performance</a></li>
-        <li><a href="#engine">Engine</a></li>
-        <li><a href="#interior">Interior</a></li>
-        <li><a href="#configure">Commission</a></li>
-      </ul>
-      <a href="#configure" class="btn btn-primary btn-sm magnetic">Commission Yours</a>
-    </div>
-  </nav>
+  <div class="hero-vid-wrap">
+    <video autoplay muted loop playsinline preload="auto" id="hero-vid">
+      <source src="./car.mp4" type="video/mp4"/>
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-wash"></div>
+  <div class="hero-scanline" id="scanline"></div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <!-- 3 parallax layers -->
-    <div class="p-layer" id="p1">
-      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="opacity:.055;">
-        <line x1="0" y1="150" x2="1440" y2="150" stroke="currentColor" stroke-width=".6"/>
-        <line x1="0" y1="300" x2="1440" y2="300" stroke="currentColor" stroke-width=".6"/>
-        <line x1="0" y1="450" x2="1440" y2="450" stroke="currentColor" stroke-width=".6"/>
-        <line x1="0" y1="600" x2="1440" y2="600" stroke="currentColor" stroke-width=".6"/>
-        <line x1="0" y1="750" x2="1440" y2="750" stroke="currentColor" stroke-width=".6"/>
-        <line x1="240" y1="0" x2="240" y2="900" stroke="currentColor" stroke-width=".6"/>
-        <line x1="480" y1="0" x2="480" y2="900" stroke="currentColor" stroke-width=".6"/>
-        <line x1="720" y1="0" x2="720" y2="900" stroke="currentColor" stroke-width=".6"/>
-        <line x1="960" y1="0" x2="960" y2="900" stroke="currentColor" stroke-width=".6"/>
-        <line x1="1200" y1="0" x2="1200" y2="900" stroke="currentColor" stroke-width=".6"/>
-      </svg>
+  <div class="container">
+    <div class="hero-body" id="hero-body">
+      <p class="hero-eyebrow" id="hero-eyebrow" style="opacity:0">The Apex Machine — 2026 Edition</p>
+      <h1 class="hero-hl" id="hero-hl" style="overflow:hidden">
+        <span class="l1">BORN TO</span>
+        <span class="l2">DOMINATE</span>
+      </h1>
+      <p class="hero-sub" id="hero-sub" style="opacity:0">Zero Compromise. Pure Obsession.</p>
+      <div class="hero-ctas" id="hero-ctas" style="opacity:0">
+        <a href="#configure" class="btn btn-fill magnetic">Commission Yours</a>
+        <a href="#engine"    class="btn btn-outline magnetic">View Performance</a>
+      </div>
     </div>
-    <div class="p-layer" id="p2">
-      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="opacity:.07;">
-        <line x1="0" y1="900" x2="1440" y2="0" stroke="currentColor" stroke-width="1"/>
-        <line x1="360" y1="900" x2="1440" y2="225" stroke="currentColor" stroke-width=".5"/>
-      </svg>
-    </div>
-    <div class="p-layer" id="p3">
-      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="opacity:.055;">
-        <circle cx="1200" cy="150" r="200" fill="none" stroke="currentColor" stroke-width=".8"/>
-        <circle cx="1200" cy="150" r="340" fill="none" stroke="currentColor" stroke-width=".4"/>
-      </svg>
-    </div>
+  </div>
 
-    <div class="hero-video-wrap">
-      <video autoplay muted loop playsinline preload="auto">
-        <source src="./car.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-color-wash"></div>
-    <div class="hero-scanline" id="scanline"></div>
+  <div class="scroll-cue" id="scroll-cue" style="opacity:0">
+    <span>Scroll</span>
+    <div class="scroll-ln"></div>
+  </div>
+</section>
 
-    <div class="container">
-      <div class="hero-content" id="hero-content">
-        <p class="hero-eyebrow" id="hero-eyebrow">The Apex Machine — 2026 Edition</p>
-        <h1 class="hero-headline" id="hero-headline">
-          <span class="line">BORN TO</span>
-          <span class="line line-accent">DOMINATE</span>
-        </h1>
-        <p class="hero-sub" id="hero-sub">Zero Compromise. Pure Obsession.</p>
-        <div class="hero-cta-row" id="hero-cta">
-          <a href="#configure" class="btn btn-primary magnetic">Commission Yours</a>
-          <a href="#engine" class="btn btn-outline magnetic">Explore the Machine</a>
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-row" id="stats-row">
+      <!-- JS injected -->
+    </div>
+  </div>
+</section>
+
+<!-- ENGINE -->
+<section id="engine">
+  <div class="engine-img"></div>
+  <div class="engine-grad"></div>
+  <div class="engine-grad-r"></div>
+  <div class="engine-body">
+    <span class="label rev">Powertrain</span>
+    <h2 class="engine-hl rev">TWIN-TURBO<br/><span class="accent">V8 FURY</span></h2>
+    <div class="bar rev"></div>
+    <p class="engine-txt rev">A hand-built 4.0L flat-plane twin-turbo V8. Forged internals, titanium exhaust, dry-sump lubrication. Verified by a single master engineer from first bolt to final fire.</p>
+    <div class="pbars rev">
+      <div class="pbar-row">
+        <div class="pbar-label"><span>Power Output</span><span>98%</span></div>
+        <div class="pbar-track"><div class="pbar-fill" data-w="98"></div></div>
+      </div>
+      <div class="pbar-row">
+        <div class="pbar-label"><span>Torque Delivery</span><span>94%</span></div>
+        <div class="pbar-track"><div class="pbar-fill" data-w="94"></div></div>
+      </div>
+      <div class="pbar-row">
+        <div class="pbar-label"><span>Throttle Response</span><span>99%</span></div>
+        <div class="pbar-track"><div class="pbar-fill" data-w="99"></div></div>
+      </div>
+      <div class="pbar-row">
+        <div class="pbar-label"><span>Aero Efficiency</span><span>88%</span></div>
+        <div class="pbar-track"><div class="pbar-fill" data-w="88"></div></div>
+      </div>
+    </div>
+    <a href="#configure" class="btn btn-fill magnetic rev">Configure Powertrain</a>
+  </div>
+</section>
+
+<!-- INTERIOR -->
+<section id="interior">
+  <div class="int-img rev"></div>
+  <div class="int-body">
+    <span class="label rev">Cockpit</span>
+    <h2 class="int-hl rev">BUILT FOR<br/><span class="accent">COMMAND</span></h2>
+    <div class="bar rev"></div>
+    <p class="int-txt rev">Hand-stitched Alcantara on every surface. Carbon-fibre monocoque seat shells. A full-width OLED halo display. The interior is not a cabin — it is a command centre engineered for total driver dominance.</p>
+    <div class="pills rev">
+      <span class="pill">OLED Halo Display</span>
+      <span class="pill">Alcantara Trim</span>
+      <span class="pill">Active Bolstering</span>
+      <span class="pill">Titanium Cage</span>
+      <span class="pill">Naim Audio</span>
+      <span class="pill">Carbon Race Wheel</span>
+    </div>
+    <a href="#configure" class="btn btn-fill magnetic rev">Customize Interior</a>
+  </div>
+</section>
+
+<!-- MODE SECTION -->
+<section id="modes-sec">
+  <div class="container">
+    <div class="modes-head">
+      <span class="label rev">Drive Philosophy</span>
+      <h2 class="modes-hl rev">CHOOSE YOUR<br/><span class="accent">MODE</span></h2>
+      <p class="modes-sub rev">Every environment, fully mastered.</p>
+    </div>
+    <div class="mode-cards">
+      <div class="mcard mc-active" data-mmode="track" style="--mc-accent:#E8001D">
+        <div class="mc-dot"></div>
+        <div class="mc-name">TRACK</div>
+        <p class="mc-desc">Aggressive. Raw. Uncompromising. Every system optimized for maximum lap performance. Carbon fiber textures. Race data overlays. Pure motorsport obsession.</p>
+        <span class="mc-cta">Activate Track Mode →</span>
+      </div>
+      <div class="mcard" data-mmode="luxury" style="--mc-accent:#C9A07A">
+        <div class="mc-dot" style="background:#C9A07A;box-shadow:0 0 12px #C9A07A"></div>
+        <div class="mc-name" style="color:#C9A07A">LUXURY</div>
+        <p class="mc-desc">Ultra-premium. Calm. Rolls Royce energy. Deep navy palette. Cormorant Garamond elegance. Champagne accents on every surface. Grand touring perfected.</p>
+        <span class="mc-cta" style="color:#C9A07A">Activate Luxury Mode →</span>
+      </div>
+      <div class="mcard" data-mmode="stealth" style="--mc-accent:#00FF88">
+        <div class="mc-dot" style="background:#00FF88;box-shadow:0 0 12px #00FF88"></div>
+        <div class="mc-name" style="color:#00FF88">STEALTH</div>
+        <p class="mc-desc">Dark. Mysterious. Blacked-out assassin. Neon green pulses through hex grid shadows. Unseen on every road. Unstoppable on every track. Unmatched by anything.</p>
+        <span class="mc-cta" style="color:#00FF88">Activate Stealth Mode →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIGURE -->
+<section id="configure">
+  <div class="container">
+    <div class="cfg-grid">
+      <div>
+        <span class="label rev">Build Your Machine</span>
+        <h2 class="cfg-hl rev">COMMISSION<br/><span class="accent">YOUR BUILD</span></h2>
+        <div class="bar rev"></div>
+        <p class="cfg-txt rev">Only 12 cars are built per year. Each one uniquely specified by its owner. Submit your vision and our client liaison will contact you within 24 hours.</p>
+        <div class="cfg-facts rev">
+          <div class="cfg-fact"><div class="cfg-dot"></div><span class="cfg-k">Starting from</span><span class="cfg-v" style="font-size:1.1rem">$2,400,000</span></div>
+          <div class="cfg-fact"><div class="cfg-dot"></div><span class="cfg-k">Delivery time</span><span class="cfg-v">18–24 months</span></div>
+          <div class="cfg-fact"><div class="cfg-dot"></div><span class="cfg-k">Units available</span><span class="cfg-v">3 of 12 remaining</span></div>
+          <div class="cfg-fact"><div class="cfg-dot"></div><span class="cfg-k">Bespoke build</span><span class="cfg-v">100% custom</span></div>
         </div>
       </div>
-    </div>
-
-    <div class="scroll-hint" id="scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section id="stats">
-    <div class="container">
-      <div class="stats-grid" id="stats-grid"></div>
-    </div>
-  </section>
-
-  <!-- ENGINE — full bleed -->
-  <section id="engine">
-    <div class="engine-bg"></div>
-    <div class="engine-tint"></div>
-    <div class="engine-content">
-      <p class="section-label reveal-el">Powertrain</p>
-      <h2 class="engine-headline reveal-el">THE HEART<br/><span class="accent">UNLEASHED</span></h2>
-      <div class="gold-bar reveal-el"></div>
-      <p class="engine-text reveal-el">A hand-built 4.0L twin-turbo V8 on a flat-plane crank. Forged internals. Titanium exhaust. Dry-sump lubrication. Verified by a single master engineer.</p>
-      <div class="spec-list reveal-el">
-        <div class="spec-row"><div class="spec-dot"></div><span class="spec-key">Displacement</span><span class="spec-val">4.0L TT V8</span></div>
-        <div class="spec-row"><div class="spec-dot"></div><span class="spec-key">Peak Power</span><span class="spec-val">1,500 bhp @ 8,400 rpm</span></div>
-        <div class="spec-row"><div class="spec-dot"></div><span class="spec-key">Peak Torque</span><span class="spec-val">1,180 lb-ft @ 5,200 rpm</span></div>
-        <div class="spec-row"><div class="spec-dot"></div><span class="spec-key">Transmission</span><span class="spec-val">8-speed dual-clutch</span></div>
-        <div class="spec-row"><div class="spec-dot"></div><span class="spec-key">Redline</span><span class="spec-val">9,000 rpm</span></div>
-      </div>
-      <a href="#configure" class="btn btn-primary magnetic reveal-el">Configure the Powertrain</a>
-    </div>
-  </section>
-
-  <!-- INTERIOR — 50/50 -->
-  <section id="interior">
-    <div class="interior-img reveal-el">
-      <img src="https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="NOVA BLACK luxury interior" loading="lazy" />
-    </div>
-    <div class="interior-body">
-      <p class="section-label reveal-el">Cockpit</p>
-      <h2 class="interior-headline reveal-el">BUILT FOR<br/><span class="accent">COMMAND</span></h2>
-      <div class="gold-bar reveal-el"></div>
-      <p class="interior-text reveal-el">Hand-stitched Alcantara on every surface. Carbon-fibre seat shells. Full-width OLED halo display. The interior is not a cabin — it is a command centre.</p>
-      <div class="feature-pills reveal-el">
-        <span class="pill">OLED Halo Display</span>
-        <span class="pill">Alcantara Trim</span>
-        <span class="pill">Active Bolstering</span>
-        <span class="pill">Titanium Cage</span>
-        <span class="pill">Naim Audio</span>
-        <span class="pill">Race Wheel</span>
-      </div>
-      <a href="#configure" class="btn btn-primary magnetic reveal-el">Customize Interior</a>
-    </div>
-  </section>
-
-  <!-- CONFIGURE -->
-  <section id="configure">
-    <div class="container">
-      <div class="configure-grid">
-        <div>
-          <p class="section-label reveal-el">Build Your Machine</p>
-          <h2 class="configure-headline reveal-el">COMMISSION<br/><span class="accent">YOUR BUILD</span></h2>
-          <div class="gold-bar reveal-el"></div>
-          <p class="configure-text reveal-el">Only 12 cars are built per year. Each one uniquely specified by its owner. Submit your vision and our client liaison will contact you within 24 hours.</p>
-          <div class="spec-list reveal-el">
-            <div class="spec-row"><div class="spec-dot"></div><span class="spec-key">Starting From</span><span class="spec-val" style="font-size:1.05rem">$2,400,000</span></div>
-            <div class="spec-row"><div class="spec-dot"></div><span class="spec-key">Delivery</span><span class="spec-val">18–24 months</span></div>
-            <div class="spec-row"><div class="spec-dot"></div><span class="spec-key">Available Units</span><span class="spec-val">3 of 12 remaining</span></div>
+      <form class="cf rev" id="cf" action="https://formspree.io/f/REPLACE_ID" method="POST">
+        <div class="cf-row">
+          <div class="cf-g">
+            <label class="cf-lbl" for="cf-name">Full Name</label>
+            <input class="cf-in" id="cf-name" name="name" type="text" placeholder="Your name" required/>
+          </div>
+          <div class="cf-g">
+            <label class="cf-lbl" for="cf-email">Email</label>
+            <input class="cf-in" id="cf-email" name="email" type="email" placeholder="your@email.com" required/>
           </div>
         </div>
-
-        <form class="cf-form reveal-el" id="cf-form" action="https://formspree.io/f/REPLACE_ID" method="POST">
-          <div class="cf-row">
-            <div class="cf-group">
-              <label class="cf-label" for="cf-name">Full Name</label>
-              <input class="cf-input" id="cf-name" name="name" type="text" placeholder="Your name" required />
-            </div>
-            <div class="cf-group">
-              <label class="cf-label" for="cf-email">Email</label>
-              <input class="cf-input" id="cf-email" name="email" type="email" placeholder="your@email.com" required />
-            </div>
+        <div class="cf-row">
+          <div class="cf-g">
+            <label class="cf-lbl" for="cf-phone">Phone</label>
+            <input class="cf-in" id="cf-phone" name="phone" type="tel" placeholder="+1 (000) 000-0000"/>
           </div>
-          <div class="cf-row">
-            <div class="cf-group">
-              <label class="cf-label" for="cf-phone">Phone</label>
-              <input class="cf-input" id="cf-phone" name="phone" type="tel" placeholder="+1 (000) 000-0000" />
-            </div>
-            <div class="cf-group">
-              <label class="cf-label" for="cf-country">Country</label>
-              <input class="cf-input" id="cf-country" name="country" type="text" placeholder="United States" />
-            </div>
+          <div class="cf-g">
+            <label class="cf-lbl" for="cf-country">Country</label>
+            <input class="cf-in" id="cf-country" name="country" type="text" placeholder="United States"/>
           </div>
-          <div class="cf-group">
-            <label class="cf-label" for="cf-model">Model Configuration</label>
-            <select class="cf-select" id="cf-model" name="model">
-              <option value="">Select configuration</option>
-              <option>NOVA BLACK — Street Edition</option>
-              <option>NOVA BLACK — Track Edition</option>
-              <option>NOVA BLACK — Race Specification</option>
-              <option>NOVA BLACK — Luxury Grand Tourer</option>
-              <option>NOVA BLACK — Stealth Package</option>
+        </div>
+        <div class="cf-g">
+          <label class="cf-lbl" for="cf-model">Model</label>
+          <select class="cf-sel" id="cf-model" name="model">
+            <option value="">Select model</option>
+            <option>NOVA BLACK — Street Edition</option>
+            <option>NOVA BLACK — Track Edition</option>
+            <option>NOVA BLACK — Race Specification</option>
+            <option>NOVA BLACK — Luxury Grand Tourer</option>
+            <option>NOVA BLACK — Stealth Package</option>
+          </select>
+        </div>
+        <div class="cf-g">
+          <label class="cf-lbl" for="cf-mode">Mode</label>
+          <select class="cf-sel" id="cf-mode" name="mode">
+            <option value="">Select mode</option>
+            <option>Track — Aggressive, Race-Ready</option>
+            <option>Luxury — Grand Touring, Ultra-Premium</option>
+            <option>Stealth — Dark, Blacked-Out</option>
+          </select>
+        </div>
+        <div class="cf-row">
+          <div class="cf-g">
+            <label class="cf-lbl" for="cf-ext">Exterior Color</label>
+            <select class="cf-sel" id="cf-ext" name="exterior_color">
+              <option value="">Select finish</option>
+              <option>Nova Black (Signature)</option>
+              <option>Obsidian Matte</option>
+              <option>Racing Red</option>
+              <option>Arctic White</option>
+              <option>Stealth Green</option>
+              <option>Champagne Navy</option>
+              <option>Bespoke</option>
             </select>
           </div>
-          <div class="cf-group">
-            <label class="cf-label" for="cf-mode-sel">Primary Mode</label>
-            <select class="cf-select" id="cf-mode-sel" name="primary_mode">
-              <option value="">Select mode</option>
-              <option>Track — Aggressive, Race-Ready</option>
-              <option>Luxury — Grand Touring, Ultra-Premium</option>
-              <option>Stealth — Dark, Blacked-Out</option>
+          <div class="cf-g">
+            <label class="cf-lbl" for="cf-int">Interior</label>
+            <select class="cf-sel" id="cf-int" name="interior">
+              <option value="">Select interior</option>
+              <option>Black Alcantara + Red Stitch</option>
+              <option>Navy Leather + Champagne</option>
+              <option>Full Carbon Fibre</option>
+              <option>Heritage Leather</option>
+              <option>Stealth Matte Black</option>
+              <option>Bespoke</option>
             </select>
           </div>
-          <div class="cf-row">
-            <div class="cf-group">
-              <label class="cf-label" for="cf-exterior">Exterior Colour</label>
-              <select class="cf-select" id="cf-exterior" name="exterior_colour">
-                <option value="">Select finish</option>
-                <option>Nova Black (Signature)</option>
-                <option>Obsidian Matte</option>
-                <option>Racing Red</option>
-                <option>Arctic White</option>
-                <option>Stealth Green</option>
-                <option>Champagne Navy</option>
-                <option>Bespoke</option>
-              </select>
-            </div>
-            <div class="cf-group">
-              <label class="cf-label" for="cf-interior-sel">Interior Material</label>
-              <select class="cf-select" id="cf-interior-sel" name="interior_material">
-                <option value="">Select material</option>
-                <option>Black Alcantara + Red Stitch</option>
-                <option>Navy Leather + Champagne</option>
-                <option>Full Carbon Fibre</option>
-                <option>Heritage Leather</option>
-                <option>Stealth Matte Black</option>
-                <option>Bespoke</option>
-              </select>
-            </div>
-          </div>
-          <div class="cf-group">
-            <label class="cf-label" for="cf-notes">Your Vision</label>
-            <textarea class="cf-textarea" id="cf-notes" name="notes" placeholder="Describe bespoke requirements, track specs, or delivery preferences..."></textarea>
-          </div>
-          <button type="submit" class="cf-submit magnetic">
-            <span>SUBMIT YOUR VISION →</span>
-          </button>
-        </form>
+        </div>
+        <div class="cf-g">
+          <label class="cf-lbl" for="cf-notes">Your Vision</label>
+          <textarea class="cf-ta" id="cf-notes" name="notes" placeholder="Describe bespoke requirements, track specifications, delivery preferences..."></textarea>
+        </div>
+        <button type="submit" class="cf-sub magnetic">
+          <span>SUBMIT YOUR VISION →</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">NOVA BLACK</div>
+        <p class="ft-tag">Twelve machines per year. Built for those who need nothing explained.</p>
+      </div>
+      <div>
+        <p class="ft-h">Navigate</p>
+        <ul class="ft-ul">
+          <li><a href="#stats">Performance</a></li>
+          <li><a href="#engine">The Engine</a></li>
+          <li><a href="#interior">Interior</a></li>
+          <li><a href="#modes-sec">Modes</a></li>
+          <li><a href="#configure">Commission</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-h">Contact</p>
+        <ul class="ft-ul">
+          <li><a href="mailto:orders@novablack.com">orders@novablack.com</a></li>
+          <li><a href="tel:+18005550000">+1 800 555 0000</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <div class="footer-logo">NOVA BLACK</div>
-          <p class="footer-tagline">Twelve machines per year. Built for those who need nothing explained.</p>
-        </div>
-        <div>
-          <p class="footer-heading">Navigate</p>
-          <ul class="footer-links">
-            <li><a href="#stats">Performance</a></li>
-            <li><a href="#engine">The Engine</a></li>
-            <li><a href="#interior">Interior</a></li>
-            <li><a href="#configure">Commission</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="footer-heading">Contact</p>
-          <ul class="footer-links">
-            <li><a href="mailto:orders@novablack.com">orders@novablack.com</a></li>
-            <li><a href="tel:+18005550000">+1 800 555 0000</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2026 NOVA BLACK. All rights reserved.</p>
-        <p class="footer-copy">12 units. No compromises.</p>
-      </div>
+    <div class="ft-bot">
+      <p class="ft-copy">&copy; 2026 NOVA BLACK. All rights reserved.</p>
+      <p class="ft-copy">12 units. No compromises.</p>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-  (function () {
-    'use strict';
+<script>
+(function(){
+'use strict';
 
-    /* ─────────────────────────────────────────
-       MODE DATA
-    ───────────────────────────────────────── */
-    const MODES = {
-      track: {
-        sub:    'Zero Compromise. Pure Obsession.',
-        eyebrow:'The Apex Machine — Track Edition',
-        stats: [
-          { val: '54.2', unit: 's',  dec: true,  label: 'Nürburgring Lap' },
-          { val: '3.2',  unit: 'G',  dec: true,  label: 'Peak G-Force' },
-          { val: '2200', unit: 'lb', dec: false, label: 'Downforce @ 200mph' },
-          { val: '1500', unit: 'hp', dec: false, label: 'Peak Power' },
-        ],
-      },
-      luxury: {
-        sub:    'Handcrafted. Effortless. Eternal.',
-        eyebrow:'The Grand Tourer — 2026',
-        stats: [
-          { val: '1.7',  unit: 's',   dec: true,  label: '0–60 mph' },
-          { val: '260',  unit: 'mph', dec: false, label: 'Top Speed' },
-          { val: '18',   unit: 'mo',  dec: false, label: 'Build Time' },
-          { val: '12',   unit: '',    dec: false, label: 'Units Per Year' },
-        ],
-      },
-      stealth: {
-        sub:    'Unseen. Unstoppable. Unmatched.',
-        eyebrow:'Stealth Configuration — 2026',
-        stats: [
-          { val: '1500', unit: 'hp',  dec: false, label: 'Horsepower' },
-          { val: '1180', unit: 'lb',  dec: false, label: 'Peak Torque' },
-          { val: '2850', unit: 'lb',  dec: false, label: 'Dry Weight' },
-          { val: '9000', unit: 'rpm', dec: false, label: 'Redline' },
-        ],
-      },
-    };
+/* ──────────────────────────────────────
+   MODE DATA
+────────────────────────────────────── */
+const MODES = {
+  track: {
+    sub: 'Zero Compromise. Pure Obsession.',
+    eyebrow: 'The Apex Machine — Track Edition',
+    stats: [
+      { val:'6:47', unit:'',    dec:false, label:'Nürburgring Lap' },
+      { val:'2.4',  unit:'g',   dec:true,  label:'Peak G-Force' },
+      { val:'840',  unit:'kg',  dec:false, label:'Downforce' },
+      { val:'789',  unit:'hp',  dec:false, label:'Power Output' },
+    ],
+  },
+  luxury: {
+    sub: 'Handcrafted. Effortless. Eternal.',
+    eyebrow: 'The Grand Tourer — 2026',
+    stats: [
+      { val:'2.4',  unit:'s',  dec:true,  label:'0–60 mph' },
+      { val:'217',  unit:'mph',dec:false, label:'Top Speed' },
+      { val:'2200', unit:'hrs',dec:false, label:'Handcrafted' },
+      { val:'12',   unit:'',   dec:false, label:'Units Per Year' },
+    ],
+  },
+  stealth: {
+    sub: 'Unseen. Unstoppable. Unmatched.',
+    eyebrow: 'Stealth Configuration — 2026',
+    stats: [
+      { val:'1500', unit:'hp',  dec:false, label:'Horsepower' },
+      { val:'590',  unit:'lb',  dec:false, label:'Peak Torque' },
+      { val:'2847', unit:'lbs', dec:false, label:'Dry Weight' },
+      { val:'9200', unit:'rpm', dec:false, label:'Redline' },
+    ],
+  },
+};
 
-    /* ─────────────────────────────────────────
-       LENIS
-    ───────────────────────────────────────── */
-    const lenis = new Lenis({
-      duration: 1.3,
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+/* ──────────────────────────────────────
+   LENIS
+────────────────────────────────────── */
+const lenis = new Lenis({ duration:1.3, easing: t => Math.min(1, 1.001 - Math.pow(2,-10*t)) });
+(function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t*1000));
+gsap.ticker.lagSmoothing(0);
+
+/* ──────────────────────────────────────
+   GSAP REGISTER
+────────────────────────────────────── */
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
+/* ──────────────────────────────────────
+   NAV
+────────────────────────────────────── */
+const nav = document.getElementById('nav');
+ScrollTrigger.create({
+  start: 'top -80',
+  onToggle: s => nav.classList.toggle('stuck', s.isActive),
+});
+
+/* ──────────────────────────────────────
+   HERO ENTRANCE
+────────────────────────────────────── */
+const split = new SplitText('#hero-hl .l1, #hero-hl .l2', { type:'chars' });
+const tl = gsap.timeline({ delay:0.2 });
+tl.to('#hero-eyebrow', { opacity:1, y:0, duration:.7, ease:'power3.out' }, 0)
+  .from(split.chars, { opacity:0, y:70, rotateX:-50, stagger:.022, duration:.8, ease:'power4.out' }, .2)
+  .to('#hero-sub',  { opacity:1, y:0, duration:.65, ease:'power3.out' }, .78)
+  .to('#hero-ctas', { opacity:1, y:0, duration:.65, ease:'power3.out' }, .96)
+  .to('#scroll-cue',{ opacity:1, duration:.5 }, 1.26);
+
+// scan line
+gsap.fromTo('#scanline', { top:'0%', opacity:0 },
+  { top:'100%', opacity:.85, duration:2, delay:.5, ease:'power1.inOut',
+    onComplete: () => gsap.set('#scanline',{opacity:0}) });
+
+/* ──────────────────────────────────────
+   3-LAYER MOUSE PARALLAX
+────────────────────────────────────── */
+const hero = document.getElementById('hero');
+const heroBody = document.getElementById('hero-body');
+const heroVid  = document.getElementById('hero-vid');
+const layers = [
+  { el: document.getElementById('pl1'), sx:.02, sy:.015 },
+  { el: document.getElementById('pl2'), sx:.055, sy:.038 },
+  { el: document.getElementById('pl3'), sx:.10,  sy:.07  },
+];
+let mX=0,mY=0;
+const cur = layers.map(()=>({x:0,y:0}));
+let cBX=0,cBY=0,cVX=0,cVY=0;
+
+hero.addEventListener('mousemove', e => {
+  const r = hero.getBoundingClientRect();
+  mX = (e.clientX-r.left)/r.width  - .5;
+  mY = (e.clientY-r.top) /r.height - .5;
+});
+
+gsap.ticker.add(()=>{
+  layers.forEach((l,i)=>{
+    cur[i].x += (mX*l.sx*200 - cur[i].x)*.07;
+    cur[i].y += (mY*l.sy*200 - cur[i].y)*.07;
+    gsap.set(l.el, {x:cur[i].x, y:cur[i].y});
+  });
+  // text — moves ±8px
+  cBX += (mX*-8  - cBX)*.06;
+  cBY += (mY*-8  - cBY)*.06;
+  gsap.set(heroBody,{x:cBX, y:cBY});
+  // video — moves ±15px
+  cVX += (mX*15  - cVX)*.04;
+  cVY += (mY*15  - cVY)*.04;
+  gsap.set(heroVid,{x:cVX, y:cVY});
+});
+
+/* ──────────────────────────────────────
+   SCROLL REVEAL — IO primary, GSAP fallback
+────────────────────────────────────── */
+function show(el){ gsap.to(el,{opacity:1,y:0,duration:.85,ease:'power3.out'}); }
+
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
+},{ threshold:.1 });
+
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+
+/* ──────────────────────────────────────
+   STAT COUNTERS
+────────────────────────────────────── */
+function attachCounter(el){
+  const raw = el.dataset.target;
+  // Handle non-numeric like "6:47"
+  if(isNaN(parseFloat(raw))){ return; } // display as-is, already set
+  const target = parseFloat(raw);
+  const dec    = el.dataset.dec === 'true';
+  const suf    = el.querySelector('.stat-suf')?.outerHTML||'';
+  const cio = new IntersectionObserver(ents=>{
+    if(!ents[0].isIntersecting) return;
+    cio.unobserve(el);
+    gsap.to({v:0},{
+      v:target, duration:2.2, ease:'power2.out',
+      onUpdate: function(){ el.innerHTML=(dec?this.targets()[0].v.toFixed(1):Math.round(this.targets()[0].v))+suf; }
     });
-    (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add(t => lenis.raf(t * 1000));
-    gsap.ticker.lagSmoothing(0);
+  },{threshold:.5});
+  cio.observe(el);
+}
 
-    /* ─────────────────────────────────────────
-       GSAP
-    ───────────────────────────────────────── */
-    gsap.registerPlugin(ScrollTrigger, SplitText);
+/* ──────────────────────────────────────
+   STATS RENDER
+────────────────────────────────────── */
+const statsRow = document.getElementById('stats-row');
+function renderStats(mode, animate){
+  statsRow.innerHTML = MODES[mode].stats.map(s=>
+    `<div class="stat-card">
+      <div class="stat-num" data-target="${s.val}" data-dec="${s.dec}">
+        ${isNaN(parseFloat(s.val)) ? s.val : '0'}<span class="stat-suf">${s.unit}</span>
+      </div>
+      <div class="stat-lbl">${s.label}</div>
+    </div>`
+  ).join('');
+  if(animate) gsap.from('.stat-card',{opacity:0,y:20,stagger:.08,duration:.5,ease:'power2.out'});
+  statsRow.querySelectorAll('.stat-num').forEach(attachCounter);
+}
 
-    /* ─────────────────────────────────────────
-       NAV SCROLL
-    ───────────────────────────────────────── */
-    const nav = document.getElementById('nav');
-    ScrollTrigger.create({
-      start: 'top -80',
-      onToggle: s => nav.classList.toggle('scrolled', s.isActive),
+/* ──────────────────────────────────────
+   MODE SWITCHER
+────────────────────────────────────── */
+let curMode = 'track';
+const htmlEl   = document.documentElement;
+const subEl    = document.getElementById('hero-sub');
+const eyeEl    = document.getElementById('hero-eyebrow');
+
+function switchMode(mode){
+  if(mode===curMode) return;
+  curMode = mode;
+  htmlEl.setAttribute('data-mode', mode);
+
+  // tabs
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.toggle('on', t.dataset.mode===mode));
+  // mode cards
+  document.querySelectorAll('.mcard').forEach(c=>c.classList.toggle('mc-active', c.dataset.mmode===mode));
+
+  // hero text swap
+  gsap.to([subEl,eyeEl],{opacity:0,y:-8,duration:.18,onComplete:()=>{
+    subEl.textContent = MODES[mode].sub;
+    eyeEl.textContent = MODES[mode].eyebrow;
+    gsap.to([subEl,eyeEl],{opacity:1,y:0,duration:.3});
+  }});
+
+  // stats
+  renderStats(mode, true);
+
+  // active tab bounce
+  const tab = document.querySelector(`.mtab[data-mode="${mode}"]`);
+  gsap.fromTo(tab,{scale:1},{scale:1.06,duration:.14,yoyo:true,repeat:1,ease:'power2.out'});
+}
+
+document.querySelectorAll('.mtab').forEach(b=>b.addEventListener('click',()=>switchMode(b.dataset.mode)));
+document.querySelectorAll('.mcard').forEach(c=>c.addEventListener('click',()=>switchMode(c.dataset.mmode)));
+
+// Init stats
+renderStats('track', false);
+
+/* ──────────────────────────────────────
+   ENGINE PROGRESS BARS — IO triggered
+────────────────────────────────────── */
+const pbio = new IntersectionObserver(entries=>{
+  if(!entries[0].isIntersecting) return;
+  pbio.disconnect();
+  document.querySelectorAll('.pbar-fill').forEach(bar=>{
+    const w = bar.dataset.w;
+    gsap.to(bar,{width:w+'%', duration:1.4, ease:'power2.out', delay: Math.random()*.3});
+  });
+},{ threshold:.3 });
+pbio.observe(document.getElementById('engine'));
+
+/* ──────────────────────────────────────
+   MAGNETIC BUTTONS
+────────────────────────────────────── */
+document.querySelectorAll('.magnetic').forEach(btn=>{
+  btn.addEventListener('mousemove', e=>{
+    const r  = btn.getBoundingClientRect();
+    const dx = (e.clientX-(r.left+r.width/2))*.32;
+    const dy = (e.clientY-(r.top+r.height/2))*.32;
+    gsap.to(btn,{x:dx,y:dy,duration:.35,ease:'power2.out'});
+  });
+  btn.addEventListener('mouseleave',()=>{
+    gsap.to(btn,{x:0,y:0,duration:.65,ease:'elastic.out(1,.45)'});
+  });
+});
+
+/* ──────────────────────────────────────
+   FORM SUBMIT
+────────────────────────────────────── */
+const form = document.getElementById('cf');
+form.addEventListener('submit', async e=>{
+  e.preventDefault();
+  const span = form.querySelector('.cf-sub span');
+  const orig = span.textContent;
+  span.textContent = 'Sending…';
+  try {
+    const res = await fetch(form.action,{
+      method:'POST', body:new FormData(form),
+      headers:{Accept:'application/json'},
     });
-
-    /* ─────────────────────────────────────────
-       HERO ENTRANCE
-    ───────────────────────────────────────── */
-    const split = new SplitText('#hero-headline .line', { type: 'chars' });
-    const heroTL = gsap.timeline({ delay: 0.2 });
-    heroTL
-      .to('#hero-eyebrow', { opacity: 1, y: 0, duration: .7, ease: 'power3.out' }, 0)
-      .from(split.chars, { opacity: 0, y: 70, rotateX: -50, stagger: .025, duration: .8, ease: 'power4.out' }, .22)
-      .to('#hero-sub',    { opacity: 1, y: 0, duration: .65, ease: 'power3.out' }, .82)
-      .to('#hero-cta',    { opacity: 1, y: 0, duration: .65, ease: 'power3.out' }, 1.02)
-      .to('#scroll-hint', { opacity: 1, duration: .5 }, 1.32);
-
-    gsap.fromTo('#scanline',
-      { top: '0%', opacity: 0 },
-      { top: '100%', opacity: .9, duration: 2, delay: .5, ease: 'power1.inOut',
-        onComplete: () => gsap.set('#scanline', { opacity: 0 }) });
-
-    /* ─────────────────────────────────────────
-       PARALLAX — 3 layers
-    ───────────────────────────────────────── */
-    const heroSec = document.getElementById('hero');
-    const pLayers = [
-      { el: document.getElementById('p1'), sx: .025, sy: .018 },
-      { el: document.getElementById('p2'), sx: .055, sy: .038 },
-      { el: document.getElementById('p3'), sx: .095, sy: .065 },
-    ];
-    const heroContent = document.getElementById('hero-content');
-    let mX = 0, mY = 0;
-    const cur = pLayers.map(() => ({ x: 0, y: 0 }));
-    let cCX = 0, cCY = 0;
-
-    heroSec.addEventListener('mousemove', e => {
-      const r = heroSec.getBoundingClientRect();
-      mX = (e.clientX - r.left) / r.width  - .5;
-      mY = (e.clientY - r.top)  / r.height - .5;
-    });
-
-    gsap.ticker.add(() => {
-      pLayers.forEach((l, i) => {
-        cur[i].x += (mX * l.sx * 200 - cur[i].x) * .07;
-        cur[i].y += (mY * l.sy * 200 - cur[i].y) * .07;
-        gsap.set(l.el, { x: cur[i].x, y: cur[i].y });
-      });
-      cCX += (mX * -15 - cCX) * .06;
-      cCY += (mY * -10 - cCY) * .06;
-      gsap.set(heroContent, { x: cCX, y: cCY });
-    });
-
-    /* ─────────────────────────────────────────
-       SCROLL REVEAL — IO + GSAP fallback
-    ───────────────────────────────────────── */
-    function revealEl(el) {
-      gsap.to(el, { opacity: 1, y: 0, duration: .85, ease: 'power3.out' });
+    if(res.ok){
+      span.textContent='Vision Received ✓';
+      gsap.to(form.querySelector('.cf-sub'),{background:'#1a6e1a',duration:.4});
+    } else {
+      span.textContent='Error — please try again';
+      setTimeout(()=>{ span.textContent=orig; },3000);
     }
+  } catch { span.textContent=orig; }
+});
 
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { revealEl(e.target); io.unobserve(e.target); }
-      });
-    }, { threshold: .12 });
-
-    document.querySelectorAll('.reveal-el').forEach(el => io.observe(el));
-
-    /* ─────────────────────────────────────────
-       STAT COUNTER
-    ───────────────────────────────────────── */
-    function attachCounter(el) {
-      const cio = new IntersectionObserver(entries => {
-        if (!entries[0].isIntersecting) return;
-        cio.unobserve(el);
-        const target = parseFloat(el.dataset.target);
-        const dec    = el.dataset.dec === 'true';
-        const suffix = el.querySelector('.stat-suffix')?.outerHTML || '';
-        gsap.to({ v: 0 }, {
-          v: target, duration: 2.2, ease: 'power2.out',
-          onUpdate: function () {
-            const v = this.targets()[0].v;
-            el.innerHTML = (dec ? v.toFixed(1) : Math.round(v)) + suffix;
-          },
-        });
-      }, { threshold: .5 });
-      cio.observe(el);
-    }
-
-    /* ─────────────────────────────────────────
-       STATS RENDER
-    ───────────────────────────────────────── */
-    const statsGrid = document.getElementById('stats-grid');
-
-    function renderStats(mode, animate) {
-      statsGrid.innerHTML = MODES[mode].stats.map(s =>
-        `<div class="stat-item">
-          <div class="stat-number" data-target="${s.val}" data-dec="${s.dec}">
-            0<span class="stat-suffix">${s.unit}</span>
-          </div>
-          <div class="stat-label">${s.label}</div>
-        </div>`
-      ).join('');
-      if (animate) gsap.from('.stat-item', { opacity: 0, y: 20, stagger: .08, duration: .5, ease: 'power2.out' });
-      document.querySelectorAll('.stat-number').forEach(attachCounter);
-    }
-
-    /* ─────────────────────────────────────────
-       MODE SWITCHER
-    ───────────────────────────────────────── */
-    let currentMode = 'track';
-    const html = document.documentElement;
-    const subEl     = document.getElementById('hero-sub');
-    const eyebrowEl = document.getElementById('hero-eyebrow');
-
-    function switchMode(mode) {
-      if (mode === currentMode) return;
-      currentMode = mode;
-
-      html.setAttribute('data-mode', mode);
-
-      document.querySelectorAll('.mode-tab').forEach(t => {
-        t.classList.toggle('active', t.dataset.mode === mode);
-        t.setAttribute('aria-selected', t.dataset.mode === mode);
-      });
-
-      // Hero text swap
-      gsap.to([subEl, eyebrowEl], {
-        opacity: 0, y: -8, duration: .18,
-        onComplete: () => {
-          subEl.textContent     = MODES[mode].sub;
-          eyebrowEl.textContent = MODES[mode].eyebrow;
-          gsap.to([subEl, eyebrowEl], { opacity: 1, y: 0, duration: .3 });
-        },
-      });
-
-      // Stats swap
-      renderStats(mode, true);
-
-      // Tab pulse
-      const activeTab = document.querySelector(`.mode-tab[data-mode="${mode}"]`);
-      gsap.fromTo(activeTab, { scale: 1 }, { scale: 1.05, duration: .15, yoyo: true, repeat: 1, ease: 'power2.out' });
-    }
-
-    document.querySelectorAll('.mode-tab').forEach(btn =>
-      btn.addEventListener('click', () => switchMode(btn.dataset.mode))
-    );
-
-    // Init
-    renderStats('track', false);
-
-    /* ─────────────────────────────────────────
-       ENGINE REVEAL
-    ───────────────────────────────────────── */
-    ScrollTrigger.create({
-      trigger: '#engine', start: 'top 65%', once: true,
-      onEnter: () => gsap.from('.engine-content', { x: -60, opacity: 0, duration: 1.1, ease: 'power3.out' }),
-    });
-
-    /* ─────────────────────────────────────────
-       MAGNETIC BUTTONS
-    ───────────────────────────────────────── */
-    document.querySelectorAll('.magnetic').forEach(btn => {
-      btn.addEventListener('mousemove', e => {
-        const r  = btn.getBoundingClientRect();
-        const dx = (e.clientX - (r.left + r.width  / 2)) * .32;
-        const dy = (e.clientY - (r.top  + r.height / 2)) * .32;
-        gsap.to(btn, { x: dx, y: dy, duration: .35, ease: 'power2.out' });
-      });
-      btn.addEventListener('mouseleave', () =>
-        gsap.to(btn, { x: 0, y: 0, duration: .65, ease: 'elastic.out(1, .45)' })
-      );
-    });
-
-    /* ─────────────────────────────────────────
-       FORM
-    ───────────────────────────────────────── */
-    const form = document.getElementById('cf-form');
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      const span = form.querySelector('.cf-submit span');
-      const orig = span.textContent;
-      span.textContent = 'Sending…';
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST', body: new FormData(form),
-          headers: { Accept: 'application/json' },
-        });
-        if (res.ok) {
-          span.textContent = 'Vision Received ✓';
-          gsap.to(form.querySelector('.cf-submit'), { background: '#1a6e1a', duration: .4 });
-        } else {
-          span.textContent = 'Error — please try again';
-          setTimeout(() => { span.textContent = orig; }, 3000);
-        }
-      } catch { span.textContent = orig; }
-    });
-
-  })();
-  </script>
+})();
+</script>
 </body>
 </html>
