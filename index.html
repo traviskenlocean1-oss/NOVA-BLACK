@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>NOVA BLACK — Elite Web Design Studio</title>
-<meta name="description" content="NOVA BLACK — Premium web design for businesses that refuse to be ignored. Commission your elite website today."/>
-<link rel="canonical" href="https://nova-black.vercel.app/"/>
-<meta property="og:title" content="NOVA BLACK — Elite Web Design Studio"/>
-<meta property="og:description" content="Premium websites for businesses that demand excellence."/>
+<title>NOVA BLACK — Born to Dominate</title>
+<meta name="description" content="NOVA BLACK. 1,500hp. Three modes. One obsession. Commission yours."/>
+<link rel="canonical" href="https://nova-black-murex.vercel.app/"/>
+<meta property="og:title" content="NOVA BLACK — Born to Dominate"/>
 <meta property="og:type" content="website"/>
 
 <!-- Fonts -->
@@ -15,421 +14,358 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
-<!-- GSAP -->
+<!-- GSAP (no SplitText — Club plugin only, breaks on free CDN) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
 <!-- Lenis -->
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 
 <style>
 /* =====================================================
-   MODE TOKENS
+   MODE TOKENS — data-mode on <html>
 ===================================================== */
 :root, [data-mode="track"] {
-  --accent:      #E8001D;
-  --accent-h:    #FF1A33;
-  --accent-rgb:  232,0,29;
-  --bg:          #0a0a0a;
-  --bg2:         #111111;
-  --bg3:         #181818;
-  --bg4:         #1e1e1e;
-  --text:        #FFFFFF;
-  --text-dim:    rgba(255,255,255,0.55);
-  --text-xdim:   rgba(255,255,255,0.25);
-  --overlay:     rgba(10,10,10,0.72);
-  --overlay2:    rgba(232,0,29,0.08);
-  --ff-head:     'Bebas Neue', sans-serif;
-  --ff-body:     'Inter', sans-serif;
-  --ls-head:     0.04em;
-  --tex:         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%230d0d0d'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%230d0d0d'/%3E%3Crect width='4' height='4' fill='%23111' fill-opacity='.55'/%3E%3C/svg%3E");
+  --a:    #E8001D;
+  --ah:   #FF2A3D;
+  --bg:   #0a0a0a;
+  --bg2:  #111111;
+  --bg3:  #181818;
+  --bg4:  #1e1e1e;
+  --tx:   #FFFFFF;
+  --txd:  rgba(255,255,255,0.55);
+  --txx:  rgba(255,255,255,0.22);
+  --ov:   rgba(10,10,10,0.72);
+  --ov2:  rgba(232,0,29,0.08);
+  --fh:   'Bebas Neue', sans-serif;
+  --fb:   'Inter', sans-serif;
+  --ls:   0.04em;
+  --tex:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='2' height='2' fill='%230d0d0d'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%230d0d0d'/%3E%3Crect width='4' height='4' fill='%23111' fill-opacity='.5'/%3E%3C/svg%3E");
 }
 [data-mode="luxury"] {
-  --accent:      #C9A07A;
-  --accent-h:    #E8C4A0;
-  --accent-rgb:  201,160,122;
-  --bg:          #0a0f1e;
-  --bg2:         #0d1428;
-  --bg3:         #111830;
-  --bg4:         #151d38;
-  --text:        #FFFFFF;
-  --text-dim:    rgba(255,255,255,0.55);
-  --text-xdim:   rgba(255,255,255,0.25);
-  --overlay:     rgba(10,15,30,0.78);
-  --overlay2:    rgba(201,160,122,0.07);
-  --ff-head:     'Cormorant Garamond', serif;
-  --ff-body:     'Inter', sans-serif;
-  --ls-head:     0.14em;
-  --tex:         none;
+  --a:    #C9A07A;
+  --ah:   #E8C4A0;
+  --bg:   #0a0f1e;
+  --bg2:  #0d1428;
+  --bg3:  #111830;
+  --bg4:  #141d38;
+  --tx:   #FFFFFF;
+  --txd:  rgba(255,255,255,0.55);
+  --txx:  rgba(255,255,255,0.22);
+  --ov:   rgba(10,15,30,0.78);
+  --ov2:  rgba(201,160,122,0.07);
+  --fh:   'Cormorant Garamond', serif;
+  --fb:   'Inter', sans-serif;
+  --ls:   0.14em;
+  --tex:  none;
 }
 [data-mode="stealth"] {
-  --accent:      #00FF88;
-  --accent-h:    #33FFAA;
-  --accent-rgb:  0,255,136;
-  --bg:          #080808;
-  --bg2:         #0c0c0c;
-  --bg3:         #101010;
-  --bg4:         #141414;
-  --text:        #E8E8E8;
-  --text-dim:    rgba(232,232,232,0.5);
-  --text-xdim:   rgba(232,232,232,0.2);
-  --overlay:     rgba(0,8,4,0.80);
-  --overlay2:    rgba(0,255,136,0.07);
-  --ff-head:     'Bebas Neue', sans-serif;
-  --ff-body:     'Inter', sans-serif;
-  --ls-head:     0.06em;
-  --tex:         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpolygon points='12,1 23,6.5 23,17.5 12,23 1,17.5 1,6.5' fill='none' stroke='%2300FF88' stroke-width='0.5' stroke-opacity='0.07'/%3E%3C/svg%3E");
+  --a:    #00FF88;
+  --ah:   #33FFAA;
+  --bg:   #080808;
+  --bg2:  #0c0c0c;
+  --bg3:  #101010;
+  --bg4:  #141414;
+  --tx:   #E4E4E4;
+  --txd:  rgba(228,228,228,0.5);
+  --txx:  rgba(228,228,228,0.2);
+  --ov:   rgba(0,8,4,0.80);
+  --ov2:  rgba(0,255,136,0.07);
+  --fh:   'Bebas Neue', sans-serif;
+  --fb:   'Inter', sans-serif;
+  --ls:   0.06em;
+  --tex:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpolygon points='12,1 23,6.5 23,17.5 12,23 1,17.5 1,6.5' fill='none' stroke='%2300FF88' stroke-width='0.5' stroke-opacity='0.07'/%3E%3C/svg%3E");
 }
 
 /* =====================================================
-   GLOBAL TRANSITION — makes mode swap smooth
+   0.4s MODE TRANSITION — on everything
 ===================================================== */
 *, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  transition:
-    background-color 0.4s ease,
-    border-color     0.4s ease,
-    color            0.4s ease,
-    opacity          0.4s ease;
+  box-sizing: border-box; margin: 0; padding: 0;
+  transition: background-color .4s ease, border-color .4s ease, color .4s ease;
 }
-/* Exclude transforms from transition so GSAP works cleanly */
-.notrans { transition: none !important; }
 
 html { scroll-behavior: auto; }
 
 body {
   background: var(--bg);
-  color: var(--text);
-  font-family: var(--ff-body);
-  overflow-x: hidden;
+  color: var(--tx);
+  font-family: var(--fb);
   font-size: 16px;
   line-height: 1.65;
+  overflow-x: hidden;
 }
 
 img, video { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
-
 .container { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; }
 
-/* =====================================================
-   TYPOGRAPHY UTILITIES
-===================================================== */
-.label {
+/* label */
+.lbl {
   display: block;
-  font-family: var(--ff-body);
-  font-size: 0.67rem;
-  font-weight: 600;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1rem;
+  font-family: var(--fb); font-size: .67rem; font-weight: 600;
+  letter-spacing: .35em; text-transform: uppercase;
+  color: var(--a); margin-bottom: 1rem;
 }
-.headline {
-  font-family: var(--ff-head);
-  letter-spacing: var(--ls-head);
-  line-height: 0.92;
-  color: var(--text);
+/* section headline */
+.shl {
+  font-family: var(--fh);
+  letter-spacing: var(--ls);
+  line-height: .92; color: var(--tx);
 }
-.accent { color: var(--accent); }
-.bar {
-  width: 48px; height: 2px;
-  background: var(--accent);
-  margin: 1.2rem 0 2rem;
-}
+.ac { color: var(--a); }
+.bar { width: 48px; height: 2px; background: var(--a); margin: 1.2rem 0 2rem; }
 
 /* =====================================================
    BUTTONS
 ===================================================== */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.9rem 2.4rem;
-  font-family: var(--ff-head);
-  font-size: 1rem;
-  letter-spacing: 0.12em;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  border: none;
-  transition: color 0.3s;
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .9rem 2.4rem;
+  font-family: var(--fh); font-size: 1rem; letter-spacing: .12em;
+  cursor: pointer; position: relative; overflow: hidden; z-index: 1; border: none;
 }
 .btn::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: var(--accent-h);
-  transform: scaleX(0);
-  transform-origin: right;
-  z-index: -1;
-  transition: transform 0.4s cubic-bezier(.16,1,.3,1), background-color 0.4s;
+  content: ''; position: absolute; inset: 0;
+  background: var(--ah); transform: scaleX(0); transform-origin: right; z-index: -1;
+  transition: transform .4s cubic-bezier(.16,1,.3,1), background-color .4s;
 }
 .btn:hover::after { transform: scaleX(1); transform-origin: left; }
-.btn-fill { background: var(--accent); color: #000; }
-.btn-fill:hover { color: #000; }
-.btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
-.btn-outline:hover { color: #000; }
-.btn-sm { padding: 0.55rem 1.4rem; font-size: 0.82rem; }
+.btn-f { background: var(--a); color: #000; }
+.btn-f:hover { color: #000; }
+.btn-o { background: transparent; color: var(--a); border: 1px solid var(--a); }
+.btn-o:hover { color: #000; }
+.btn-sm { padding: .55rem 1.4rem; font-size: .82rem; }
 
 /* =====================================================
-   MODE SWITCHER — fixed right tab
+   MODE SWITCHER — fixed right vertical tab
 ===================================================== */
-#mode-sw {
-  position: fixed;
-  right: 0; top: 50%;
+#msw {
+  position: fixed; right: 0; top: 50%;
   transform: translateY(-50%);
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  pointer-events: all;
+  z-index: 9999;
+  display: flex; flex-direction: column;
 }
-.mtab {
+.mt {
   writing-mode: vertical-rl;
-  padding: 1.4rem 0.8rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  background: rgba(8,8,8,0.9);
-  border-left: 3px solid rgba(255,255,255,0.07);
-  color: rgba(255,255,255,0.3);
+  padding: 1.4rem .8rem;
+  font-family: 'Inter', sans-serif; font-size: .6rem; font-weight: 700;
+  letter-spacing: .28em; text-transform: uppercase;
+  background: rgba(8,8,8,.92);
+  border-left: 3px solid rgba(255,255,255,.07);
+  color: rgba(255,255,255,.3);
   cursor: pointer;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   user-select: none;
-  transition: background 0.25s, color 0.25s, border-color 0.25s;
+  transition: background .25s, color .25s, border-color .25s !important;
 }
-.mtab:hover { color: rgba(255,255,255,0.85); background: rgba(22,22,22,0.95); }
-.mtab.on { color: #000 !important; background: var(--accent) !important; border-left-color: var(--accent) !important; }
+.mt:hover { color: rgba(255,255,255,.85); background: rgba(22,22,22,.95); }
+.mt.on { color: #000 !important; background: var(--a) !important; border-left-color: var(--a) !important; }
 @media (max-width: 768px) {
-  #mode-sw { top: auto; bottom: 0; right: 0; left: 0; flex-direction: row; transform: none; }
-  .mtab { writing-mode: horizontal-tb; flex: 1; text-align: center; padding: 0.75rem 0.25rem; font-size: 0.58rem; }
+  #msw { top: auto; bottom: 0; right: 0; left: 0; flex-direction: row; transform: none; }
+  .mt { writing-mode: horizontal-tb; flex: 1; text-align: center; padding: .8rem .3rem; font-size: .58rem; }
 }
 
 /* =====================================================
    NAV
 ===================================================== */
 #nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: 900;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 800;
   padding: 1.2rem 0;
-  transition: background 0.4s, padding 0.4s, border-color 0.4s;
 }
 #nav.stuck {
   background: var(--bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 0.7rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  padding: .7rem 0; border-bottom: 1px solid rgba(255,255,255,.07);
 }
-.nav-i { display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { font-family: var(--ff-head); font-size: 1.7rem; letter-spacing: 0.15em; color: var(--accent); }
-.nav-links { display: flex; gap: 2.2rem; list-style: none; }
-.nav-links a {
-  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--text-dim);
-  position: relative;
+.ni { display: flex; align-items: center; justify-content: space-between; }
+.nl { font-family: var(--fh); font-size: 1.7rem; letter-spacing: .15em; color: var(--a); }
+.nlinks { display: flex; gap: 2.2rem; list-style: none; }
+.nlinks a {
+  font-size: .7rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--txd); position: relative;
 }
-.nav-links a::after {
+.nlinks a::after {
   content: ''; position: absolute; bottom: -3px; left: 0;
-  width: 0; height: 1px; background: var(--accent);
-  transition: width 0.3s;
+  width: 0; height: 1px; background: var(--a); transition: width .3s;
 }
-.nav-links a:hover { color: var(--text); }
-.nav-links a:hover::after { width: 100%; }
-@media (max-width: 820px) { .nav-links { display: none; } }
+.nlinks a:hover { color: var(--tx); }
+.nlinks a:hover::after { width: 100%; }
+@media (max-width: 820px) { .nlinks { display: none; } }
 
 /* =====================================================
-   HERO
+   HERO — full viewport, ALWAYS VISIBLE
+   Content is visible by default. GSAP animates FROM
+   offscreen — if JS fails, content still shows.
 ===================================================== */
 #hero {
   position: relative;
-  height: 100vh;
-  min-height: 720px;
-  display: flex;
-  align-items: center;
-  background: var(--bg);
+  height: 100vh; min-height: 720px;
+  display: flex; align-items: center;
+  background: #0a0a0a;          /* hard fallback — not var() */
   overflow: hidden;
 }
-.hero-vid-wrap { position: absolute; inset: 0; z-index: 0; }
-.hero-vid-wrap video { width: 100%; height: 100%; object-fit: cover; }
-.hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: var(--overlay);
-}
-.hero-wash {
-  position: absolute; inset: 0; z-index: 2;
-  background: var(--overlay2);
-}
-/* 3 parallax layers */
-.plyr {
+.hvw { position: absolute; inset: 0; z-index: 0; }
+.hvw video { width: 100%; height: 100%; object-fit: cover; }
+.hov  { position: absolute; inset: 0; z-index: 1; background: var(--ov); }
+.hwsh { position: absolute; inset: 0; z-index: 2; background: var(--ov2); }
+
+/* parallax SVG layers */
+.pl {
   position: absolute; inset: 0; z-index: 3;
-  pointer-events: none; overflow: hidden;
+  pointer-events: none; overflow: hidden; will-change: transform;
+}
+.pl svg { width: 100%; height: 100%; color: var(--a); }
+
+/* hero text — VISIBLE BY DEFAULT */
+.hb {
+  position: relative; z-index: 5; max-width: 900px;
   will-change: transform;
 }
-.plyr svg { width: 100%; height: 100%; color: var(--accent); }
+.hey {
+  font-size: .72rem; font-weight: 600; letter-spacing: .42em;
+  text-transform: uppercase; color: var(--a); margin-bottom: 1.4rem;
+  display: block;
+}
+/* Hero headline — CSS keyframe animation, no GSAP dependency */
+.hhl {
+  font-family: var(--fh);
+  font-size: clamp(5rem, 14vw, 13rem);
+  line-height: .86; letter-spacing: var(--ls);
+  margin-bottom: 1.6rem;
+  animation: hlin 1s cubic-bezier(.16,1,.3,1) both;
+}
+.hhl .l1 { display: block; color: #fff; }
+.hhl .l2 { display: block; color: var(--a); }
 
-.hero-body { position: relative; z-index: 5; max-width: 880px; }
-.hero-eyebrow {
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.42em;
-  text-transform: uppercase; color: var(--accent);
-  margin-bottom: 1.6rem;
+@keyframes hlin {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-.hero-hl {
-  font-family: var(--ff-head);
-  font-size: clamp(5.5rem, 15vw, 14rem);
-  line-height: 0.86;
-  letter-spacing: var(--ls-head);
-  margin-bottom: 1.6rem;
+
+.hsub {
+  font-size: 1.05rem; font-weight: 300; color: var(--txd);
+  max-width: 500px; margin-bottom: 2.8rem; letter-spacing: .02em;
+  animation: hlin .9s .25s cubic-bezier(.16,1,.3,1) both;
 }
-.hero-hl .l1 { display: block; color: var(--text); }
-.hero-hl .l2 { display: block; color: var(--accent); }
-.hero-sub {
-  font-size: 1.05rem; font-weight: 300;
-  color: var(--text-dim); max-width: 500px;
-  margin-bottom: 2.8rem; letter-spacing: 0.02em;
+.hctas {
+  display: flex; gap: 1.2rem; flex-wrap: wrap;
+  animation: hlin .9s .45s cubic-bezier(.16,1,.3,1) both;
 }
-.hero-ctas { display: flex; gap: 1.2rem; flex-wrap: wrap; }
-.hero-scanline {
+
+/* scanline */
+.hsl {
   position: absolute; left: 0; right: 0; top: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background: linear-gradient(90deg, transparent, var(--a), transparent);
   z-index: 6; pointer-events: none; opacity: 0;
 }
-.scroll-cue {
+/* scroll cue */
+.sc {
   position: absolute; bottom: 2.5rem; left: 50%;
   transform: translateX(-50%); z-index: 6;
-  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-  opacity: 0;
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+  animation: hlin .8s 1s both;
 }
-.scroll-cue span {
-  font-size: 0.6rem; letter-spacing: 0.32em;
-  text-transform: uppercase; color: var(--accent);
-}
-.scroll-ln {
+.sc span { font-size: .6rem; letter-spacing: .32em; text-transform: uppercase; color: var(--a); }
+.scl {
   width: 1px; height: 50px;
-  background: linear-gradient(180deg, var(--accent), transparent);
-  animation: sc 1.9s ease-in-out infinite;
+  background: linear-gradient(180deg, var(--a), transparent);
+  animation: sp 1.9s ease-in-out infinite;
 }
-@keyframes sc { 0%,100%{opacity:.25} 50%{opacity:1} }
+@keyframes sp { 0%,100%{opacity:.25} 50%{opacity:1} }
 
 /* =====================================================
-   STATS — explicit bg + min-height
+   STATS — ALWAYS VISIBLE
 ===================================================== */
 #stats {
-  background: var(--bg2);
+  background: #111111;                /* hard color — no var() dependency */
+  background-image: var(--tex);
   min-height: 300px;
   padding: 5rem 0;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  background-image: var(--tex);
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+.sg {
+  display: grid; grid-template-columns: repeat(4,1fr);
 }
-@media (max-width: 700px) { .stats-row { grid-template-columns: repeat(2,1fr); } }
-.stat-card {
-  padding: 2.8rem 2rem;
-  text-align: center;
-  border-right: 1px solid rgba(255,255,255,0.06);
+@media (max-width: 700px) { .sg { grid-template-columns: repeat(2,1fr); } }
+.sc2 {
+  padding: 2.8rem 2rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,.07);
   background: transparent;
 }
-.stat-card:last-child { border-right: none; }
-.stat-num {
-  font-family: var(--ff-head);
-  font-size: clamp(3.2rem,5.5vw,5.8rem);
-  color: var(--accent);
-  line-height: 1;
-  letter-spacing: 0.02em;
+.sc2:last-child { border-right: none; }
+.sn {
+  font-family: var(--fh);
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  color: var(--a); line-height: 1;
 }
-.stat-suf { font-size: 55%; }
-.stat-lbl {
-  font-size: 0.66rem; font-weight: 500;
-  letter-spacing: 0.3em; text-transform: uppercase;
-  color: var(--text-xdim); margin-top: 0.6rem;
+.su { font-size: 55%; }
+.sl {
+  font-size: .66rem; font-weight: 500; letter-spacing: .3em;
+  text-transform: uppercase; color: var(--txx); margin-top: .6rem;
 }
 
 /* =====================================================
-   ENGINE — full bleed explicit height
+   ENGINE — ALWAYS VISIBLE with hard bg fallback
 ===================================================== */
 #engine {
   position: relative;
-  min-height: 70vh;
-  height: 70vh;
-  display: flex;
-  align-items: center;
-  background: var(--bg);
+  height: 70vh; min-height: 520px;
+  display: flex; align-items: center;
+  background: #0a0a0a;              /* hard fallback */
   overflow: hidden;
 }
-.engine-img {
-  position: absolute; inset: 0;
+.ebg {
+  position: absolute; inset: 0; z-index: 0;
   background:
     url('https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1600')
     center/cover no-repeat;
-  z-index: 0;
 }
-.engine-grad {
+.etint {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(90deg,
-    rgba(var(--accent-rgb),0.05) 0%,
-    var(--bg) 0%,
-    rgba(0,0,0,0.65) 40%,
-    transparent 100%
-  );
+  background: linear-gradient(270deg, #0a0a0a 0%, rgba(0,0,0,.6) 40%, transparent 75%);
 }
-.engine-grad-r {
-  position: absolute; inset: 0; z-index: 2;
-  background: linear-gradient(270deg, var(--bg) 0%, rgba(0,0,0,0) 55%);
-}
-.engine-body {
-  position: relative; z-index: 4;
+.ebody {
+  position: relative; z-index: 3;
   margin-left: auto;
-  max-width: 520px;
+  max-width: 530px;
   padding: 0 max(2.5rem, calc((100vw - 1280px)/2 + 2.5rem)) 0 2rem;
 }
-@media (max-width: 1300px) { .engine-body { padding-right: 3rem; } }
-@media (max-width: 700px) { .engine-body { padding: 3rem 1.5rem; max-width: 100%; margin: 0; } }
-.engine-hl {
-  font-family: var(--ff-head);
+@media (max-width: 1300px) { .ebody { padding-right: 3rem; } }
+@media (max-width: 700px)  { .ebody { padding: 3rem 1.5rem; max-width: 100%; margin: 0; } }
+.ehl {
+  font-family: var(--fh);
   font-size: clamp(2.8rem,5vw,5.5rem);
-  letter-spacing: var(--ls-head); line-height: 0.92;
-  margin-bottom: 1.5rem; color: var(--text);
+  letter-spacing: var(--ls); line-height: .92;
+  margin-bottom: 1.5rem; color: #fff;
 }
-.engine-txt { font-size: 0.9rem; font-weight: 300; color: var(--text-dim); line-height: 1.8; margin-bottom: 2rem; }
-.pbars { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
-.pbar-row { }
-.pbar-label {
+.etx { font-size: .9rem; font-weight: 300; color: var(--txd); line-height: 1.8; margin-bottom: 2rem; }
+.pbs { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+.pbr {}
+.pbl {
   display: flex; justify-content: space-between;
-  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.4rem;
+  font-size: .67rem; font-weight: 500; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--txd); margin-bottom: .4rem;
 }
-.pbar-track {
-  height: 3px; background: rgba(255,255,255,0.1);
-  position: relative; overflow: hidden;
-}
-.pbar-fill {
+.pbt { height: 3px; background: rgba(255,255,255,.1); position: relative; overflow: hidden; }
+.pbf {
   position: absolute; top: 0; left: 0; height: 100%;
-  background: var(--accent);
-  width: 0;
-  transition: background-color 0.4s;
+  background: var(--a); width: 0;
+  transition: background-color .4s;
 }
 
 /* =====================================================
-   INTERIOR — 50/50 explicit heights
+   INTERIOR — ALWAYS VISIBLE
 ===================================================== */
 #interior {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 600px;
-  background: var(--bg2);
+  background: #111111;              /* hard fallback */
 }
 @media (max-width: 900px) { #interior { grid-template-columns: 1fr; } }
-.int-img {
+.iimg {
   position: relative;
   min-height: 500px;
   background:
@@ -437,349 +373,343 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     center/cover no-repeat;
   overflow: hidden;
 }
-.int-img::after {
+.iimg::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(90deg, transparent 65%, var(--bg2) 100%);
+  background: linear-gradient(90deg, transparent 65%, #111 100%);
 }
-.int-body {
-  background: var(--bg2);
+.ibdy {
+  background: #111111;              /* hard fallback */
   display: flex; flex-direction: column; justify-content: center;
-  padding: 5rem 4rem;
-  min-height: 500px;
+  padding: 5rem 4rem; min-height: 500px;
 }
-@media (max-width: 1200px) { .int-body { padding: 4rem 2.5rem; } }
-.int-hl {
-  font-family: var(--ff-head);
+@media (max-width: 1200px) { .ibdy { padding: 4rem 2.5rem; } }
+.ihl {
+  font-family: var(--fh);
   font-size: clamp(2.8rem,4.5vw,5rem);
-  letter-spacing: var(--ls-head); line-height: 0.92;
-  margin-bottom: 1.5rem; color: var(--text);
+  letter-spacing: var(--ls); line-height: .92;
+  margin-bottom: 1.5rem; color: #fff;
 }
-.int-txt { font-size: 0.9rem; font-weight: 300; color: var(--text-dim); line-height: 1.85; margin-bottom: 2.5rem; }
-.pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+.itx { font-size: .9rem; font-weight: 300; color: var(--txd); line-height: 1.85; margin-bottom: 2.5rem; }
+.pills { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.5rem; }
 .pill {
-  padding: 0.38rem 1rem;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-size: 0.65rem; font-weight: 500;
-  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: .38rem 1rem; border: 1px solid var(--a); color: var(--a);
+  font-size: .65rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
 }
 
 /* =====================================================
-   MODE SECTION — cards
+   MODE CARDS — ALWAYS VISIBLE
 ===================================================== */
-#modes-sec {
-  background: var(--bg3);
-  min-height: 400px;
+#modes {
+  background: #181818;              /* hard fallback */
+  min-height: 420px;
   padding: 6rem 0;
-  background-image: none;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255,255,255,.05);
 }
-.modes-head { text-align: center; margin-bottom: 3.5rem; }
-.modes-hl {
-  font-family: var(--ff-head);
+.mhd { text-align: center; margin-bottom: 3.5rem; }
+.mhhl {
+  font-family: var(--fh);
   font-size: clamp(2.5rem,4.5vw,4.5rem);
-  letter-spacing: var(--ls-head);
-  color: var(--text); margin-bottom: 0.5rem;
+  letter-spacing: var(--ls); color: #fff; margin-bottom: .5rem;
 }
-.modes-sub { font-size: 0.85rem; color: var(--text-dim); letter-spacing: 0.1em; }
-.mode-cards {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 2px;
+.mhs { font-size: .85rem; color: var(--txd); letter-spacing: .1em; }
+.mcards {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
 }
-@media (max-width: 768px) { .mode-cards { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .mcards { grid-template-columns: 1fr; } }
 .mcard {
-  background: var(--bg4);
+  background: #1e1e1e;              /* hard fallback */
   padding: 3rem 2.5rem;
-  position: relative;
-  overflow: hidden;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: border-color 0.3s, background 0.3s;
+  position: relative; overflow: hidden;
+  transition: border-color .3s, background .3s !important;
 }
 .mcard::before {
   content: ''; position: absolute; bottom: 0; left: 0;
-  width: 100%; height: 3px;
-  background: var(--mc-accent, #E8001D);
+  width: 100%; height: 3px; background: var(--mc, #E8001D);
   transform: scaleX(0); transform-origin: left;
-  transition: transform 0.4s cubic-bezier(.16,1,.3,1);
+  transition: transform .4s cubic-bezier(.16,1,.3,1) !important;
 }
-.mcard:hover::before, .mcard.mc-active::before { transform: scaleX(1); }
-.mcard.mc-active { border-color: var(--mc-accent, #E8001D); }
-.mc-dot {
+.mcard:hover::before, .mcard.mon::before { transform: scaleX(1); }
+.mcard.mon { border-color: var(--mc, #E8001D); }
+.mcdot {
   width: 14px; height: 14px; border-radius: 50%;
-  background: var(--mc-accent, #E8001D);
+  background: var(--mc, #E8001D);
   margin-bottom: 1.5rem;
-  box-shadow: 0 0 12px var(--mc-accent, #E8001D);
+  box-shadow: 0 0 14px var(--mc, #E8001D);
 }
-.mc-name {
-  font-family: var(--ff-head);
-  font-size: 2.2rem; letter-spacing: 0.06em;
-  color: var(--text); margin-bottom: 0.8rem;
+.mcnm {
+  font-family: var(--fh); font-size: 2.2rem; letter-spacing: .06em;
+  color: var(--mc, #E8001D); margin-bottom: .8rem;
 }
-.mc-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
-.mc-cta {
-  display: inline-block;
-  margin-top: 1.5rem;
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.25em;
-  text-transform: uppercase; color: var(--mc-accent, #E8001D);
+.mcdesc { font-size: .85rem; color: var(--txd); line-height: 1.7; }
+.mccta {
+  display: inline-block; margin-top: 1.5rem;
+  font-size: .68rem; font-weight: 600; letter-spacing: .25em;
+  text-transform: uppercase; color: var(--mc, #E8001D);
 }
 
 /* =====================================================
-   CONFIGURE — explicit height + accent bg on mode
+   CONFIGURE — ALWAYS VISIBLE
 ===================================================== */
 #configure {
-  background: var(--bg);
-  min-height: 700px;
-  padding: 8rem 0;
-  position: relative;
-  overflow: hidden;
+  background: #0a0a0a;              /* hard fallback */
   background-image: var(--tex);
+  min-height: 700px; padding: 8rem 0;
+  position: relative; overflow: hidden;
 }
 #configure::before {
   content: 'COMMISSION';
-  position: absolute;
-  font-family: var(--ff-head);
-  font-size: 17vw;
-  color: rgba(255,255,255,0.025);
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  pointer-events: none; white-space: nowrap; letter-spacing: 0.04em;
+  position: absolute; font-family: 'Bebas Neue', sans-serif; font-size: 17vw;
+  color: rgba(255,255,255,.025);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  pointer-events: none; white-space: nowrap; letter-spacing: .04em;
 }
-.cfg-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: 5rem;
-  align-items: start;
-  position: relative; z-index: 1;
+.cgg {
+  display: grid; grid-template-columns: 1fr 1.35fr;
+  gap: 5rem; align-items: start; position: relative; z-index: 1;
 }
-@media (max-width: 960px) { .cfg-grid { grid-template-columns: 1fr; gap: 3rem; } }
-.cfg-hl {
-  font-family: var(--ff-head);
-  font-size: clamp(3rem,5vw,5.5rem);
-  letter-spacing: var(--ls-head); line-height: 0.9;
-  margin-bottom: 1.5rem; color: var(--text);
+@media (max-width: 960px) { .cgg { grid-template-columns: 1fr; gap: 3rem; } }
+.cghl {
+  font-family: var(--fh); font-size: clamp(3rem,5vw,5.5rem);
+  letter-spacing: var(--ls); line-height: .9; margin-bottom: 1.5rem; color: #fff;
 }
-.cfg-txt { font-size: 0.9rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 2.5rem; }
-.cfg-facts { display: flex; flex-direction: column; gap: 0.8rem; }
-.cfg-fact { display: flex; align-items: center; gap: 0.9rem; font-size: 0.78rem; }
-.cfg-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
-.cfg-k { color: var(--text-xdim); text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.18em; flex: 1; }
-.cfg-v { color: var(--accent); font-weight: 600; }
+.cgtx { font-size: .9rem; color: var(--txd); line-height: 1.8; margin-bottom: 2.5rem; }
+.cgfs { display: flex; flex-direction: column; gap: .8rem; }
+.cgf  { display: flex; align-items: center; gap: .9rem; font-size: .78rem; }
+.cgd  { width: 5px; height: 5px; background: var(--a); border-radius: 50%; flex-shrink: 0; }
+.cgk  { color: var(--txx); text-transform: uppercase; font-size: .68rem; letter-spacing: .18em; flex: 1; }
+.cgv  { color: var(--a); font-weight: 600; }
 
-/* Form */
+/* form */
 .cf { display: flex; flex-direction: column; gap: 1.2rem; }
-.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-@media (max-width: 600px) { .cf-row { grid-template-columns: 1fr; } }
-.cf-g { display: flex; flex-direction: column; gap: 0.4rem; }
-.cf-lbl {
-  font-size: 0.6rem; font-weight: 600;
-  letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent);
+.cfr { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+@media (max-width: 600px) { .cfr { grid-template-columns: 1fr; } }
+.cfg { display: flex; flex-direction: column; gap: .4rem; }
+.cfl {
+  font-size: .6rem; font-weight: 600;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--a);
 }
-.cf-in, .cf-sel, .cf-ta {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: var(--text);
-  padding: 0.88rem 1rem;
-  font-family: 'Inter', sans-serif; font-size: 0.88rem;
+.cfi, .cfs, .cfta {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  color: #fff;
+  padding: .88rem 1rem;
+  font-family: 'Inter', sans-serif; font-size: .88rem;
   outline: none; -webkit-appearance: none; appearance: none;
-  transition: border-color 0.3s, background 0.3s;
 }
-.cf-in::placeholder { color: var(--text-xdim); }
-.cf-in:focus, .cf-sel:focus, .cf-ta:focus {
-  border-color: var(--accent);
-  background: rgba(255,255,255,0.07);
+.cfi::placeholder { color: rgba(255,255,255,.2); }
+.cfi:focus, .cfs:focus, .cfta:focus {
+  border-color: var(--a); background: rgba(255,255,255,.07);
 }
-.cf-sel { cursor: pointer; }
-.cf-sel option { background: #111; color: #eee; }
-.cf-ta { resize: vertical; min-height: 100px; }
-.cf-sub {
+.cfs { cursor: pointer; }
+.cfs option { background: #111; color: #eee; }
+.cfta { resize: vertical; min-height: 100px; }
+.cfsub {
   width: 100%; padding: 1.15rem;
-  font-family: var(--ff-head); font-size: 1.1rem; letter-spacing: 0.16em;
-  background: var(--accent); color: #000;
-  border: none; cursor: pointer;
-  position: relative; overflow: hidden;
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: .16em;
+  background: var(--a); color: #000;
+  border: none; cursor: pointer; position: relative; overflow: hidden;
 }
-.cf-sub::after {
-  content: ''; position: absolute; inset: 0;
-  background: var(--accent-h);
+.cfsub::after {
+  content: ''; position: absolute; inset: 0; background: var(--ah);
   transform: scaleX(0); transform-origin: right;
-  transition: transform 0.4s cubic-bezier(.16,1,.3,1), background-color 0.4s;
+  transition: transform .4s cubic-bezier(.16,1,.3,1), background-color .4s;
 }
-.cf-sub:hover::after { transform: scaleX(1); transform-origin: left; }
-.cf-sub span { position: relative; z-index: 1; }
+.cfsub:hover::after { transform: scaleX(1); transform-origin: left; }
+.cfsub span { position: relative; z-index: 1; }
 
 /* =====================================================
-   FOOTER
+   FOOTER — ALWAYS VISIBLE
 ===================================================== */
 footer {
-  background: var(--bg2);
+  background: #111111;              /* hard fallback */
   padding: 4.5rem 0 2rem;
-  border-top: 1px solid rgba(255,255,255,0.07);
+  border-top: 1px solid rgba(255,255,255,.07);
   min-height: 200px;
 }
-.ft-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+.ftg {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr;
   gap: 3rem; margin-bottom: 3rem;
 }
-@media (max-width: 768px) { .ft-grid { grid-template-columns: 1fr; gap: 2rem; } }
-.ft-logo { font-family: var(--ff-head); font-size: 2rem; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 0.8rem; }
-.ft-tag { font-size: 0.82rem; color: var(--text-xdim); line-height: 1.7; max-width: 260px; }
-.ft-h { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.1rem; }
-.ft-ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.ft-ul a { font-size: 0.84rem; color: var(--text-dim); transition: color 0.3s; }
-.ft-ul a:hover { color: var(--accent); }
-.ft-bot {
+@media (max-width: 768px) { .ftg { grid-template-columns: 1fr; gap: 2rem; } }
+.ftlo { font-family: var(--fh); font-size: 2rem; letter-spacing: .16em; color: var(--a); margin-bottom: .8rem; }
+.fttg { font-size: .82rem; color: var(--txx); line-height: 1.7; max-width: 260px; }
+.ftth { font-size: .6rem; font-weight: 600; letter-spacing: .34em; text-transform: uppercase; color: var(--a); margin-bottom: 1.1rem; }
+.ftul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+.ftul a { font-size: .84rem; color: var(--txd); }
+.ftul a:hover { color: var(--a); }
+.ftbt {
   display: flex; justify-content: space-between; align-items: center;
-  padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.06);
   flex-wrap: wrap; gap: 1rem;
 }
-.ft-copy { font-size: 0.7rem; color: var(--text-xdim); letter-spacing: 0.1em; }
+.ftcp { font-size: .7rem; color: var(--txx); letter-spacing: .1em; }
 @media (max-width: 768px) { footer { padding-bottom: 5rem; } }
 
 /* =====================================================
-   SCROLL REVEAL
+   SCROLL REVEALS — JS adds .shown to trigger
+   Sections visible by default; .will-rev hides them
+   for the animation. .shown makes them visible.
 ===================================================== */
-.rev { opacity: 0; transform: translateY(40px); }
+.will-rev {
+  opacity: 0;
+  transform: translateY(38px);
+  /* transition handled by GSAP, not CSS */
+}
 </style>
 </head>
 <body>
 
 <!-- MODE SWITCHER -->
-<div id="mode-sw" role="tablist">
-  <button class="mtab on" data-mode="track"   role="tab" aria-selected="true">Track</button>
-  <button class="mtab"    data-mode="luxury"  role="tab">Luxury</button>
-  <button class="mtab"    data-mode="stealth" role="tab">Stealth</button>
+<div id="msw" role="tablist">
+  <button class="mt on" data-m="track"   role="tab">Track</button>
+  <button class="mt"    data-m="luxury"  role="tab">Luxury</button>
+  <button class="mt"    data-m="stealth" role="tab">Stealth</button>
 </div>
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="container nav-i">
-    <a href="#hero" class="nav-logo">NOVA BLACK</a>
-    <ul class="nav-links">
+  <div class="container ni">
+    <a href="#hero" class="nl">NOVA BLACK</a>
+    <ul class="nlinks">
       <li><a href="#stats">Performance</a></li>
       <li><a href="#engine">Engine</a></li>
       <li><a href="#interior">Interior</a></li>
-      <li><a href="#modes-sec">Modes</a></li>
+      <li><a href="#modes">Modes</a></li>
       <li><a href="#configure">Commission</a></li>
     </ul>
-    <a href="#configure" class="btn btn-fill btn-sm magnetic">Commission Yours</a>
+    <a href="#configure" class="btn btn-f btn-sm magnetic">Commission Yours</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════════════════════════════════════════
+     HERO — content visible by default via CSS anim
+════════════════════════════════════════════ -->
 <section id="hero">
   <!-- parallax layer 1 — grid -->
-  <div class="plyr" id="pl1">
+  <div class="pl" id="pl1">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="opacity:.055">
-      <line x1="0" y1="150" x2="1440" y2="150" stroke="currentColor" stroke-width=".7"/>
-      <line x1="0" y1="300" x2="1440" y2="300" stroke="currentColor" stroke-width=".7"/>
-      <line x1="0" y1="450" x2="1440" y2="450" stroke="currentColor" stroke-width=".7"/>
-      <line x1="0" y1="600" x2="1440" y2="600" stroke="currentColor" stroke-width=".7"/>
-      <line x1="0" y1="750" x2="1440" y2="750" stroke="currentColor" stroke-width=".7"/>
-      <line x1="240" y1="0" x2="240" y2="900" stroke="currentColor" stroke-width=".7"/>
-      <line x1="480" y1="0" x2="480" y2="900" stroke="currentColor" stroke-width=".7"/>
-      <line x1="720" y1="0" x2="720" y2="900" stroke="currentColor" stroke-width=".7"/>
-      <line x1="960" y1="0" x2="960" y2="900" stroke="currentColor" stroke-width=".7"/>
-      <line x1="1200" y1="0" x2="1200" y2="900" stroke="currentColor" stroke-width=".7"/>
+      <line x1="0" y1="150" x2="1440" y2="150" stroke="currentColor" stroke-width=".8"/>
+      <line x1="0" y1="300" x2="1440" y2="300" stroke="currentColor" stroke-width=".8"/>
+      <line x1="0" y1="450" x2="1440" y2="450" stroke="currentColor" stroke-width=".8"/>
+      <line x1="0" y1="600" x2="1440" y2="600" stroke="currentColor" stroke-width=".8"/>
+      <line x1="0" y1="750" x2="1440" y2="750" stroke="currentColor" stroke-width=".8"/>
+      <line x1="240" y1="0" x2="240" y2="900" stroke="currentColor" stroke-width=".8"/>
+      <line x1="480" y1="0" x2="480" y2="900" stroke="currentColor" stroke-width=".8"/>
+      <line x1="720" y1="0" x2="720" y2="900" stroke="currentColor" stroke-width=".8"/>
+      <line x1="960" y1="0" x2="960" y2="900" stroke="currentColor" stroke-width=".8"/>
+      <line x1="1200" y1="0" x2="1200" y2="900" stroke="currentColor" stroke-width=".8"/>
     </svg>
   </div>
   <!-- parallax layer 2 — diagonals -->
-  <div class="plyr" id="pl2">
+  <div class="pl" id="pl2">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="opacity:.08">
       <line x1="0" y1="900" x2="1440" y2="0" stroke="currentColor" stroke-width="1.2"/>
-      <line x1="400" y1="900" x2="1440" y2="260" stroke="currentColor" stroke-width=".5"/>
+      <line x1="400" y1="900" x2="1440" y2="265" stroke="currentColor" stroke-width=".5"/>
     </svg>
   </div>
   <!-- parallax layer 3 — circles -->
-  <div class="plyr" id="pl3">
+  <div class="pl" id="pl3">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="opacity:.06">
-      <circle cx="1180" cy="140" r="210" fill="none" stroke="currentColor" stroke-width=".9"/>
-      <circle cx="1180" cy="140" r="360" fill="none" stroke="currentColor" stroke-width=".4"/>
+      <circle cx="1180" cy="140" r="210" fill="none" stroke="currentColor" stroke-width="1"/>
+      <circle cx="1180" cy="140" r="380" fill="none" stroke="currentColor" stroke-width=".4"/>
     </svg>
   </div>
 
-  <div class="hero-vid-wrap">
-    <video autoplay muted loop playsinline preload="auto" id="hero-vid">
+  <!-- VIDEO — local car.mp4 primary, Mixkit fallback -->
+  <div class="hvw">
+    <video autoplay muted loop playsinline preload="auto" id="hvid">
       <source src="./car.mp4" type="video/mp4"/>
+      <source src="https://assets.mixkit.co/videos/4443/4443-720.mp4" type="video/mp4"/>
     </video>
   </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-wash"></div>
-  <div class="hero-scanline" id="scanline"></div>
+  <div class="hov"></div>
+  <div class="hwsh"></div>
+  <div class="hsl" id="hsl"></div>
 
   <div class="container">
-    <div class="hero-body" id="hero-body">
-      <p class="hero-eyebrow" id="hero-eyebrow" style="opacity:0">The Apex Machine — 2026 Edition</p>
-      <h1 class="hero-hl" id="hero-hl" style="overflow:hidden">
+    <!-- ALL HERO CONTENT VISIBLE BY DEFAULT (CSS @keyframes) -->
+    <div class="hb" id="hb">
+      <span class="hey" id="hey">The Apex Machine — 2026 Edition</span>
+      <h1 class="hhl" id="hhl">
         <span class="l1">BORN TO</span>
         <span class="l2">DOMINATE</span>
       </h1>
-      <p class="hero-sub" id="hero-sub" style="opacity:0">Zero Compromise. Pure Obsession.</p>
-      <div class="hero-ctas" id="hero-ctas" style="opacity:0">
-        <a href="#configure" class="btn btn-fill magnetic">Commission Yours</a>
-        <a href="#engine"    class="btn btn-outline magnetic">View Performance</a>
+      <p class="hsub" id="hsub">Zero Compromise. Pure Obsession.</p>
+      <div class="hctas" id="hctas">
+        <a href="#configure" class="btn btn-f magnetic">Commission Yours</a>
+        <a href="#engine"    class="btn btn-o magnetic">View Performance</a>
       </div>
     </div>
   </div>
 
-  <div class="scroll-cue" id="scroll-cue" style="opacity:0">
+  <div class="sc">
     <span>Scroll</span>
-    <div class="scroll-ln"></div>
+    <div class="scl"></div>
   </div>
 </section>
 
-<!-- STATS -->
+<!-- ═══════════════════════════════════════════
+     STATS — JS populates, section always visible
+════════════════════════════════════════════ -->
 <section id="stats">
   <div class="container">
-    <div class="stats-row" id="stats-row">
-      <!-- JS injected -->
+    <div class="sg" id="sg">
+      <!-- populated by JS -->
+      <!-- fallback if JS fails: show static track stats -->
+      <div class="sc2"><div class="sn">6:47</div><div class="sl">Nürburgring Lap</div></div>
+      <div class="sc2"><div class="sn">2.4<span class="su">g</span></div><div class="sl">Peak G-Force</div></div>
+      <div class="sc2"><div class="sn">840<span class="su">kg</span></div><div class="sl">Downforce</div></div>
+      <div class="sc2"><div class="sn">789<span class="su">hp</span></div><div class="sl">Power Output</div></div>
     </div>
   </div>
 </section>
 
-<!-- ENGINE -->
+<!-- ═══════════════════════════════════════════
+     ENGINE — full bleed, hard bg fallback
+════════════════════════════════════════════ -->
 <section id="engine">
-  <div class="engine-img"></div>
-  <div class="engine-grad"></div>
-  <div class="engine-grad-r"></div>
-  <div class="engine-body">
-    <span class="label rev">Powertrain</span>
-    <h2 class="engine-hl rev">TWIN-TURBO<br/><span class="accent">V8 FURY</span></h2>
-    <div class="bar rev"></div>
-    <p class="engine-txt rev">A hand-built 4.0L flat-plane twin-turbo V8. Forged internals, titanium exhaust, dry-sump lubrication. Verified by a single master engineer from first bolt to final fire.</p>
-    <div class="pbars rev">
-      <div class="pbar-row">
-        <div class="pbar-label"><span>Power Output</span><span>98%</span></div>
-        <div class="pbar-track"><div class="pbar-fill" data-w="98"></div></div>
+  <div class="ebg"></div>
+  <div class="etint"></div>
+  <div class="ebody">
+    <span class="lbl will-rev">Powertrain</span>
+    <h2 class="ehl will-rev">TWIN-TURBO<br/><span class="ac">V8 FURY</span></h2>
+    <div class="bar will-rev"></div>
+    <p class="etx will-rev">A hand-built 4.0L flat-plane twin-turbo V8. Forged internals, titanium exhaust, dry-sump lubrication. Verified by a single master engineer from first bolt to final fire.</p>
+    <div class="pbs will-rev">
+      <div class="pbr">
+        <div class="pbl"><span>Power Output</span><span>98%</span></div>
+        <div class="pbt"><div class="pbf" data-w="98"></div></div>
       </div>
-      <div class="pbar-row">
-        <div class="pbar-label"><span>Torque Delivery</span><span>94%</span></div>
-        <div class="pbar-track"><div class="pbar-fill" data-w="94"></div></div>
+      <div class="pbr">
+        <div class="pbl"><span>Torque Delivery</span><span>94%</span></div>
+        <div class="pbt"><div class="pbf" data-w="94"></div></div>
       </div>
-      <div class="pbar-row">
-        <div class="pbar-label"><span>Throttle Response</span><span>99%</span></div>
-        <div class="pbar-track"><div class="pbar-fill" data-w="99"></div></div>
+      <div class="pbr">
+        <div class="pbl"><span>Throttle Response</span><span>99%</span></div>
+        <div class="pbt"><div class="pbf" data-w="99"></div></div>
       </div>
-      <div class="pbar-row">
-        <div class="pbar-label"><span>Aero Efficiency</span><span>88%</span></div>
-        <div class="pbar-track"><div class="pbar-fill" data-w="88"></div></div>
+      <div class="pbr">
+        <div class="pbl"><span>Aero Efficiency</span><span>88%</span></div>
+        <div class="pbt"><div class="pbf" data-w="88"></div></div>
       </div>
     </div>
-    <a href="#configure" class="btn btn-fill magnetic rev">Configure Powertrain</a>
+    <a href="#configure" class="btn btn-f magnetic will-rev">Configure Powertrain</a>
   </div>
 </section>
 
-<!-- INTERIOR -->
+<!-- ═══════════════════════════════════════════
+     INTERIOR — 50/50, hard bg fallbacks
+════════════════════════════════════════════ -->
 <section id="interior">
-  <div class="int-img rev"></div>
-  <div class="int-body">
-    <span class="label rev">Cockpit</span>
-    <h2 class="int-hl rev">BUILT FOR<br/><span class="accent">COMMAND</span></h2>
-    <div class="bar rev"></div>
-    <p class="int-txt rev">Hand-stitched Alcantara on every surface. Carbon-fibre monocoque seat shells. A full-width OLED halo display. The interior is not a cabin — it is a command centre engineered for total driver dominance.</p>
-    <div class="pills rev">
+  <div class="iimg will-rev"></div>
+  <div class="ibdy">
+    <span class="lbl will-rev">Cockpit</span>
+    <h2 class="ihl will-rev">BUILT FOR<br/><span class="ac">COMMAND</span></h2>
+    <div class="bar will-rev"></div>
+    <p class="itx will-rev">Hand-stitched Alcantara on every surface. Carbon-fibre monocoque seat shells. A full-width OLED halo display. The interior is not a cabin — it is a command centre.</p>
+    <div class="pills will-rev">
       <span class="pill">OLED Halo Display</span>
       <span class="pill">Alcantara Trim</span>
       <span class="pill">Active Bolstering</span>
@@ -787,81 +717,85 @@ footer {
       <span class="pill">Naim Audio</span>
       <span class="pill">Carbon Race Wheel</span>
     </div>
-    <a href="#configure" class="btn btn-fill magnetic rev">Customize Interior</a>
+    <a href="#configure" class="btn btn-f magnetic will-rev">Customize Interior</a>
   </div>
 </section>
 
-<!-- MODE SECTION -->
-<section id="modes-sec">
+<!-- ═══════════════════════════════════════════
+     MODE CARDS
+════════════════════════════════════════════ -->
+<section id="modes">
   <div class="container">
-    <div class="modes-head">
-      <span class="label rev">Drive Philosophy</span>
-      <h2 class="modes-hl rev">CHOOSE YOUR<br/><span class="accent">MODE</span></h2>
-      <p class="modes-sub rev">Every environment, fully mastered.</p>
+    <div class="mhd">
+      <span class="lbl will-rev">Drive Philosophy</span>
+      <h2 class="mhhl will-rev">CHOOSE YOUR <span class="ac">MODE</span></h2>
+      <p class="mhs will-rev">Every environment, fully mastered.</p>
     </div>
-    <div class="mode-cards">
-      <div class="mcard mc-active" data-mmode="track" style="--mc-accent:#E8001D">
-        <div class="mc-dot"></div>
-        <div class="mc-name">TRACK</div>
-        <p class="mc-desc">Aggressive. Raw. Uncompromising. Every system optimized for maximum lap performance. Carbon fiber textures. Race data overlays. Pure motorsport obsession.</p>
-        <span class="mc-cta">Activate Track Mode →</span>
+    <div class="mcards">
+      <div class="mcard mon" data-mmode="track" style="--mc:#E8001D">
+        <div class="mcdot" style="background:#E8001D;box-shadow:0 0 14px #E8001D"></div>
+        <div class="mcnm" style="color:#E8001D">TRACK</div>
+        <p class="mcdesc">Aggressive. Raw. Uncompromising. Every system optimized for maximum lap performance. Carbon fiber textures. Race data overlays. Pure motorsport obsession.</p>
+        <span class="mccta" style="color:#E8001D">Activate Track Mode →</span>
       </div>
-      <div class="mcard" data-mmode="luxury" style="--mc-accent:#C9A07A">
-        <div class="mc-dot" style="background:#C9A07A;box-shadow:0 0 12px #C9A07A"></div>
-        <div class="mc-name" style="color:#C9A07A">LUXURY</div>
-        <p class="mc-desc">Ultra-premium. Calm. Rolls Royce energy. Deep navy palette. Cormorant Garamond elegance. Champagne accents on every surface. Grand touring perfected.</p>
-        <span class="mc-cta" style="color:#C9A07A">Activate Luxury Mode →</span>
+      <div class="mcard" data-mmode="luxury" style="--mc:#C9A07A">
+        <div class="mcdot" style="background:#C9A07A;box-shadow:0 0 14px #C9A07A"></div>
+        <div class="mcnm" style="color:#C9A07A">LUXURY</div>
+        <p class="mcdesc">Ultra-premium. Calm. Rolls Royce energy. Deep navy palette. Cormorant Garamond elegance. Champagne accents. Grand touring perfected.</p>
+        <span class="mccta" style="color:#C9A07A">Activate Luxury Mode →</span>
       </div>
-      <div class="mcard" data-mmode="stealth" style="--mc-accent:#00FF88">
-        <div class="mc-dot" style="background:#00FF88;box-shadow:0 0 12px #00FF88"></div>
-        <div class="mc-name" style="color:#00FF88">STEALTH</div>
-        <p class="mc-desc">Dark. Mysterious. Blacked-out assassin. Neon green pulses through hex grid shadows. Unseen on every road. Unstoppable on every track. Unmatched by anything.</p>
-        <span class="mc-cta" style="color:#00FF88">Activate Stealth Mode →</span>
+      <div class="mcard" data-mmode="stealth" style="--mc:#00FF88">
+        <div class="mcdot" style="background:#00FF88;box-shadow:0 0 14px #00FF88"></div>
+        <div class="mcnm" style="color:#00FF88">STEALTH</div>
+        <p class="mcdesc">Dark. Mysterious. Blacked-out assassin. Neon green pulses through hex grid shadows. Unseen. Unstoppable. Unmatched by anything.</p>
+        <span class="mccta" style="color:#00FF88">Activate Stealth Mode →</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONFIGURE -->
+<!-- ═══════════════════════════════════════════
+     CONFIGURE
+════════════════════════════════════════════ -->
 <section id="configure">
   <div class="container">
-    <div class="cfg-grid">
+    <div class="cgg">
       <div>
-        <span class="label rev">Build Your Machine</span>
-        <h2 class="cfg-hl rev">COMMISSION<br/><span class="accent">YOUR BUILD</span></h2>
-        <div class="bar rev"></div>
-        <p class="cfg-txt rev">Only 12 cars are built per year. Each one uniquely specified by its owner. Submit your vision and our client liaison will contact you within 24 hours.</p>
-        <div class="cfg-facts rev">
-          <div class="cfg-fact"><div class="cfg-dot"></div><span class="cfg-k">Starting from</span><span class="cfg-v" style="font-size:1.1rem">$2,400,000</span></div>
-          <div class="cfg-fact"><div class="cfg-dot"></div><span class="cfg-k">Delivery time</span><span class="cfg-v">18–24 months</span></div>
-          <div class="cfg-fact"><div class="cfg-dot"></div><span class="cfg-k">Units available</span><span class="cfg-v">3 of 12 remaining</span></div>
-          <div class="cfg-fact"><div class="cfg-dot"></div><span class="cfg-k">Bespoke build</span><span class="cfg-v">100% custom</span></div>
+        <span class="lbl will-rev">Build Your Machine</span>
+        <h2 class="cghl will-rev">COMMISSION<br/><span class="ac">YOUR BUILD</span></h2>
+        <div class="bar will-rev"></div>
+        <p class="cgtx will-rev">Only 12 cars built per year. Each uniquely specified by its owner. Submit your vision and our liaison will contact you within 24 hours.</p>
+        <div class="cgfs will-rev">
+          <div class="cgf"><div class="cgd"></div><span class="cgk">Starting from</span><span class="cgv" style="font-size:1.05rem">$2,400,000</span></div>
+          <div class="cgf"><div class="cgd"></div><span class="cgk">Delivery time</span><span class="cgv">18–24 months</span></div>
+          <div class="cgf"><div class="cgd"></div><span class="cgk">Units available</span><span class="cgv">3 of 12 remaining</span></div>
+          <div class="cgf"><div class="cgd"></div><span class="cgk">Build type</span><span class="cgv">100% bespoke</span></div>
         </div>
       </div>
-      <form class="cf rev" id="cf" action="https://formspree.io/f/REPLACE_ID" method="POST">
-        <div class="cf-row">
-          <div class="cf-g">
-            <label class="cf-lbl" for="cf-name">Full Name</label>
-            <input class="cf-in" id="cf-name" name="name" type="text" placeholder="Your name" required/>
+      <form class="cf will-rev" id="cf" action="https://formspree.io/f/REPLACE_ID" method="POST">
+        <div class="cfr">
+          <div class="cfg">
+            <label class="cfl" for="cn">Full Name</label>
+            <input class="cfi" id="cn" name="name" type="text" placeholder="Your name" required/>
           </div>
-          <div class="cf-g">
-            <label class="cf-lbl" for="cf-email">Email</label>
-            <input class="cf-in" id="cf-email" name="email" type="email" placeholder="your@email.com" required/>
-          </div>
-        </div>
-        <div class="cf-row">
-          <div class="cf-g">
-            <label class="cf-lbl" for="cf-phone">Phone</label>
-            <input class="cf-in" id="cf-phone" name="phone" type="tel" placeholder="+1 (000) 000-0000"/>
-          </div>
-          <div class="cf-g">
-            <label class="cf-lbl" for="cf-country">Country</label>
-            <input class="cf-in" id="cf-country" name="country" type="text" placeholder="United States"/>
+          <div class="cfg">
+            <label class="cfl" for="ce">Email</label>
+            <input class="cfi" id="ce" name="email" type="email" placeholder="your@email.com" required/>
           </div>
         </div>
-        <div class="cf-g">
-          <label class="cf-lbl" for="cf-model">Model</label>
-          <select class="cf-sel" id="cf-model" name="model">
+        <div class="cfr">
+          <div class="cfg">
+            <label class="cfl" for="cp">Phone</label>
+            <input class="cfi" id="cp" name="phone" type="tel" placeholder="+1 (000) 000-0000"/>
+          </div>
+          <div class="cfg">
+            <label class="cfl" for="cc">Country</label>
+            <input class="cfi" id="cc" name="country" type="text" placeholder="United States"/>
+          </div>
+        </div>
+        <div class="cfg">
+          <label class="cfl" for="cmo">Model</label>
+          <select class="cfs" id="cmo" name="model">
             <option value="">Select model</option>
             <option>NOVA BLACK — Street Edition</option>
             <option>NOVA BLACK — Track Edition</option>
@@ -870,19 +804,19 @@ footer {
             <option>NOVA BLACK — Stealth Package</option>
           </select>
         </div>
-        <div class="cf-g">
-          <label class="cf-lbl" for="cf-mode">Mode</label>
-          <select class="cf-sel" id="cf-mode" name="mode">
+        <div class="cfg">
+          <label class="cfl" for="cmd">Mode</label>
+          <select class="cfs" id="cmd" name="mode">
             <option value="">Select mode</option>
             <option>Track — Aggressive, Race-Ready</option>
             <option>Luxury — Grand Touring, Ultra-Premium</option>
             <option>Stealth — Dark, Blacked-Out</option>
           </select>
         </div>
-        <div class="cf-row">
-          <div class="cf-g">
-            <label class="cf-lbl" for="cf-ext">Exterior Color</label>
-            <select class="cf-sel" id="cf-ext" name="exterior_color">
+        <div class="cfr">
+          <div class="cfg">
+            <label class="cfl" for="cex">Exterior Color</label>
+            <select class="cfs" id="cex" name="exterior_color">
               <option value="">Select finish</option>
               <option>Nova Black (Signature)</option>
               <option>Obsidian Matte</option>
@@ -893,9 +827,9 @@ footer {
               <option>Bespoke</option>
             </select>
           </div>
-          <div class="cf-g">
-            <label class="cf-lbl" for="cf-int">Interior</label>
-            <select class="cf-sel" id="cf-int" name="interior">
+          <div class="cfg">
+            <label class="cfl" for="cin">Interior</label>
+            <select class="cfs" id="cin" name="interior">
               <option value="">Select interior</option>
               <option>Black Alcantara + Red Stitch</option>
               <option>Navy Leather + Champagne</option>
@@ -906,11 +840,11 @@ footer {
             </select>
           </div>
         </div>
-        <div class="cf-g">
-          <label class="cf-lbl" for="cf-notes">Your Vision</label>
-          <textarea class="cf-ta" id="cf-notes" name="notes" placeholder="Describe bespoke requirements, track specifications, delivery preferences..."></textarea>
+        <div class="cfg">
+          <label class="cfl" for="cno">Your Vision</label>
+          <textarea class="cfta" id="cno" name="notes" placeholder="Bespoke requirements, track specs, delivery preferences..."></textarea>
         </div>
-        <button type="submit" class="cf-sub magnetic">
+        <button type="submit" class="cfsub magnetic">
           <span>SUBMIT YOUR VISION →</span>
         </button>
       </form>
@@ -921,208 +855,229 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="ft-grid">
+    <div class="ftg">
       <div>
-        <div class="ft-logo">NOVA BLACK</div>
-        <p class="ft-tag">Twelve machines per year. Built for those who need nothing explained.</p>
+        <div class="ftlo">NOVA BLACK</div>
+        <p class="fttg">Twelve machines per year. Built for those who need nothing explained.</p>
       </div>
       <div>
-        <p class="ft-h">Navigate</p>
-        <ul class="ft-ul">
+        <p class="ftth">Navigate</p>
+        <ul class="ftul">
           <li><a href="#stats">Performance</a></li>
           <li><a href="#engine">The Engine</a></li>
           <li><a href="#interior">Interior</a></li>
-          <li><a href="#modes-sec">Modes</a></li>
+          <li><a href="#modes">Modes</a></li>
           <li><a href="#configure">Commission</a></li>
         </ul>
       </div>
       <div>
-        <p class="ft-h">Contact</p>
-        <ul class="ft-ul">
+        <p class="ftth">Contact</p>
+        <ul class="ftul">
           <li><a href="mailto:orders@novablack.com">orders@novablack.com</a></li>
           <li><a href="tel:+18005550000">+1 800 555 0000</a></li>
         </ul>
       </div>
     </div>
-    <div class="ft-bot">
-      <p class="ft-copy">&copy; 2026 NOVA BLACK. All rights reserved.</p>
-      <p class="ft-copy">12 units. No compromises.</p>
+    <div class="ftbt">
+      <p class="ftcp">&copy; 2026 NOVA BLACK. All rights reserved.</p>
+      <p class="ftcp">12 units. No compromises.</p>
     </div>
   </div>
 </footer>
 
 <script>
+/* ================================================================
+   SAFE WRAPPER — if anything throws, content stays visible
+================================================================ */
 (function(){
 'use strict';
 
-/* ──────────────────────────────────────
+/* ────────────────────────────────────────
    MODE DATA
-────────────────────────────────────── */
-const MODES = {
+──────────────────────────────────────── */
+var MODES = {
   track: {
     sub: 'Zero Compromise. Pure Obsession.',
-    eyebrow: 'The Apex Machine — Track Edition',
+    eye: 'The Apex Machine — Track Edition',
     stats: [
-      { val:'6:47', unit:'',    dec:false, label:'Nürburgring Lap' },
-      { val:'2.4',  unit:'g',   dec:true,  label:'Peak G-Force' },
-      { val:'840',  unit:'kg',  dec:false, label:'Downforce' },
-      { val:'789',  unit:'hp',  dec:false, label:'Power Output' },
+      {v:'6:47', u:'',   n:false, l:'Nürburgring Lap'},
+      {v:'2.4',  u:'g',  n:true,  l:'Peak G-Force'},
+      {v:'840',  u:'kg', n:false, l:'Downforce'},
+      {v:'789',  u:'hp', n:false, l:'Power Output'},
     ],
   },
   luxury: {
     sub: 'Handcrafted. Effortless. Eternal.',
-    eyebrow: 'The Grand Tourer — 2026',
+    eye: 'The Grand Tourer — 2026',
     stats: [
-      { val:'2.4',  unit:'s',  dec:true,  label:'0–60 mph' },
-      { val:'217',  unit:'mph',dec:false, label:'Top Speed' },
-      { val:'2200', unit:'hrs',dec:false, label:'Handcrafted' },
-      { val:'12',   unit:'',   dec:false, label:'Units Per Year' },
+      {v:'2.4',  u:'s',   n:true,  l:'0–60 mph'},
+      {v:'217',  u:'mph', n:false, l:'Top Speed'},
+      {v:'2200', u:'hrs', n:false, l:'Handcrafted'},
+      {v:'12',   u:'',    n:false, l:'Units Per Year'},
     ],
   },
   stealth: {
     sub: 'Unseen. Unstoppable. Unmatched.',
-    eyebrow: 'Stealth Configuration — 2026',
+    eye: 'Stealth Configuration — 2026',
     stats: [
-      { val:'1500', unit:'hp',  dec:false, label:'Horsepower' },
-      { val:'590',  unit:'lb',  dec:false, label:'Peak Torque' },
-      { val:'2847', unit:'lbs', dec:false, label:'Dry Weight' },
-      { val:'9200', unit:'rpm', dec:false, label:'Redline' },
+      {v:'1500', u:'hp',  n:false, l:'Horsepower'},
+      {v:'590',  u:'lb',  n:false, l:'Peak Torque'},
+      {v:'2847', u:'lbs', n:false, l:'Dry Weight'},
+      {v:'9200', u:'rpm', n:false, l:'Redline'},
     ],
   },
 };
 
-/* ──────────────────────────────────────
+/* ────────────────────────────────────────
    LENIS
-────────────────────────────────────── */
-const lenis = new Lenis({ duration:1.3, easing: t => Math.min(1, 1.001 - Math.pow(2,-10*t)) });
-(function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
-lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add(t => lenis.raf(t*1000));
-gsap.ticker.lagSmoothing(0);
+──────────────────────────────────────── */
+try {
+  var lenis = new Lenis({ duration:1.3, easing: function(t){ return Math.min(1, 1.001 - Math.pow(2,-10*t)); } });
+  (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+  gsap.ticker.lagSmoothing(0);
+} catch(e){ console.warn('Lenis init failed', e); }
 
-/* ──────────────────────────────────────
+/* ────────────────────────────────────────
    GSAP REGISTER
-────────────────────────────────────── */
-gsap.registerPlugin(ScrollTrigger, SplitText);
+──────────────────────────────────────── */
+try { gsap.registerPlugin(ScrollTrigger); } catch(e){}
 
-/* ──────────────────────────────────────
-   NAV
-────────────────────────────────────── */
-const nav = document.getElementById('nav');
-ScrollTrigger.create({
-  start: 'top -80',
-  onToggle: s => nav.classList.toggle('stuck', s.isActive),
-});
-
-/* ──────────────────────────────────────
-   HERO ENTRANCE
-────────────────────────────────────── */
-const split = new SplitText('#hero-hl .l1, #hero-hl .l2', { type:'chars' });
-const tl = gsap.timeline({ delay:0.2 });
-tl.to('#hero-eyebrow', { opacity:1, y:0, duration:.7, ease:'power3.out' }, 0)
-  .from(split.chars, { opacity:0, y:70, rotateX:-50, stagger:.022, duration:.8, ease:'power4.out' }, .2)
-  .to('#hero-sub',  { opacity:1, y:0, duration:.65, ease:'power3.out' }, .78)
-  .to('#hero-ctas', { opacity:1, y:0, duration:.65, ease:'power3.out' }, .96)
-  .to('#scroll-cue',{ opacity:1, duration:.5 }, 1.26);
-
-// scan line
-gsap.fromTo('#scanline', { top:'0%', opacity:0 },
-  { top:'100%', opacity:.85, duration:2, delay:.5, ease:'power1.inOut',
-    onComplete: () => gsap.set('#scanline',{opacity:0}) });
-
-/* ──────────────────────────────────────
-   3-LAYER MOUSE PARALLAX
-────────────────────────────────────── */
-const hero = document.getElementById('hero');
-const heroBody = document.getElementById('hero-body');
-const heroVid  = document.getElementById('hero-vid');
-const layers = [
-  { el: document.getElementById('pl1'), sx:.02, sy:.015 },
-  { el: document.getElementById('pl2'), sx:.055, sy:.038 },
-  { el: document.getElementById('pl3'), sx:.10,  sy:.07  },
-];
-let mX=0,mY=0;
-const cur = layers.map(()=>({x:0,y:0}));
-let cBX=0,cBY=0,cVX=0,cVY=0;
-
-hero.addEventListener('mousemove', e => {
-  const r = hero.getBoundingClientRect();
-  mX = (e.clientX-r.left)/r.width  - .5;
-  mY = (e.clientY-r.top) /r.height - .5;
-});
-
-gsap.ticker.add(()=>{
-  layers.forEach((l,i)=>{
-    cur[i].x += (mX*l.sx*200 - cur[i].x)*.07;
-    cur[i].y += (mY*l.sy*200 - cur[i].y)*.07;
-    gsap.set(l.el, {x:cur[i].x, y:cur[i].y});
+/* ────────────────────────────────────────
+   NAV SCROLL
+──────────────────────────────────────── */
+var nav = document.getElementById('nav');
+try {
+  ScrollTrigger.create({ start:'top -80', onToggle: function(s){ nav.classList.toggle('stuck',s.isActive); } });
+} catch(e){
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('stuck', window.scrollY > 80);
   });
-  // text — moves ±8px
-  cBX += (mX*-8  - cBX)*.06;
-  cBY += (mY*-8  - cBY)*.06;
-  gsap.set(heroBody,{x:cBX, y:cBY});
-  // video — moves ±15px
-  cVX += (mX*15  - cVX)*.04;
-  cVY += (mY*15  - cVY)*.04;
-  gsap.set(heroVid,{x:cVX, y:cVY});
+}
+
+/* ────────────────────────────────────────
+   SCAN LINE — pure CSS animation, no SplitText
+──────────────────────────────────────── */
+try {
+  var sl = document.getElementById('hsl');
+  gsap.fromTo(sl,{top:'0%',opacity:0},{top:'100%',opacity:.85,duration:2,delay:.4,ease:'power1.inOut',
+    onComplete:function(){ gsap.set(sl,{opacity:0}); }});
+} catch(e){}
+
+/* ────────────────────────────────────────
+   3-LAYER MOUSE PARALLAX
+──────────────────────────────────────── */
+try {
+  var hero = document.getElementById('hero');
+  var hb   = document.getElementById('hb');
+  var hvid = document.getElementById('hvid');
+  var pls  = [
+    {el:document.getElementById('pl1'), sx:.02,  sy:.015},
+    {el:document.getElementById('pl2'), sx:.055, sy:.038},
+    {el:document.getElementById('pl3'), sx:.10,  sy:.07},
+  ];
+  var mx=0,my=0, cur=pls.map(function(){return{x:0,y:0};});
+  var cbx=0,cby=0,cvx=0,cvy=0;
+
+  hero.addEventListener('mousemove',function(e){
+    var r=hero.getBoundingClientRect();
+    mx=(e.clientX-r.left)/r.width-.5;
+    my=(e.clientY-r.top)/r.height-.5;
+  });
+
+  gsap.ticker.add(function(){
+    pls.forEach(function(l,i){
+      cur[i].x += (mx*l.sx*200 - cur[i].x)*.07;
+      cur[i].y += (my*l.sy*200 - cur[i].y)*.07;
+      gsap.set(l.el,{x:cur[i].x,y:cur[i].y});
+    });
+    // text ±8px
+    cbx += (mx*-8 - cbx)*.06;
+    cby += (my*-8 - cby)*.06;
+    gsap.set(hb,{x:cbx,y:cby});
+    // video ±15px
+    cvx += (mx*15 - cvx)*.04;
+    cvy += (my*15 - cvy)*.04;
+    gsap.set(hvid,{x:cvx,y:cvy});
+  });
+} catch(e){ console.warn('Parallax failed',e); }
+
+/* ────────────────────────────────────────
+   SCROLL REVEAL — IntersectionObserver primary
+   GSAP used only for smooth animation
+   .will-rev elements are hidden via CSS,
+   IO triggers GSAP show
+──────────────────────────────────────── */
+function showEl(el){
+  try {
+    gsap.to(el,{opacity:1,y:0,duration:.85,ease:'power3.out',clearProps:'transform'});
+  } catch(e){
+    el.style.opacity='1'; el.style.transform='none';
+  }
+}
+
+// Immediately show anything already in view
+document.querySelectorAll('.will-rev').forEach(function(el){
+  var r=el.getBoundingClientRect();
+  if(r.top < window.innerHeight) showEl(el);
 });
 
-/* ──────────────────────────────────────
-   SCROLL REVEAL — IO primary, GSAP fallback
-────────────────────────────────────── */
-function show(el){ gsap.to(el,{opacity:1,y:0,duration:.85,ease:'power3.out'}); }
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){ showEl(e.target); io.unobserve(e.target); }
+  });
+},{threshold:.08, rootMargin:'0px 0px -40px 0px'});
 
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
-},{ threshold:.1 });
+document.querySelectorAll('.will-rev').forEach(function(el){ io.observe(el); });
 
-document.querySelectorAll('.rev').forEach(el=>io.observe(el));
-
-/* ──────────────────────────────────────
+/* ────────────────────────────────────────
    STAT COUNTERS
-────────────────────────────────────── */
+──────────────────────────────────────── */
 function attachCounter(el){
-  const raw = el.dataset.target;
-  // Handle non-numeric like "6:47"
-  if(isNaN(parseFloat(raw))){ return; } // display as-is, already set
-  const target = parseFloat(raw);
-  const dec    = el.dataset.dec === 'true';
-  const suf    = el.querySelector('.stat-suf')?.outerHTML||'';
-  const cio = new IntersectionObserver(ents=>{
+  var raw = el.dataset.target;
+  var num = parseFloat(raw);
+  if(isNaN(num)) return; // e.g. "6:47" stays as text
+  var dec = el.dataset.dec === 'true';
+  var suf = el.querySelector('.su') ? el.querySelector('.su').outerHTML : '';
+  var cio = new IntersectionObserver(function(ents){
     if(!ents[0].isIntersecting) return;
     cio.unobserve(el);
-    gsap.to({v:0},{
-      v:target, duration:2.2, ease:'power2.out',
-      onUpdate: function(){ el.innerHTML=(dec?this.targets()[0].v.toFixed(1):Math.round(this.targets()[0].v))+suf; }
-    });
+    try {
+      gsap.to({v:0},{v:num,duration:2.2,ease:'power2.out',
+        onUpdate:function(){ el.innerHTML=(dec?this.targets()[0].v.toFixed(1):Math.round(this.targets()[0].v))+suf; }
+      });
+    } catch(e){
+      el.innerHTML = raw + suf;
+    }
   },{threshold:.5});
   cio.observe(el);
 }
 
-/* ──────────────────────────────────────
+/* ────────────────────────────────────────
    STATS RENDER
-────────────────────────────────────── */
-const statsRow = document.getElementById('stats-row');
+──────────────────────────────────────── */
+var sg = document.getElementById('sg');
 function renderStats(mode, animate){
-  statsRow.innerHTML = MODES[mode].stats.map(s=>
-    `<div class="stat-card">
-      <div class="stat-num" data-target="${s.val}" data-dec="${s.dec}">
-        ${isNaN(parseFloat(s.val)) ? s.val : '0'}<span class="stat-suf">${s.unit}</span>
-      </div>
-      <div class="stat-lbl">${s.label}</div>
-    </div>`
-  ).join('');
-  if(animate) gsap.from('.stat-card',{opacity:0,y:20,stagger:.08,duration:.5,ease:'power2.out'});
-  statsRow.querySelectorAll('.stat-num').forEach(attachCounter);
+  var data = MODES[mode].stats;
+  sg.innerHTML = data.map(function(s){
+    return '<div class="sc2"><div class="sn" data-target="'+s.v+'" data-dec="'+s.n+'">'
+      +(isNaN(parseFloat(s.v)) ? s.v : '0')+'<span class="su">'+s.u+'</span>'
+      +'</div><div class="sl">'+s.l+'</div></div>';
+  }).join('');
+  if(animate){
+    try { gsap.from('.sc2',{opacity:0,y:20,stagger:.08,duration:.5,ease:'power2.out'}); } catch(e){}
+  }
+  sg.querySelectorAll('.sn').forEach(attachCounter);
 }
 
-/* ──────────────────────────────────────
+/* ────────────────────────────────────────
    MODE SWITCHER
-────────────────────────────────────── */
-let curMode = 'track';
-const htmlEl   = document.documentElement;
-const subEl    = document.getElementById('hero-sub');
-const eyeEl    = document.getElementById('hero-eyebrow');
+──────────────────────────────────────── */
+var curMode = 'track';
+var htmlEl  = document.documentElement;
+var subEl   = document.getElementById('hsub');
+var eyeEl   = document.getElementById('hey');
 
 function switchMode(mode){
   if(mode===curMode) return;
@@ -1130,82 +1085,95 @@ function switchMode(mode){
   htmlEl.setAttribute('data-mode', mode);
 
   // tabs
-  document.querySelectorAll('.mtab').forEach(t=>t.classList.toggle('on', t.dataset.mode===mode));
+  document.querySelectorAll('.mt').forEach(function(t){
+    t.classList.toggle('on', t.dataset.m===mode);
+  });
   // mode cards
-  document.querySelectorAll('.mcard').forEach(c=>c.classList.toggle('mc-active', c.dataset.mmode===mode));
+  document.querySelectorAll('.mcard').forEach(function(c){
+    c.classList.toggle('mon', c.dataset.mmode===mode);
+  });
 
   // hero text swap
-  gsap.to([subEl,eyeEl],{opacity:0,y:-8,duration:.18,onComplete:()=>{
+  try {
+    gsap.to([subEl,eyeEl],{opacity:0,y:-8,duration:.18,onComplete:function(){
+      subEl.textContent = MODES[mode].sub;
+      eyeEl.textContent = MODES[mode].eye;
+      gsap.to([subEl,eyeEl],{opacity:1,y:0,duration:.3});
+    }});
+  } catch(e){
     subEl.textContent = MODES[mode].sub;
-    eyeEl.textContent = MODES[mode].eyebrow;
-    gsap.to([subEl,eyeEl],{opacity:1,y:0,duration:.3});
-  }});
+    eyeEl.textContent = MODES[mode].eye;
+  }
 
   // stats
   renderStats(mode, true);
 
-  // active tab bounce
-  const tab = document.querySelector(`.mtab[data-mode="${mode}"]`);
-  gsap.fromTo(tab,{scale:1},{scale:1.06,duration:.14,yoyo:true,repeat:1,ease:'power2.out'});
+  // tab micro-bounce
+  var tab = document.querySelector('.mt[data-m="'+mode+'"]');
+  try { gsap.fromTo(tab,{scale:1},{scale:1.06,duration:.14,yoyo:true,repeat:1,ease:'power2.out'}); } catch(e){}
 }
 
-document.querySelectorAll('.mtab').forEach(b=>b.addEventListener('click',()=>switchMode(b.dataset.mode)));
-document.querySelectorAll('.mcard').forEach(c=>c.addEventListener('click',()=>switchMode(c.dataset.mmode)));
+document.querySelectorAll('.mt').forEach(function(b){
+  b.addEventListener('click',function(){ switchMode(b.dataset.m); });
+});
+document.querySelectorAll('.mcard').forEach(function(c){
+  c.addEventListener('click',function(){ switchMode(c.dataset.mmode); });
+});
 
-// Init stats
+// Init stats (replaces static fallback HTML)
 renderStats('track', false);
 
-/* ──────────────────────────────────────
-   ENGINE PROGRESS BARS — IO triggered
-────────────────────────────────────── */
-const pbio = new IntersectionObserver(entries=>{
-  if(!entries[0].isIntersecting) return;
+/* ────────────────────────────────────────
+   ENGINE PROGRESS BARS
+──────────────────────────────────────── */
+var pbio = new IntersectionObserver(function(ents){
+  if(!ents[0].isIntersecting) return;
   pbio.disconnect();
-  document.querySelectorAll('.pbar-fill').forEach(bar=>{
-    const w = bar.dataset.w;
-    gsap.to(bar,{width:w+'%', duration:1.4, ease:'power2.out', delay: Math.random()*.3});
+  document.querySelectorAll('.pbf').forEach(function(bar){
+    try {
+      gsap.to(bar,{width:bar.dataset.w+'%',duration:1.4,ease:'power2.out',delay:Math.random()*.25});
+    } catch(e){ bar.style.width = bar.dataset.w+'%'; }
   });
-},{ threshold:.3 });
-pbio.observe(document.getElementById('engine'));
+},{threshold:.25});
+var engEl = document.getElementById('engine');
+if(engEl) pbio.observe(engEl);
 
-/* ──────────────────────────────────────
+/* ────────────────────────────────────────
    MAGNETIC BUTTONS
-────────────────────────────────────── */
-document.querySelectorAll('.magnetic').forEach(btn=>{
-  btn.addEventListener('mousemove', e=>{
-    const r  = btn.getBoundingClientRect();
-    const dx = (e.clientX-(r.left+r.width/2))*.32;
-    const dy = (e.clientY-(r.top+r.height/2))*.32;
-    gsap.to(btn,{x:dx,y:dy,duration:.35,ease:'power2.out'});
+──────────────────────────────────────── */
+document.querySelectorAll('.magnetic').forEach(function(btn){
+  btn.addEventListener('mousemove',function(e){
+    var r=btn.getBoundingClientRect();
+    var dx=(e.clientX-(r.left+r.width/2))*.32;
+    var dy=(e.clientY-(r.top+r.height/2))*.32;
+    try { gsap.to(btn,{x:dx,y:dy,duration:.35,ease:'power2.out'}); }
+    catch(e){}
   });
-  btn.addEventListener('mouseleave',()=>{
-    gsap.to(btn,{x:0,y:0,duration:.65,ease:'elastic.out(1,.45)'});
+  btn.addEventListener('mouseleave',function(){
+    try { gsap.to(btn,{x:0,y:0,duration:.65,ease:'elastic.out(1,.45)'}); }
+    catch(e){ btn.style.transform=''; }
   });
 });
 
-/* ──────────────────────────────────────
+/* ────────────────────────────────────────
    FORM SUBMIT
-────────────────────────────────────── */
-const form = document.getElementById('cf');
-form.addEventListener('submit', async e=>{
-  e.preventDefault();
-  const span = form.querySelector('.cf-sub span');
-  const orig = span.textContent;
-  span.textContent = 'Sending…';
-  try {
-    const res = await fetch(form.action,{
-      method:'POST', body:new FormData(form),
-      headers:{Accept:'application/json'},
-    });
-    if(res.ok){
-      span.textContent='Vision Received ✓';
-      gsap.to(form.querySelector('.cf-sub'),{background:'#1a6e1a',duration:.4});
-    } else {
-      span.textContent='Error — please try again';
-      setTimeout(()=>{ span.textContent=orig; },3000);
-    }
-  } catch { span.textContent=orig; }
-});
+──────────────────────────────────────── */
+var form = document.getElementById('cf');
+if(form){
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var span = form.querySelector('.cfsub span');
+    var orig = span.textContent;
+    span.textContent = 'Sending\u2026';
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
+    .then(function(r){
+      span.textContent = r.ok ? 'Vision Received \u2713' : 'Error \u2014 try again';
+      if(r.ok){ try{ gsap.to(form.querySelector('.cfsub'),{background:'#1a6e1a',duration:.4}); }catch(e){} }
+      if(!r.ok) setTimeout(function(){ span.textContent=orig; },3000);
+    })
+    .catch(function(){ span.textContent=orig; });
+  });
+}
 
 })();
 </script>
