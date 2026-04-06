@@ -319,56 +319,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .btn-pill:hover { background: var(--a); border-color: var(--a); color: #000; }
 
-/* ================================================
-   STATS — hard bg, always visible
-================================================ */
-#stats {
-  background: #0d0d0d;
-  background-image: var(--tex);
-  min-height: 280px;
-  border-top: 1px solid rgba(255,255,255,.05);
-  border-bottom: 1px solid rgba(255,255,255,.05);
-}
-.stats-inner {
-  display: grid; grid-template-columns: repeat(4,1fr);
-}
-@media (max-width: 700px) { .stats-inner { grid-template-columns: repeat(2,1fr); } }
-.stat {
-  padding: 4rem 2.5rem;
-  text-align: center;
-  border-right: 1px solid rgba(255,255,255,.05);
-}
-.stat:last-child { border-right: none; }
-.stat-n {
-  font-family: var(--fh);
-  font-size: clamp(3.5rem, 6vw, 6.5rem);
-  color: var(--a); line-height: 1; letter-spacing: .02em;
-}
-.stat-u { font-size: 50%; opacity: .75; }
-.stat-l {
-  font-size: .62rem; font-weight: 500; letter-spacing: .32em;
-  text-transform: uppercase; color: var(--txx); margin-top: .7rem;
-}
-
-/* ================================================
-   MARQUEE — continuous scroll text
-================================================ */
-.marquee-wrap {
-  background: var(--a);
-  overflow: hidden;
-  padding: .9rem 0;
-  white-space: nowrap;
-}
-.marquee-track {
-  display: inline-flex; gap: 0;
-  animation: marquee 22s linear infinite;
-}
-.marquee-track span {
-  font-family: var(--fh);
-  font-size: 1rem; letter-spacing: .25em;
-  color: #000; padding: 0 2.5rem;
-}
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ================================================
    ENGINE SECTION — full bleed, Bugatti scale
@@ -656,7 +606,7 @@ footer {
 <div id="menu-overlay">
   <span class="menu-close" id="menu-close">&#215;</span>
   <nav class="menu-links">
-    <a href="#stats"     class="menu-link" onclick="closeMenu()">Performance</a>
+    <a href="#engine"     class="menu-link" onclick="closeMenu()">Performance</a>
     <a href="#engine"    class="menu-link" onclick="closeMenu()">Engine</a>
     <a href="#interior"  class="menu-link" onclick="closeMenu()">Interior</a>
     <a href="#modes"     class="menu-link" onclick="closeMenu()">Modes</a>
@@ -714,11 +664,11 @@ footer {
     </video>
     <video autoplay muted loop playsinline preload="auto" id="hvid-luxury" class="hvid">
       <source src="./car-luxury.mp4" type="video/mp4"/>
-      <source src="https://assets.mixkit.co/videos/35540/35540-720.mp4" type="video/mp4"/>
+      <source src="https://assets.mixkit.co/videos/35223/35223-720.mp4" type="video/mp4"/>
     </video>
     <video autoplay muted loop playsinline preload="auto" id="hvid-stealth" class="hvid">
       <source src="./car-stealth.mp4" type="video/mp4"/>
-      <source src="https://assets.mixkit.co/videos/4331/4331-720.mp4" type="video/mp4"/>
+      <source src="https://assets.mixkit.co/videos/47664/47664-720.mp4" type="video/mp4"/>
     </video>
   </div>
   <div class="hero-grad"></div>
@@ -744,27 +694,6 @@ footer {
   </div>
 </section>
 
-<!-- ═══════ MARQUEE ════════════════════════════════ -->
-<div class="marquee-wrap">
-  <div class="marquee-track" id="mq">
-    <!-- duplicated by JS for seamless loop -->
-    <span>1,500 HP</span><span>0–60 IN 1.7s</span><span>260 MPH</span><span>12 UNITS</span>
-    <span>TWIN-TURBO V8</span><span>9,000 RPM</span><span>TITANIUM EXHAUST</span><span>BORN TO DOMINATE</span>
-    <span>1,500 HP</span><span>0–60 IN 1.7s</span><span>260 MPH</span><span>12 UNITS</span>
-    <span>TWIN-TURBO V8</span><span>9,000 RPM</span><span>TITANIUM EXHAUST</span><span>BORN TO DOMINATE</span>
-  </div>
-</div>
-
-<!-- ═══════ STATS ═══════════════════════════════════ -->
-<section id="stats">
-  <div class="stats-inner" id="sg">
-    <!-- Static fallback — JS overwrites with animated version -->
-    <div class="stat"><div class="stat-n">6:47</div><div class="stat-l">Nürburgring Lap</div></div>
-    <div class="stat"><div class="stat-n">2.4<span class="stat-u">g</span></div><div class="stat-l">Peak G-Force</div></div>
-    <div class="stat"><div class="stat-n">840<span class="stat-u">kg</span></div><div class="stat-l">Downforce</div></div>
-    <div class="stat"><div class="stat-n">789<span class="stat-u">hp</span></div><div class="stat-l">Power Output</div></div>
-  </div>
-</section>
 
 <!-- ═══════ ENGINE ══════════════════════════════════ -->
 <section id="engine">
@@ -962,7 +891,7 @@ footer {
         <div>
           <span class="ft-col-h">Navigate</span>
           <ul class="ft-ul">
-            <li><a href="#stats">Performance</a></li>
+            <li><a href="#engine">Performance</a></li>
             <li><a href="#engine">The Engine</a></li>
             <li><a href="#interior">Interior</a></li>
             <li><a href="#modes">Modes</a></li>
@@ -994,32 +923,14 @@ var MODES = {
   track: {
     sub: 'Zero Compromise. Pure Obsession.',
     eye: 'The Apex Machine — Track Edition',
-    stats:[
-      {v:'6:47',u:'',   d:false,l:'Nürburgring Lap'},
-      {v:'2.4', u:'g',  d:true, l:'Peak G-Force'},
-      {v:'840', u:'kg', d:false,l:'Downforce'},
-      {v:'789', u:'hp', d:false,l:'Power Output'},
-    ],
   },
   luxury:{
     sub:'Handcrafted. Effortless. Eternal.',
     eye:'The Grand Tourer — 2026',
-    stats:[
-      {v:'2.4', u:'s',  d:true, l:'0–60 mph'},
-      {v:'217', u:'mph',d:false,l:'Top Speed'},
-      {v:'2200',u:'hrs',d:false,l:'Handcrafted'},
-      {v:'12',  u:'',   d:false,l:'Units Per Year'},
-    ],
   },
   stealth:{
     sub:'Unseen. Unstoppable. Unmatched.',
     eye:'Stealth Configuration — 2026',
-    stats:[
-      {v:'1500',u:'hp', d:false,l:'Horsepower'},
-      {v:'590', u:'lb', d:false,l:'Peak Torque'},
-      {v:'2847',u:'lbs',d:false,l:'Dry Weight'},
-      {v:'9200',u:'rpm',d:false,l:'Redline'},
-    ],
   },
 };
 
@@ -1114,36 +1025,6 @@ var io=new IntersectionObserver(function(entries){
 },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.will-rev').forEach(function(el){io.observe(el);});
 
-/* ─────── STAT COUNTERS ─────── */
-function attachCounter(el){
-  var raw=el.dataset.target;
-  var num=parseFloat(raw);
-  if(isNaN(num))return;
-  var dec=el.dataset.dec==='true';
-  var suf=el.querySelector('.stat-u')?el.querySelector('.stat-u').outerHTML:'';
-  var cio=new IntersectionObserver(function(ents){
-    if(!ents[0].isIntersecting)return;
-    cio.unobserve(el);
-    try{
-      gsap.to({v:0},{v:num,duration:2.2,ease:'power2.out',
-        onUpdate:function(){el.innerHTML=(dec?this.targets()[0].v.toFixed(1):Math.round(this.targets()[0].v))+suf;}
-      });
-    }catch(e){el.innerHTML=raw+suf;}
-  },{threshold:.5});
-  cio.observe(el);
-}
-
-/* ─────── STATS RENDER ─────── */
-var sg=document.getElementById('sg');
-function renderStats(mode,animate){
-  sg.innerHTML=MODES[mode].stats.map(function(s){
-    return '<div class="stat"><div class="stat-n" data-target="'+s.v+'" data-dec="'+s.d+'">'
-      +(isNaN(parseFloat(s.v))?s.v:'0')+'<span class="stat-u">'+s.u+'</span>'
-      +'</div><div class="stat-l">'+s.l+'</div></div>';
-  }).join('');
-  if(animate){try{gsap.from('.stat',{opacity:0,y:20,stagger:.08,duration:.5,ease:'power2.out'});}catch(e){}}
-  sg.querySelectorAll('.stat-n').forEach(attachCounter);
-}
 
 /* ─────── MODE SWITCHER ─────── */
 var curMode='track';
@@ -1168,7 +1049,6 @@ function switchMode(mode){
       gsap.to([subEl,eyeEl],{opacity:1,y:0,duration:.3});
     }});
   }catch(e){subEl.textContent=MODES[mode].sub;eyeEl.textContent=MODES[mode].eye;}
-  renderStats(mode,true);
   try{
     var tab=document.querySelector('.mt[data-m="'+mode+'"]');
     gsap.fromTo(tab,{scale:1},{scale:1.06,duration:.14,yoyo:true,repeat:1,ease:'power2.out'});
@@ -1178,8 +1058,6 @@ function switchMode(mode){
 document.querySelectorAll('.mt').forEach(function(b){b.addEventListener('click',function(){switchMode(b.dataset.m);});});
 document.querySelectorAll('.mcard').forEach(function(c){c.addEventListener('click',function(){switchMode(c.dataset.mmode);});});
 
-// Init — replace static HTML fallback
-renderStats('track',false);
 
 /* ─────── ENGINE PROGRESS BARS ─────── */
 var pbio=new IntersectionObserver(function(ents){
