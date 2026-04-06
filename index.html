@@ -73,8 +73,9 @@
 ================================================ */
 *, *::before, *::after {
   box-sizing: border-box; margin: 0; padding: 0;
-  transition: background-color .4s ease, border-color .4s ease, color .4s ease;
+  transition: background-color .45s ease, border-color .45s ease, color .45s ease, opacity .35s ease;
 }
+.ac { color: var(--a); }
 
 html { scroll-behavior: auto; }
 
@@ -664,7 +665,7 @@ footer {
     </video>
     <video autoplay muted loop playsinline preload="auto" id="hvid-luxury" class="hvid">
       <source src="./car-luxury.mp4" type="video/mp4"/>
-      <source src="https://assets.mixkit.co/videos/35223/35223-720.mp4" type="video/mp4"/>
+      <source src="https://assets.mixkit.co/videos/35576/35576-720.mp4" type="video/mp4"/>
     </video>
     <video autoplay muted loop playsinline preload="auto" id="hvid-stealth" class="hvid">
       <source src="./car-stealth.mp4" type="video/mp4"/>
@@ -701,11 +702,11 @@ footer {
   <div class="etint"></div>
   <div class="engine-body">
     <div class="engine-left">
-      <span class="elbl will-rev">Powertrain</span>
-      <h2 class="engine-hl will-rev">TWIN-TURBO<br/><span style="color:var(--a)">V8 FURY</span></h2>
+      <span class="elbl will-rev" id="eng-lbl">Powertrain</span>
+      <h2 class="engine-hl will-rev" id="eng-hl">TWIN-TURBO<br/><span class="ac">V8 FURY</span></h2>
     </div>
     <div class="engine-right">
-      <p class="engine-txt will-rev">A hand-built 4.0L flat-plane twin-turbo V8. Forged internals, titanium exhaust, dry-sump lubrication. Verified by a single master engineer from first bolt to final fire.</p>
+      <p class="engine-txt will-rev" id="eng-txt">A hand-built 4.0L flat-plane twin-turbo V8. Forged internals, titanium exhaust, dry-sump lubrication. Verified by a single master engineer from first bolt to final fire.</p>
       <div class="pbars will-rev">
         <div class="pbar-row">
           <div class="pbar-labels"><span>Power Output</span><span>98%</span></div>
@@ -735,10 +736,10 @@ footer {
     <div class="int-img-overlay"></div>
   </div>
   <div class="int-body">
-    <span class="int-lbl will-rev">Cockpit</span>
-    <h2 class="int-hl will-rev">BUILT FOR<br/><span style="color:var(--a)">COMMAND</span></h2>
-    <p class="int-txt will-rev">Hand-stitched Alcantara on every surface. Carbon-fibre monocoque seat shells. A full-width OLED halo display. The interior is not a cabin — it is a command centre engineered for total driver dominance.</p>
-    <div class="int-pills will-rev">
+    <span class="int-lbl will-rev" id="int-lbl">Cockpit</span>
+    <h2 class="int-hl will-rev" id="int-hl">BUILT FOR<br/><span class="ac">COMMAND</span></h2>
+    <p class="int-txt will-rev" id="int-txt">Hand-stitched Alcantara on every surface. Carbon-fibre monocoque seat shells. A full-width OLED halo display. The interior is not a cabin — it is a command centre engineered for total driver dominance.</p>
+    <div class="int-pills will-rev" id="int-pills">
       <span class="pill">OLED Halo Display</span>
       <span class="pill">Alcantara Trim</span>
       <span class="pill">Active Bolstering</span>
@@ -790,7 +791,7 @@ footer {
     <div class="cfg-grid">
       <div>
         <span class="cfg-sup will-rev">Commission</span>
-        <h2 class="cfg-hl will-rev">YOUR<br/><span style="color:var(--a)">BUILD</span></h2>
+        <h2 class="cfg-hl will-rev" id="cfg-hl">YOUR<br/><span class="ac">BUILD</span></h2>
         <p class="cfg-txt will-rev">Only 12 cars built per year. Each uniquely specified by its owner. Submit your vision and our client liaison will contact you within 24 hours.</p>
         <div class="cfg-facts will-rev">
           <div class="cfg-fact"><span class="cfg-k">Starting from</span><span class="cfg-v">$2.4M</span></div>
@@ -921,16 +922,40 @@ footer {
 /* ─────── MODE DATA ─────── */
 var MODES = {
   track: {
-    sub: 'Zero Compromise. Pure Obsession.',
-    eye: 'The Apex Machine — Track Edition',
+    sub:      'Zero Compromise. Pure Obsession.',
+    eye:      'The Apex Machine — Track Edition',
+    engLbl:   'Powertrain',
+    engHL:    'TWIN-TURBO<br/><span class="ac">V8 FURY</span>',
+    engTxt:   'A hand-built 4.0L flat-plane twin-turbo V8. Forged internals, titanium exhaust, dry-sump lubrication. Verified by a single master engineer from first bolt to final fire.',
+    intLbl:   'Cockpit',
+    intHL:    'BUILT FOR<br/><span class="ac">COMMAND</span>',
+    intTxt:   'Hand-stitched Alcantara on every surface. Carbon-fibre monocoque seat shells. A full-width OLED halo display. The interior is not a cabin — it is a command centre engineered for total driver dominance.',
+    intPills: ['OLED Halo Display','Alcantara Trim','Active Bolstering','Titanium Cage','Naim Audio','Race Wheel'],
+    cfgHL:    'YOUR<br/><span class="ac">BUILD</span>',
   },
   luxury:{
-    sub:'Handcrafted. Effortless. Eternal.',
-    eye:'The Grand Tourer — 2026',
+    sub:      'Handcrafted. Effortless. Eternal.',
+    eye:      'The Grand Tourer — 2026',
+    engLbl:   'Grand Powertrain',
+    engHL:    'NATURALLY<br/><span class="ac">ASPIRATED V12</span>',
+    engTxt:   'A 6.5-litre naturally aspirated V12, hand-assembled over 400 hours by a single craftsman. Silk power from idle to 8,400 rpm. Every component signed by the engineer who built it.',
+    intLbl:   'Grand Cabin',
+    intHL:    'CRAFTED FOR<br/><span class="ac">THE DISCERNING</span>',
+    intTxt:   'Bespoke Connolly leather sourced from a single estate herd. Hand-lacquered open-pore walnut marquetry. A starlight roof with 1,340 individual fibre-optic points. A cabin that belongs in a museum.',
+    intPills: ['Connolly Leather','Walnut Marquetry','Starlight Roof','Champagne Cooler','Bose Signature','Heated Massage'],
+    cfgHL:    'YOUR<br/><span class="ac">COMMISSION</span>',
   },
   stealth:{
-    sub:'Unseen. Unstoppable. Unmatched.',
-    eye:'Stealth Configuration — 2026',
+    sub:      'Unseen. Unstoppable. Unmatched.',
+    eye:      'Stealth Configuration — 2026',
+    engLbl:   'Stealth Powertrain',
+    engHL:    'DARK FORCE<br/><span class="ac">ENGINE BLOCK</span>',
+    engTxt:   'The same flat-plane twin-turbo V8 — remapped for acoustic suppression. Three drive modes toggle between ghost-silent cruise and full-assault launch. No badge. No trace. No apologies.',
+    intLbl:   'Ops Cabin',
+    intHL:    'DARK<br/><span class="ac">OPS INTERIOR</span>',
+    intTxt:   'Blacked-out everything. Matte carbon fibre on every panel. Dark suede headlining. Neon-traced instrument cluster. Night-vision heads-up display. Fingerprint-lock glove box. Leave no trace.',
+    intPills: ['Night Vision HUD','Matte Carbon','Dark Suede','Acoustic Mapping','Blackout Trim','Ghost Exhaust'],
+    cfgHL:    'YOUR<br/><span class="ac">MISSION</span>',
   },
 };
 
@@ -1036,22 +1061,69 @@ function switchMode(mode){
   if(mode===curMode)return;
   curMode=mode;
   htmlEl.setAttribute('data-mode',mode);
+  var m=MODES[mode];
+
+  // Tabs + cards
   document.querySelectorAll('.mt').forEach(function(t){t.classList.toggle('on',t.dataset.m===mode);});
   document.querySelectorAll('.mcard').forEach(function(c){c.classList.toggle('mon',c.dataset.mmode===mode);});
-  // Swap hero video
+
+  // Hero video crossfade
   document.querySelectorAll('.hvid').forEach(function(v){v.classList.remove('hvid-active');});
   var nextVid=document.getElementById('hvid-'+mode);
-  if(nextVid){ nextVid.classList.add('hvid-active'); try{nextVid.play();}catch(e){} }
-  try{
-    gsap.to([subEl,eyeEl],{opacity:0,y:-8,duration:.18,onComplete:function(){
-      subEl.textContent=MODES[mode].sub;
-      eyeEl.textContent=MODES[mode].eye;
-      gsap.to([subEl,eyeEl],{opacity:1,y:0,duration:.3});
-    }});
-  }catch(e){subEl.textContent=MODES[mode].sub;eyeEl.textContent=MODES[mode].eye;}
+  if(nextVid){nextVid.classList.add('hvid-active');try{nextVid.play();}catch(e){}}
+
+  // Helper: fade-swap any set of elements with new HTML
+  function fadeSwap(els,updateFn){
+    try{
+      gsap.to(els,{opacity:0,y:10,duration:.18,stagger:.04,ease:'power2.in',onComplete:function(){
+        updateFn();
+        gsap.fromTo(els,{opacity:0,y:12},{opacity:1,y:0,duration:.42,stagger:.06,ease:'power3.out'});
+      }});
+    }catch(e){updateFn();}
+  }
+
+  // Hero text
+  fadeSwap([eyeEl,subEl],function(){
+    eyeEl.textContent=m.eye;
+    subEl.textContent=m.sub;
+  });
+
+  // Engine section
+  var engLbl=document.getElementById('eng-lbl');
+  var engHL=document.getElementById('eng-hl');
+  var engTxt=document.getElementById('eng-txt');
+  if(engLbl&&engHL&&engTxt){
+    fadeSwap([engLbl,engHL,engTxt],function(){
+      engLbl.textContent=m.engLbl;
+      engHL.innerHTML=m.engHL;
+      engTxt.textContent=m.engTxt;
+    });
+  }
+
+  // Interior section
+  var intLbl=document.getElementById('int-lbl');
+  var intHL=document.getElementById('int-hl');
+  var intTxt=document.getElementById('int-txt');
+  var intPills=document.getElementById('int-pills');
+  if(intLbl&&intHL&&intTxt&&intPills){
+    fadeSwap([intLbl,intHL,intTxt,intPills],function(){
+      intLbl.textContent=m.intLbl;
+      intHL.innerHTML=m.intHL;
+      intTxt.textContent=m.intTxt;
+      intPills.innerHTML=m.intPills.map(function(p){return '<span class="pill">'+p+'</span>';}).join('');
+    });
+  }
+
+  // Configure headline
+  var cfgHL=document.getElementById('cfg-hl');
+  if(cfgHL){
+    fadeSwap([cfgHL],function(){cfgHL.innerHTML=m.cfgHL;});
+  }
+
+  // Tab pulse
   try{
     var tab=document.querySelector('.mt[data-m="'+mode+'"]');
-    gsap.fromTo(tab,{scale:1},{scale:1.06,duration:.14,yoyo:true,repeat:1,ease:'power2.out'});
+    gsap.fromTo(tab,{scale:1},{scale:1.08,duration:.14,yoyo:true,repeat:1,ease:'power2.out'});
   }catch(e){}
 }
 
