@@ -208,13 +208,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
 }
 .hero-media { position: absolute; inset: 0; z-index: 0; }
-.hero-media .hvid {
+.hero-media #hero-vid {
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover;
   will-change: transform;
-  opacity: 0; transition: opacity .7s ease;
 }
-.hero-media .hvid.hvid-active { opacity: 1; }
 .hero-grad {
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(
@@ -659,18 +657,8 @@ footer {
   </div>
 
   <div class="hero-media">
-    <video autoplay muted loop playsinline preload="auto" id="hvid-track" class="hvid hvid-active">
-      <source src="./car-track.mp4" type="video/mp4"/>
-      <source src="https://assets.mixkit.co/videos/74/74-720.mp4" type="video/mp4"/>
-    </video>
-    <video autoplay muted loop playsinline preload="auto" id="hvid-luxury" class="hvid">
-      <source src="./car-luxury.mp4" type="video/mp4"/>
-      <source src="https://assets.mixkit.co/videos/35576/35576-720.mp4" type="video/mp4"/>
-    </video>
-    <video autoplay muted loop playsinline preload="auto" id="hvid-stealth" class="hvid">
-      <source src="./car-stealth.mp4" type="video/mp4"/>
-      <source src="https://assets.mixkit.co/videos/47664/47664-720.mp4" type="video/mp4"/>
-    </video>
+    <video autoplay muted loop playsinline preload="auto" id="hero-vid"
+      src="https://assets.mixkit.co/videos/74/74-720.mp4"></video>
   </div>
   <div class="hero-grad"></div>
   <div class="hero-mode-wash"></div>
@@ -922,6 +910,9 @@ footer {
 /* ─────── MODE DATA ─────── */
 var MODES = {
   track: {
+    video:     'https://assets.mixkit.co/videos/74/74-720.mp4',
+    engineImg: 'https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    intImg:    'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1200',
     sub:      'Zero Compromise. Pure Obsession.',
     eye:      'The Apex Machine — Track Edition',
     engLbl:   'Powertrain',
@@ -934,6 +925,9 @@ var MODES = {
     cfgHL:    'YOUR<br/><span class="ac">BUILD</span>',
   },
   luxury:{
+    video:     'https://assets.mixkit.co/videos/35540/35540-720.mp4',
+    engineImg: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=1920&q=80',
+    intImg:    'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1920&q=80',
     sub:      'Handcrafted. Effortless. Eternal.',
     eye:      'The Grand Tourer — 2026',
     engLbl:   'Grand Powertrain',
@@ -946,6 +940,9 @@ var MODES = {
     cfgHL:    'YOUR<br/><span class="ac">COMMISSION</span>',
   },
   stealth:{
+    video:     'https://assets.mixkit.co/videos/50990/50990-720.mp4',
+    engineImg: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&q=80',
+    intImg:    'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80',
     sub:      'Unseen. Unstoppable. Unmatched.',
     eye:      'Stealth Configuration — 2026',
     engLbl:   'Stealth Powertrain',
@@ -996,7 +993,7 @@ try{
 try{
   var hero=document.getElementById('hero');
   var hbody=document.getElementById('hbody');
-  var hvid=document.querySelector('.hvid.hvid-active');
+  var hvid=document.getElementById('hero-vid');
   var pls=[
     {el:document.getElementById('pl1'),sx:.018,sy:.012},
     {el:document.getElementById('pl2'),sx:.04, sy:.03},
@@ -1020,7 +1017,6 @@ try{
     cbx+=(mx*-8-cbx)*.06; cby+=(my*-8-cby)*.06;
     gsap.set(hbody,{x:cbx,y:cby});
     cvx+=(mx*15-cvx)*.04; cvy+=(my*15-cvy)*.04;
-    var hvid=document.querySelector('.hvid.hvid-active');
     if(hvid) gsap.set(hvid,{x:cvx,y:cvy});
   });
 }catch(e){}
@@ -1051,6 +1047,14 @@ var io=new IntersectionObserver(function(entries){
 document.querySelectorAll('.will-rev').forEach(function(el){io.observe(el);});
 
 
+/* ─────── INIT SECTION IMAGES (track default) ─────── */
+(function(){
+  var ebgEl=document.getElementById('ebg');
+  var intImgEl=document.querySelector('.int-img');
+  if(ebgEl) ebgEl.style.backgroundImage="url('"+MODES.track.engineImg+"')";
+  if(intImgEl) intImgEl.style.backgroundImage="url('"+MODES.track.intImg+"')";
+})();
+
 /* ─────── MODE SWITCHER ─────── */
 var curMode='track';
 var htmlEl=document.documentElement;
@@ -1067,10 +1071,22 @@ function switchMode(mode){
   document.querySelectorAll('.mt').forEach(function(t){t.classList.toggle('on',t.dataset.m===mode);});
   document.querySelectorAll('.mcard').forEach(function(c){c.classList.toggle('mon',c.dataset.mmode===mode);});
 
-  // Hero video crossfade
-  document.querySelectorAll('.hvid').forEach(function(v){v.classList.remove('hvid-active');});
-  var nextVid=document.getElementById('hvid-'+mode);
-  if(nextVid){nextVid.classList.add('hvid-active');try{nextVid.play();}catch(e){}}
+  // Hero video crossfade — GSAP 0.4s fade, src-swap, load, play
+  var vid=document.getElementById('hero-vid');
+  if(vid){
+    gsap.to(vid,{opacity:0,duration:.4,ease:'power2.in',onComplete:function(){
+      vid.src=m.video;
+      vid.load();
+      vid.play().catch(function(){});
+      gsap.to(vid,{opacity:1,duration:.4,ease:'power2.out'});
+    }});
+  }
+
+  // Section image swap
+  var ebgEl=document.getElementById('ebg');
+  var intImgEl=document.querySelector('.int-img');
+  if(ebgEl) ebgEl.style.backgroundImage="url('"+m.engineImg+"')";
+  if(intImgEl) intImgEl.style.backgroundImage="url('"+m.intImg+"')";
 
   // Helper: fade-swap any set of elements with new HTML
   function fadeSwap(els,updateFn){
